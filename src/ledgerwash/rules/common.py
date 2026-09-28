@@ -7,8 +7,8 @@ from datetime import datetime, timezone
 
 MIN_TS = datetime.min.replace(tzinfo=timezone.utc)
 
-# Date + "THH:M" — masked minutes (…T15:2xZ) must still match the prefix.
-_ISO_PREFIX = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d")
+# Date-level prefix — masking can eat the whole time part (…T02:xxZ).
+_ISO_PREFIX = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 
 def iter_strings(value):

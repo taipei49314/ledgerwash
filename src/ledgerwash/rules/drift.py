@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding, short_json, strict_eq
 
-from .common import parse_ts
+from .common import parse_ts, ts_or_min
 
 
 def _diff_keys(a, b, prefix: str = ""):
@@ -29,7 +29,7 @@ def run(corpus) -> list[Finding]:
         if task is None:
             continue
         ops = corpus.ops_by_task()[task_id]
-        anchor = max(ops, key=lambda r: (parse_ts(r.data.get("recorded_at")), r.name))
+        anchor = max(ops, key=lambda r: (ts_or_min(r.data.get("recorded_at")), r.name))
         after = anchor.data.get("after_record")
         if not isinstance(after, dict):
             continue

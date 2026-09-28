@@ -118,7 +118,7 @@ def build_corpus(root: Path, planted: bool = True) -> Path:
         "state": "CLAIMED",
         "status": "**CLAIMED**",
         "time": "2026-01-01T00:00:00Z",
-        "description": "clean control task",
+        "description": "clean control task; notes live under evidence/notes/",
         "handoff": {"checked_at": "2026-01-01T00:00:00Z", "progress": "claim recorded"},
         "history": [
             {"hash_format": "git-commit-bound", "kind": "operation",

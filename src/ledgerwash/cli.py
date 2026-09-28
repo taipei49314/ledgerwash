@@ -56,6 +56,9 @@ def main(argv=None) -> int:
     except EpochError as exc:
         print(f"ledgerwash: engine error: {exc}", file=sys.stderr)
         return 2
+    except Exception as exc:  # a crash must not exit 1 (SPEC §6)
+        print(f"ledgerwash: engine error: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return 2
 
     text = json.dumps(envelope, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     if args.out:

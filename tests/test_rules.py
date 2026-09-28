@@ -9,6 +9,9 @@ def test_dangling_ref(mini_envelope):
     (finding,) = by_rule(mini_envelope)["DANGLING_REF"]
     assert finding["path"] == "docs/gone-path.md"
     assert finding["locator"] == "T-901"
+    # T-900 references the existing directory `evidence/notes/` (trailing slash):
+    # directories count as existing, worktree `exists()` parity.
+    assert not [f for f in by_rule(mini_envelope)["DANGLING_REF"] if "T-900" in f["locator"]]
 
 
 def test_fp_hash_mismatch(mini_envelope):

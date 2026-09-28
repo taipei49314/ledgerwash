@@ -104,6 +104,18 @@ def test_a6_exit_code_matches_fail_on(mini_repo, capsys):
     capsys.readouterr()
 
 
+def test_a6_crash_never_exits_one(mini_repo, monkeypatch, capsys):
+    """SPEC §6: any unexpected engine failure exits 2, never 1."""
+    import ledgerwash.cli as cli_mod
+
+    def boom(*_args, **_kwargs):
+        raise ValueError("synthetic engine crash")
+
+    monkeypatch.setattr(cli_mod, "run_scan", boom)
+    assert main(["scan", str(mini_repo)]) == 2
+    assert "synthetic engine crash" in capsys.readouterr().err
+
+
 def test_a7_qualify_selfcheck(capsys):
     assert cmd_qualify() == 0
     assert "qualify ok" in capsys.readouterr().out

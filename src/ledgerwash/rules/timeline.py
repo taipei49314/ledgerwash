@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding
 
-from .common import parse_ts, present_but_unparseable
+from .common import parse_ts, present_but_unparseable, ts_or_min
 
 
 def run(corpus) -> list[Finding]:
@@ -70,7 +70,7 @@ def run(corpus) -> list[Finding]:
 
     for task_id in sorted(corpus.ops_by_task()):
         ops = corpus.ops_by_task()[task_id]
-        ordered = sorted(ops, key=lambda r: (parse_ts(r.data.get("recorded_at")), r.name))
+        ordered = sorted(ops, key=lambda r: (ts_or_min(r.data.get("recorded_at")), r.name))
         for prev, cur in zip(ordered, ordered[1:]):
             prev_after = prev.data.get("after_record_sha256")
             cur_before = cur.data.get("before_record_sha256")

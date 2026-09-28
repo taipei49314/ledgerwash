@@ -94,8 +94,15 @@ class Epoch:
         return self._tree_dirs
 
     def path_exists(self, rel: str) -> bool:
-        """Existence in the epoch tree, file or directory (worktree `exists()` parity)."""
-        return rel in self.tree_files() or rel in self.tree_dirs()
+        """Existence in the epoch tree, file or directory (worktree `exists()` parity).
+
+        Trailing slashes are stripped: git tree names carry none, but references
+        like `evidence/hosts/` name a directory.
+        """
+        probe = rel.rstrip("/")
+        if not probe:
+            return True
+        return probe in self.tree_files() or probe in self.tree_dirs()
 
     # -- object/pin checks ---------------------------------------------------
 

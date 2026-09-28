@@ -280,8 +280,8 @@ def build_corpus(root: Path, planted: bool = True) -> Path:
             "T-906", "2026-01-03T00:00:11Z", "2026-01-03T00:00:00Z", "agent/mimo",
         ))  # PIN_LOCAL_MISSING (expected_head not an object)
         (repo / "evidence/notes/clean-note.md").unlink()  # era-awareness: r900a stays silent
-    _commit(repo, "c3: chain break, drift anchor, pin cases; clean-note removed",
-            "2026-01-03T00:00:00+00:00")
+        _commit(repo, "c3: chain break, drift anchor, pin cases; clean-note removed",
+                "2026-01-03T00:00:00+00:00")
 
     if planted:
         _write_json(

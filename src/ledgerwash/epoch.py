@@ -22,6 +22,8 @@ class EpochError(Exception):
 class Epoch:
     def __init__(self, repo: Path, ref: str | None = None):
         self.repo = Path(repo)
+        if not self.repo.is_dir():
+            raise EpochError(f"target is not a directory: {self.repo}")
         self.ref = ref or "HEAD"
         self.sha = self._rev_parse()
         self._tree_files: set[str] | None = None
@@ -30,9 +32,12 @@ class Epoch:
     # -- core git plumbing ---------------------------------------------------
 
     def _git(self, *args: str, input_bytes: bytes | None = None) -> bytes:
-        proc = subprocess.run(
-            ["git", *args], cwd=self.repo, input=input_bytes, capture_output=True
-        )
+        try:
+            proc = subprocess.run(
+                ["git", *args], cwd=self.repo, input=input_bytes, capture_output=True
+            )
+        except OSError as exc:
+            raise EpochError(f"git could not run against {self.repo}: {exc}") from exc
         if proc.returncode != 0:
             detail = proc.stderr.decode("utf-8", "replace").strip()
             raise EpochError(f"git {' '.join(args[:3])} failed: {detail}")

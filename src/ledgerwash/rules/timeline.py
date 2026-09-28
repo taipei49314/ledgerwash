@@ -17,7 +17,7 @@ def run(corpus) -> list[Finding]:
             findings.append(
                 Finding(
                     rule="TIMESTAMP_MALFORMED",
-                    severity="medium",
+                    severity="warn",
                     message=f"receipt recorded_at does not parse as ISO-8601: {rec_raw!r}",
                     path=receipt.path,
                     locator=f"{receipt.name}#recorded_at",
@@ -31,7 +31,7 @@ def run(corpus) -> list[Finding]:
             findings.append(
                 Finding(
                     rule="TIMESTAMP_MALFORMED",
-                    severity="medium",
+                    severity="warn",
                     message=f"receipt request.at does not parse as ISO-8601: {req_raw!r}",
                     path=receipt.path,
                     locator=f"{receipt.name}#request.at",
@@ -60,7 +60,7 @@ def run(corpus) -> list[Finding]:
             findings.append(
                 Finding(
                     rule="TIMESTAMP_MALFORMED",
-                    severity="medium",
+                    severity="warn",
                     message=f"task time does not parse as ISO-8601: {t_raw!r}",
                     path=task.path,
                     locator=f"{task.id}#time",

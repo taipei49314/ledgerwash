@@ -59,6 +59,17 @@ class Epoch:
         raw = self.read_bytes(rel)
         return None if raw is None else raw.decode("utf-8", "replace")
 
+    def list_dir(self, rel: str) -> list[str]:
+        """Direct children of a directory in the epoch tree; [] if the dir is absent."""
+        proc = subprocess.run(
+            ["git", "ls-tree", "--name-only", f"{self.ref}:{rel}"],
+            cwd=self.repo,
+            capture_output=True,
+        )
+        if proc.returncode != 0:
+            return []
+        return [line for line in proc.stdout.decode("utf-8", "replace").splitlines() if line]
+
     def tree_files(self) -> set[str]:
         """All file paths in the epoch tree (cached)."""
         if self._tree_files is None:

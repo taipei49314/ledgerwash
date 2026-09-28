@@ -15,8 +15,11 @@ from ledgerwash.models import Finding
 
 from .common import iter_strings
 
-_HEX40 = re.compile(r"[0-9a-f]{40}")
-_QUALIFIED = re.compile(r"([A-Za-z0-9_.\-]+)@([0-9a-f]{40})")
+# Bounded: a 40-hex run embedded in a longer hex string (e.g. a 64-char sha256
+# digest) is not a pin and must not be sliced out of it.
+_HEX40 = re.compile(r"(?<![0-9a-f])[0-9a-f]{40}(?![0-9a-f])")
+_HEX40_FULL = re.compile(r"[0-9a-f]{40}")
+_QUALIFIED = re.compile(r"([A-Za-z0-9_.\-]+)@([0-9a-f]{40})(?![0-9a-f])")
 
 
 def qualified_pins(corpus) -> list[dict]:
@@ -45,7 +48,7 @@ def run(corpus) -> list[Finding]:
     expected: dict[str, list] = {}
     for receipt in corpus.receipts:
         eh = receipt.data.get("expected_head")
-        if isinstance(eh, str) and _HEX40.fullmatch(eh):
+        if isinstance(eh, str) and _HEX40_FULL.fullmatch(eh.lower()):
             expected.setdefault(eh.lower(), []).append(receipt)
 
     have = corpus.epoch.has_objects(set(prose) | set(expected))
@@ -80,7 +83,7 @@ def run(corpus) -> list[Finding]:
         findings.append(
             Finding(
                 rule="PIN_UNROUTABLE",
-                severity="medium",
+                severity="warn",
                 message=(
                     f"sha {sha} referenced in task record(s) ({shown}) is not an object in the "
                     "target repo; bare reference cannot be routed to a source repo; unverified"

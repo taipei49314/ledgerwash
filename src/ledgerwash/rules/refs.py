@@ -28,7 +28,7 @@ def run(corpus) -> list[Finding]:
         findings.append(
             Finding(
                 rule="DANGLING_REF",
-                severity="medium",
+                severity="warn",
                 message=(
                     f"referenced path does not exist in the epoch tree "
                     f"(referenced by {len(ids)} task record(s): {shown})"

@@ -43,7 +43,7 @@ def run(corpus) -> list[Finding]:
             findings.append(
                 Finding(
                     rule="STATUS_STATE_MISMATCH",
-                    severity="medium",
+                    severity="warn",
                     message=f"normalized status head {head!r} != state {state!r}",
                     path=task.path,
                     locator=f"{task.id}#status",

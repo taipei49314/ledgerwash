@@ -78,18 +78,18 @@ Severity ladder: `info < warn < high < critical`. One ID = one mechanically dist
 
 | rule | severity | fires when |
 |---|---|---|
-| `DANGLING_REF` | medium | a path matching the reference grammar does not exist in the epoch tree; deduped per referenced path (locator names the referencing task ids) |
+| `DANGLING_REF` | warn | a path matching the reference grammar does not exist in the epoch tree; deduped per referenced path (locator names the referencing task ids) |
 | `FP_SOURCE_MISSING` | high | a `source_fingerprints` entry's `source` does not exist at its documented anchor |
 | `FP_HASH_MISMATCH` | high | sha256 of the source bytes at the documented anchor != the claimed digest |
 | `CONTRACT_UNDOCUMENTED` | warn | a fingerprint entry's `(hash_format, origin)` is not in the adapter table, or required fields are missing; best-effort anchors (birth, then birth^) are tried and the outcome is recorded in `message` |
-| `PIN_UNROUTABLE` | medium | a 40-hex sha referenced in a task record is not an object of the target repo and is not a routable pin; unverified, not failed |
+| `PIN_UNROUTABLE` | warn | a 40-hex sha referenced in a task record is not an object of the target repo and is not a routable pin; unverified, not failed |
 | `PIN_LOCAL_MISSING` | warn | a receipt's `expected_head` (a pin on the target repo itself) is not an object of the target repo; wording says "unverified locally", never "failed" |
 | `TIMELINE_INVERSION` | high | a receipt's `recorded_at` is earlier than its `request.at` |
 | `CHAIN_BREAK` | high | consecutive operations of one task disagree: previous `after_record_sha256` vs next `before_record_sha256`, both present and unequal; ops ordered by `(recorded_at, filename)` |
 | `POST_HOC_DRIFT` | high | the anchor operation (max `(recorded_at, filename)`) embeds an `after_record` that is not type-strict-equal to the current task record (bool != int; coerced fields show up) |
-| `TIMESTAMP_MALFORMED` | medium | a timestamp the rules depend on (`recorded_at`, `request.at`, task `time`) does not parse as ISO-8601; the dependent ordering/verification is skipped and this finding records the raw value |
+| `TIMESTAMP_MALFORMED` | warn | a timestamp the rules depend on (`recorded_at`, `request.at`, task `time`) does not parse as ISO-8601; the dependent ordering/verification is skipped and this finding records the raw value |
 | `RECORD_UNPARSEABLE` | high | a task or receipt file fails JSON parsing; that record is excluded from other rules |
-| `STATUS_STATE_MISMATCH` | medium | normalized `status` head (strip `*`, whitespace-split, keep the leading ASCII `[A-Za-z0-9_-]+` run) != `state`; a status with no ASCII head is skipped |
+| `STATUS_STATE_MISMATCH` | warn | normalized `status` head (strip `*`, whitespace-split, keep the leading ASCII `[A-Za-z0-9_-]+` run) != `state`; a status with no ASCII head is skipped |
 
 Dedup: `PIN_*` per sha, `DANGLING_REF` per path, everything else per (file, locator).
 

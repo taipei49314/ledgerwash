@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        # SPEC §7 claims byte-identical envelopes across 3.11-3.13, so all
+        # three are in the matrix. A claim whose gate does not cover it is
+        # exactly what this tool exists to catch.
+        python: ["3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: pytest
+      - name: qualify (red-by-design self-check)
+        run: python -m ledgerwash qualify
+        env:
+          PYTHONUTF8: "1"

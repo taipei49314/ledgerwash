@@ -6,14 +6,13 @@ summaries — at a pinned git revision.** 標出 agent 工作帳本裡被弱化�
 checkwash guards the diff; ledgerwash guards the ledger. Local-first. Deterministic. No LLM.
 No network. Read-only: does not execute the subject, does not enforce anything.
 
-This is an incubation build (S3 prototype, agent-rd backlog; see
-`../../PROPOSAL.md` and `../../round0/FINDINGS.md`). No Release, no PyPI, no 1.0 claim. Read
-[SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md) (layers; SPEC wins on
-conflict). Frozen acceptance is `tests/test_gates.py`.
+This repository has a local **v0.2 engine**. There is no Release, no PyPI package, and no
+1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
+(layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
 ## Try it
 
-Python 3.11+, git, [uv](https://docs.astral.sh/uv/). From this directory:
+Python 3.11+, git, [uv](https://docs.astral.sh/uv/). From this checkout:
 
 ```powershell
 uv sync --extra dev
@@ -25,7 +24,8 @@ uv run ledgerwash scan <repo> --at <pinned-sha> --out findings.json
 
 `scan` with no `--at` pins to the target's `HEAD`; recording that sha is then the caller's
 duty. Exit 0 is not proof the ledger is honest; it means no in-scope finding was at or above
-`fail_on` (default `high`).
+`fail_on` (default `high`). A repo with no ledger at all is reported through residuals —
+no-ledger is not a clean-ledger.
 
 ## Consumer recipe: judging a ledger
 
@@ -35,15 +35,27 @@ Pin the commit first (write the sha down), then one invocation:
 uv run ledgerwash scan <repo> --at <pinned-sha>
 ```
 
-Record the judge's identity with the verdict: `pass @ ledgerwash 0.1.0, spec 1, epoch
-b8761e95…, adapter ec-ledger, exit 0`. A pass that cannot name the judge is not
+Record the judge's identity with the verdict: `block @ ledgerwash 0.2.0, spec 2, epoch
+b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
 
-## Round 0 pedigree
+## Round-0 pedigree
 
-The thirteen rules formalize the round-0 human triage of the EC corpus (91 real instances,
-4 categories, 205 raw signals → ~98% naive false-positive rate): era-aware fingerprint
-anchors (birth / expected_head instead of current HEAD), a closed fingerprint contract
-table, routed pins that never claim death from local unreachability, timestamp quality as a
-first-class check instead of a silent skip, and the EC legacy redaction convention
-(`TIMESTAMP_REDACTED`) kept apart from genuinely malformed timestamps.
+The thirteen rules formalize a preregistered human triage of a real 462-row agent task
+ledger (91 real weakening instances, 4 categories, 205 raw signals → ~98% naive
+false-positive rate): era-aware fingerprint anchors (birth / expected_head instead of
+current HEAD), a closed fingerprint contract table, routed pins that never claim death from
+local unreachability, timestamp quality as a first-class check instead of a silent skip,
+and the legacy digit-masked redaction convention (`TIMESTAMP_REDACTED`) kept apart from
+genuinely malformed timestamps. On that same corpus the mechanical output reproduces the
+human triage exactly: 91 findings.
+
+## Provenance
+
+Incubated 2026-09-27→28 inside
+[taipei49314/agent-rd](https://github.com/taipei49314/agent-rd) — round-0 corpus
+validation (PASS: 4 categories, 91 instances), S3 prototype, adversarial review pass — and
+graduated to this independent repository on 2026-09-28 by human instruction. The
+preregistered acceptance reconciliation ships with the repository in
+[docs/recon/](docs/recon/) (PREREG, RECON report, raw finding envelopes); the incubation
+record (proposal, round-0 triage) remains in agent-rd.

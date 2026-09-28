@@ -1,0 +1,2071 @@
+{
+  "findings": [
+    {
+      "after": "b55a636b3a590c9f2a5dca1c9cd58aa57798a06ddb67e6a6ef86a67d4dd319e5",
+      "before": "evidence/T-289-ec-mechanical-workflows.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json/v1:7b6ce41c790caaaba706b97a320575a4c775891a56adf1e378d137ffefd8cc29",
+      "locator": "2c22ea03-ccc1-49c8-ac68-f507f25b5873.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 2c29d7a8af58 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "be732f4a75e34f0a57967b932b23a6e36316567c45c6e9c3717ed0053725d6bb",
+      "before": "evidence/T-289-validation.json",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json/v1:db9f7b09a179c67be6f09430b12fb30d893e20008b4fcad1ed7e8e1c983a4b90",
+      "locator": "2c22ea03-ccc1-49c8-ac68-f507f25b5873.json#source_fingerprints[1]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 2c29d7a8af58 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "90a208b0649f3e1d5ef02d0cc46051ea866d02979a7e9e2572653da9b3739fec",
+      "before": "evidence/T-290-stateweaver-dependabot.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json/v1:d36305b2c5c6bf16d437f819152857a67674134f9a266c197218516b0627ad12",
+      "locator": "c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor b8925c8ea774 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "535e59a99f5d9e99c20214c12dca8765406351e6fc6560f00c80ece314205b2d",
+      "before": "evidence/ec-task-writer-migration-20260910.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/e1cd3c0e-dbca-4c20-9834-6fd7278704df.json/v1:48c7faa38063ac70efcce8a25729e5667d15f83531964f04f12489b707674e42",
+      "locator": "e1cd3c0e-dbca-4c20-9834-6fd7278704df.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 574364f9461e (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/e1cd3c0e-dbca-4c20-9834-6fd7278704df.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/FINAL-REVIEW.md/v1:ba84f0407895c801cf863b353a7f653ec8cf530c387e2ee253615d7bd349d07f",
+      "locator": "T-299",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-299)",
+      "path": "docs/FINAL-REVIEW.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/GROWTH_POOL.md/v1:efa5a70a204793c81a8250327338e876c1a941011eec9cd89c468661f001acc4",
+      "locator": "T-453",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-453)",
+      "path": "docs/GROWTH_POOL.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/LOOP-NOTES.md/v1:ef3c23a0626a5334f198f060ab5e31df6182efe767ce372796e6f4792276da0d",
+      "locator": "T-394",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-394)",
+      "path": "docs/LOOP-NOTES.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/PROBE.md/v1:8ab061a2e723baf1ebfc25e2352a1d2f5bc84fa91fcbc100f0ba4ca63110cadb",
+      "locator": "T-81",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-81)",
+      "path": "docs/PROBE.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/RELEASING.md/v1:6cc428b2e71cdecf74e004018505438442825f587dc3bea7ae11c9b212200590",
+      "locator": "T-128 T-212 T-52",
+      "message": "referenced path does not exist in the epoch tree (referenced by 3 task record(s): T-128, T-212, T-52)",
+      "path": "docs/RELEASING.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/TRY.md/v1:39ed7e3909028b37a5f8b536938fd34018ddfaa2530e39a2e52e7186692c2b9c",
+      "locator": "T-384 T-394",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-384, T-394)",
+      "path": "docs/TRY.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M1.md/v1:eb317b71e74c05cdb6d40d5b18a58ac79649d366951115c12f555bfea288b7f5",
+      "locator": "T-14",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-14)",
+      "path": "docs/adapters/CHECKWASH_M1.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M2.md/v1:a8d922d92bf969adc87d64a4ced5ba8f10068d67915528b1ebe9208795ded780",
+      "locator": "T-16",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-16)",
+      "path": "docs/adapters/CHECKWASH_M2.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M6.md/v1:965b59bed17a9c663a496fe2f3fce590140bf63acce488e6319ee3305ead3169",
+      "locator": "T-76 T-77 T-78 T-79 T-80",
+      "message": "referenced path does not exist in the epoch tree (referenced by 5 task record(s): T-76, T-77, T-78, T-79 (+1 more))",
+      "path": "docs/adapters/CHECKWASH_M6.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M7.md/v1:277b02c8dcd329dc3ff6d7a8692d74058149f087c68467daa749206631631f1c",
+      "locator": "T-211",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-211)",
+      "path": "docs/adapters/CHECKWASH_M7.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/checkwash.md/v1:5070d7605f12b687717677fd299f180784141cafa94f1d5133a888542cccfa77",
+      "locator": "T-11",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-11)",
+      "path": "docs/adapters/checkwash.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/campaign/v1:b6b77f1fd61f2072357ac38c9b03dfda77da03431d7bff5bc87fb2837069efd4",
+      "locator": "T-282",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-282)",
+      "path": "docs/campaign",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/consolidation/2026-09-05.md/v1:3befd91b2a946adc787cf6528ba0856a271057e3e5c8ee4513883b9749ce9753",
+      "locator": "T-191 T-193",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-191, T-193)",
+      "path": "docs/consolidation/2026-09-05.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/current-state-consistency/v1:6869c4d018ecf46bd4dbfb0caeceb8594c8c3c52d69da867fabc9abec35d32db",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/current-state-consistency",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/enterprise.md/v1:22cce1c995753f0c6a79036300923548aa7d26148b023cc4abc00ab2b26d058e",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/enterprise.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/evidence/m7-content-capsule-01-art-signoff-2026-09-04.md/v1:4f43ddf976ce8f9ea3432b7c82c744c5673fb7a60575de636229641ed964da34",
+      "locator": "T-91",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-91)",
+      "path": "docs/evidence/m7-content-capsule-01-art-signoff-2026-09-04.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/evidence/m7-self-hosted-main-2026-09-06.md/v1:33b086c1e7efac1099ae5428362bd04dab132f056fcb76ea50298d3d89247b4e",
+      "locator": "T-357",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-357)",
+      "path": "docs/evidence/m7-self-hosted-main-2026-09-06.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/fixtures/v1:a61d448e55ef4bf48ccbfa4f1e21b6c3484b1ab7c8ed58b4a2fc0f5e51d6abb6",
+      "locator": "T-365",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-365)",
+      "path": "docs/fixtures",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/fixtures/content-capsule-02-source-pack.json/v1:43af70b63672dae0497b895f6839b9378329d4dfc781529d92b4887b653cf89a",
+      "locator": "T-365",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-365)",
+      "path": "docs/fixtures/content-capsule-02-source-pack.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/handoff.md/v1:5207561e778140e2c13fe8ed86bae7f0673dce188af4e3ac50503ccdff335514",
+      "locator": "T-221",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-221)",
+      "path": "docs/handoff.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/implementation-status.md/v1:cb86f39555deb315d84419647f3ece05289dc44aa054d8370bd46fafd2e8983c",
+      "locator": "T-357 T-368",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-357, T-368)",
+      "path": "docs/implementation-status.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r02-growth-contract-admission.md/v1:8f1cc4946422479dfb0a5b374210e0789446da9c8243c26538a2ce4a5110e83f",
+      "locator": "T-423",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-423)",
+      "path": "docs/integrated-product-r02-growth-contract-admission.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r04-controller-core.md/v1:3a4ed2d10e77a2456c7fa84bdba7f99e4cff1eef24b013ead0fdb3477fd0b87a",
+      "locator": "T-425",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-425)",
+      "path": "docs/integrated-product-r04-controller-core.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r04b-run-loop.md/v1:702119265b0ba35b224157285d23c9e1c80f60464eafcc9274a60776dcb3ee4d",
+      "locator": "T-433",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-433)",
+      "path": "docs/integrated-product-r04b-run-loop.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r05-adapter-verifier.md/v1:c374b357bf5f80a712cf11fd4147a7a742c8f7b5b6267747f91ae36d6d33bc05",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "docs/integrated-product-r05-adapter-verifier.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-roadmap-v1.0.md/v1:c97880c0fc0d98d6c067df9ae8ffc2bcfd33042a8790ab56ab470243d0064feb",
+      "locator": "T-419 T-439",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-419, T-439)",
+      "path": "docs/integrated-product-roadmap-v1.0.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/interface.md/v1:01b6bc20e224facda41bf6bb194472178335a6a05f0f23b734feb240a97f8903",
+      "locator": "T-413",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-413)",
+      "path": "docs/interface.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/launch-v0.3.0.md/v1:72f495ded6c6eec4d3e03289238df41078f650657f26e667d7dac4f4a7c9243e",
+      "locator": "T-200 T-211",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-200, T-211)",
+      "path": "docs/launch-v0.3.0.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/launch.md/v1:a7813a26499d88b9fd92e0e1083f22415fa2794c4dcaf1eee92a01ff7835d1a0",
+      "locator": "T-43 T-51",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-43, T-51)",
+      "path": "docs/launch.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/migrations/engineering-preview.md/v1:4ea20548e388798e72a358fb54b93fdc55a1ef45221b2cce431605f99b0ec58e",
+      "locator": "T-357",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-357)",
+      "path": "docs/migrations/engineering-preview.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/PANEL-2026-09-13.md/v1:aa4da87b6ee49a5a7e10ca77c2ee8b2a9f868a85ebe465dc96b30b2bd92c2818",
+      "locator": "T-371",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-371)",
+      "path": "docs/pregate/PANEL-2026-09-13.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/PROTOCOL.md/v1:bbeb88e006baf76811c37c1618edf8c18a2905b8e3afda36ce398d5c8831812c",
+      "locator": "T-366",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-366)",
+      "path": "docs/pregate/PROTOCOL.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/RUN-2026-09-13.md/v1:4222eb38181748a4d5caef8de4ab292e98a4cd66bfa220a8589a862198e7e8f8",
+      "locator": "T-366",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-366)",
+      "path": "docs/pregate/RUN-2026-09-13.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/run-2026-09-13-round4.json/v1:9b14fce2762cd9b56ffc6519a15733442fd771644fe733c61ac3d2e980eb0213",
+      "locator": "T-369",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-369)",
+      "path": "docs/pregate/run-2026-09-13-round4.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/qualification/backlog.json/v1:e154bf604add8872593f799885f2c927a27f72ed2952b4f12388c397fb73e183",
+      "locator": "T-258",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-258)",
+      "path": "docs/qualification/backlog.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/recon/v1:509f17a341f9ac6c9a79bc3102a16dcc871df3b8cf89cfba69960ce6b51045cb",
+      "locator": "T-282",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-282)",
+      "path": "docs/recon",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/releases/v0.3.0-public-launch.md/v1:33cf7a88af56024da8b8b4e861448cfc81269bfebda04a615f2ee24acfceeb0c",
+      "locator": "T-200 T-201",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-200, T-201)",
+      "path": "docs/releases/v0.3.0-public-launch.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/remediation-upgrade.md/v1:c9808835c89fcb9eaef327cfb979c21f659f6038868a870ed49adaa6afe408e0",
+      "locator": "T-197",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-197)",
+      "path": "docs/remediation-upgrade.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/remote-access.md/v1:b3538cfdc1eae5887c6153f6011d98ed66c83372098922e74ea5a4f93f00b962",
+      "locator": "T-242",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-242)",
+      "path": "docs/remote-access.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/roadmap.md/v1:52e286129d2a5a62d9b3a1dc4f175f40ad834d19799552118fa4155f9cf81fbf",
+      "locator": "T-430",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-430)",
+      "path": "docs/roadmap.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/spec.md/v1:8d8614313f48e848329276ceb6fb2d7cb85c2163dcb4ef5f9073b56c32727697",
+      "locator": "T-413",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-413)",
+      "path": "docs/spec.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/stability.md/v1:45eb2ff74d7a0008722a636cf459705ae3bd4c02a67fc47e4e5b5c1516bb434b",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/stability.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/t209-archive-index/v1:5695f4370b32d5b1437aad1c93707a994797a3d67f79afa3ca1f0d3ad2bc82f4",
+      "locator": "T-245",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-245)",
+      "path": "docs/t209-archive-index",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/v0.3.0-maintainer-pass/v1:a0f52c82764f76392c2b54d0f7b67a4e83a04eeb95bb1cac8a0535e1315b6191",
+      "locator": "T-204",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-204)",
+      "path": "docs/v0.3.0-maintainer-pass",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/verification/frozen-core-baseline.json/v1:e20aac5bd3a73ff90e3e933e39df8e7e75622b6185204e4b2d61966395730a04",
+      "locator": "T-393",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-393)",
+      "path": "docs/verification/frozen-core-baseline.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/evidence/T-82-stress-llm-2026-09-03-/v1:783d8316b3cdb934c36d5bef1a6def635f2ddab8c083c48d5da318a0af867486",
+      "locator": "T-82",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-82)",
+      "path": "evidence/T-82-stress-llm-2026-09-03-",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/gc-agent-accelerator-01.v1.json/v1:28f7d23cb669a15e00e9e42f99d72c448f01f9b783d43b83db8db75913cf2c3d",
+      "locator": "T-427",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-427)",
+      "path": "governance/growth-contracts/gc-agent-accelerator-01.v1.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/gc-md-brain-01.v1.json/v1:83eab152bb070c9b459e061f0693eff4cdb8d58b9f18b9f47f8c5462b0093cfe",
+      "locator": "T-429",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-429)",
+      "path": "governance/growth-contracts/gc-md-brain-01.v1.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/qualified-executors.json/v1:28a4fc63a87296aabf484ab0c84849d68f01127bd1a4962af089ed68fc97c643",
+      "locator": "T-427",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-427)",
+      "path": "governance/growth-contracts/qualified-executors.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/tools/workflows/v1:bf12dd4eb3b98e6815e473ef001a89297cdc79794d445155178c9bb71d79acc6",
+      "locator": "T-358",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-358)",
+      "path": "governance/tools/workflows",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/boundkit.py/v1:3e4c797312a94072aa65654d12f8e2452a8caeadb063ae8b2c283c8126af530d",
+      "locator": "T-310",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-310)",
+      "path": "tools/boundkit.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/claim.py/v1:ea5e929a9b33c52a647c643105c7dd756fd0d89de9c10de6a7529d2624aed0c4",
+      "locator": "T-114",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-114)",
+      "path": "tools/claim.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_adapter.py/v1:d4658b64de29416e2607294c91d8fc99c96d1e9fd8660c6f8c9b0e26eef1632f",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "tools/ec_adapter.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_admission.py/v1:b3dedd9c4edbc07483d735d8761d84f5b18ff8b4ce6c7501c8c8f0ead05d7808",
+      "locator": "T-424",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-424)",
+      "path": "tools/ec_admission.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_controller.py/v1:9ef0889219739bf35f33e8047c61a5fa22a83acdd5d7d8b7160455031d5a6a56",
+      "locator": "T-425 T-433",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-425, T-433)",
+      "path": "tools/ec_controller.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/labels/v1:afba09f3ef4a66fb7ca30f220f3393e1c64c95140c79d0e74563c6908ce7334b",
+      "locator": "T-451",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-451)",
+      "path": "tools/labels",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/llm-arm/rejudge_llm_cli.py/v1:1e0c9222a26550657b4cbbff4803c0a9d14db4c3879ed5240d918239c89d3022",
+      "locator": "T-201 T-205",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-201, T-205)",
+      "path": "tools/llm-arm/rejudge_llm_cli.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/release.py/v1:7c72a1dc2edfb466d716c9be8dbd4554994476cab3ab96c36b4028b17a3faa86",
+      "locator": "T-114",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-114)",
+      "path": "tools/release.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_adapter.py/v1:c35f50e69da749504b9104c216ce3b98f3eb077362750f24048b0200d472eaef",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "tools/test_ec_adapter.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_admission.py/v1:751d389bcde57c6b05d605485f46affb47c2f5ad5851167d13f6924d32dfdf63",
+      "locator": "T-424",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-424)",
+      "path": "tools/test_ec_admission.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_controller.py/v1:5382c6751ac374e032c6179ef5e31815eede10f1e7315462c1389b2361f25456",
+      "locator": "T-425",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-425)",
+      "path": "tools/test_ec_controller.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-106.json/v1:96cb174c0624a35d76b1c9a6df31fd9c7ca87c16e689c71a0b816a9b5c252296",
+      "locator": "T-106",
+      "message": "sha 26055b272a5012788c9971bd21f39353c9f9cb9f referenced in task record(s) (T-106) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-106.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-106.json/v1:96cb174c0624a35d76b1c9a6df31fd9c7ca87c16e689c71a0b816a9b5c252296",
+      "locator": "T-106",
+      "message": "sha b8ac410515c39a1f3eb2f4d2142d0b5ff536cc0f referenced in task record(s) (T-106) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-106.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-107.json/v1:35fea190353403859f0b706a70a00def126c725e04024b5c143ca70d9b53f92d",
+      "locator": "T-107",
+      "message": "sha 34e5d63fd1b7b8bcf17e7b44f3483994995ce6c0 referenced in task record(s) (T-107) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-107.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-109.json/v1:4e085d81ec3210a625f62e1ea7a7e6d4948a3b1265aedaa47bce133672acc68e",
+      "locator": "T-109",
+      "message": "sha 5e876007c2cc5aaff8735f67663b7044800bf12e referenced in task record(s) (T-109) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-109.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-146.json/v1:9c96bdf76ae071fe458f94f627fcfb4ae3d883b0704a36856cb10d99d6521b5a",
+      "locator": "T-146 T-148",
+      "message": "sha 4bab72c23275a4f6d02de1da4a2d796aec783d00 referenced in task record(s) (T-146, T-148) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-146.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-146.json/v1:9c96bdf76ae071fe458f94f627fcfb4ae3d883b0704a36856cb10d99d6521b5a",
+      "locator": "T-146 T-148",
+      "message": "sha b346b5626ccea0c909ee6d1f52532ec74733e556 referenced in task record(s) (T-146, T-148) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-146.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-149.json/v1:c0e5ef7b3f5e34c485739db2d1e96e8f78a6585e5fe08baefec98173a648b5dd",
+      "locator": "T-149 T-151",
+      "message": "sha 7f26dd10d16e98fc9f8991972199d17690422a43 referenced in task record(s) (T-149, T-151) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-149.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-158.json/v1:a9c58f339130ef43e965e634ae89488d3b157ef389bda49eac0a9d77f8cb2d21",
+      "locator": "T-158",
+      "message": "sha 39ed4df952c80252931dfb77d01be6bd12d13442 referenced in task record(s) (T-158) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-158.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-158.json/v1:a9c58f339130ef43e965e634ae89488d3b157ef389bda49eac0a9d77f8cb2d21",
+      "locator": "T-158",
+      "message": "sha f8e92ade9934b9e938b9b39535a9077169cc892a referenced in task record(s) (T-158) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-158.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-160.json/v1:2ac4879325cc260c82560b7d5b894f55e4fe5347ef9318c5be692f1c933193e4",
+      "locator": "T-160 T-162",
+      "message": "sha 3e8c8d9e7aed963321e73f3c202d92cbdaf38811 referenced in task record(s) (T-160, T-162) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-160.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-160.json/v1:2ac4879325cc260c82560b7d5b894f55e4fe5347ef9318c5be692f1c933193e4",
+      "locator": "T-160 T-162",
+      "message": "sha a4acb97ea6d5dd699d2a540fbc30b711cc4c9486 referenced in task record(s) (T-160, T-162) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-160.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-163.json/v1:7cfad69860c4ca55fdaf3722ded6c71ded89a3213aa4dba0526180862f41d79c",
+      "locator": "T-163",
+      "message": "sha 912cb52b1427cbf332bca0893a0c73cd09f79aea referenced in task record(s) (T-163) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-163.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-164.json/v1:f588fd63e684409cbc3d040771c02785948aec1c1af306027edbcd471cb73896",
+      "locator": "T-164",
+      "message": "sha 63c43d3e303264d3512febe5f576a3f5faf2bca7 referenced in task record(s) (T-164) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-164.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-165.json/v1:138aa05b45a9a18fc2086194ca06f7829e8512d73294f3814a7e392c362acd0a",
+      "locator": "T-165",
+      "message": "sha d74282c979ef3a41025516467cf8203ef453f3e5 referenced in task record(s) (T-165) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-165.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-168.json/v1:df336160bcd40cc2529a9c8b32e6f1a08303ff7631754cd551430b0528853ce0",
+      "locator": "T-168",
+      "message": "sha 758cc1004cec263673aa472dbe2b4288a1e26d73 referenced in task record(s) (T-168) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-168.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:7f30ac94fb1b45ff97cf609646fd11eac399c539bf682f77e92e355438b6104d",
+      "locator": "T-170",
+      "message": "sha 1fa883baabacf314083fd80c15fffa68c4001ade referenced in task record(s) (T-170) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:7f30ac94fb1b45ff97cf609646fd11eac399c539bf682f77e92e355438b6104d",
+      "locator": "T-170",
+      "message": "sha cfa6c1dd30b7fdb0a86865e1d2a2e93646a46c31 referenced in task record(s) (T-170) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:08b1322ff8b3fa728dffe76085643bfa17f8095d8fae2ed9f9b2ecff9fa480ba",
+      "locator": "T-170 T-172",
+      "message": "sha 0981045d0fb0335f5d7266ae1597d7e399263259 referenced in task record(s) (T-170, T-172) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-172.json/v1:a69c4b2ba8540b0b9839b4680e02a55f64bb8d806cd925b0f96463d623656d24",
+      "locator": "T-172",
+      "message": "sha 057c65bba438de27c11efaf3c4524c1403a5a7f5 referenced in task record(s) (T-172) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-172.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-304.json/v1:c42a6725f2fc0a64518f1d577aebf5afadf34f68182b8686f192c1a5e7aa9a88",
+      "locator": "T-304",
+      "message": "sha e5fc2cf25af6eb86d4c8662623f54e87acb72215 referenced in task record(s) (T-304) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-304.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-333.json/v1:b674643fa660c30321c9306d357d50532eef5025bade886465f7224bf7508239",
+      "locator": "T-333",
+      "message": "sha 709240deca64b231e236291f9bbd1272c8e79458 referenced in task record(s) (T-333) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-333.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-357.json/v1:e42731a7a9461851239db56f9056cd43d1cf78926f209cc6448987bfd3830a61",
+      "locator": "T-357",
+      "message": "sha 595c8966eddbf04497c08639d1eb5fa648efe2d2 referenced in task record(s) (T-357) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-357.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-357.json/v1:e42731a7a9461851239db56f9056cd43d1cf78926f209cc6448987bfd3830a61",
+      "locator": "T-357",
+      "message": "sha b0797cd66e735fa462f2e8f3796814ef5a84b6a8 referenced in task record(s) (T-357) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-357.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-365.json/v1:7d474b2c6477d3e612ec3553b6b8c9abdef2e5f09b1c9b8817b99aaaa4b2fb4e",
+      "locator": "T-365",
+      "message": "sha 799cfa9f77467af768dcb54120a4865c406d871b referenced in task record(s) (T-365) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-365.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-370.json/v1:2d34dac5bcab4346dee6ab0df405bec7c8807ad771d9372e6e628e3db59294d8",
+      "locator": "T-370",
+      "message": "sha 23fce200561ae4a95e46539ed9e668088591d1c1 referenced in task record(s) (T-370) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-370.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T07:12:17Z",
+      "before": "2026-09-10T09:55:00Z",
+      "fingerprint": "TIMELINE_INVERSION/evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json/v1:81988b2c8cd5bc3f0bb4446310c66ef9dc38d553df9f4daf8e335a9a1136b96b",
+      "locator": "c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "message": "recorded_at 2026-09-10T07:12:17Z is earlier than request.at 2026-09-10T09:55:00Z; clock or timezone mislabeling suspected",
+      "path": "evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "rule": "TIMELINE_INVERSION",
+      "severity": "high"
+    },
+    {
+      "after": "2026-07-27T15:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-02.json/v1:0ae2041a2d28e044b585606789f4461da1fef098fc3910907d8de8cb11393a4c",
+      "locator": "T-02#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-27T15:2xZ'",
+      "path": "governance/tasks/T-02.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-27T15:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-03.json/v1:853609b113bf3980609de5e4d56c4d91a6177711c05ae7c9b2aedbf28d9dec73",
+      "locator": "T-03#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-27T15:5xZ'",
+      "path": "governance/tasks/T-03.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-28T00:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-06.json/v1:fe4d4775dd1230ffccd9ea31fe48b049e690089fd653171d73bf0b05e115af64",
+      "locator": "T-06#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-28T00:1xZ'",
+      "path": "governance/tasks/T-06.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-28T02:xxZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-07.json/v1:32f1ca01502dc36f6a4ec451d97c42392c34307c27df0a06600cd8066cd43936",
+      "locator": "T-07#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-28T02:xxZ'",
+      "path": "governance/tasks/T-07.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-28T01:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-08.json/v1:de7cf4216754faea3d0544385aea562115ed88ff338bbb75cd56b755e4c7738f",
+      "locator": "T-08#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-28T01:0xZ'",
+      "path": "governance/tasks/T-08.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-28T02:xxZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-09.json/v1:7494ff7016e07e1eec56ffd91a1a1312104a741396231843679fdb7b95a8058f",
+      "locator": "T-09#time",
+      "message": "task time does not parse as ISO-8601: '2026-07-28T02:xxZ'",
+      "path": "governance/tasks/T-09.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T13:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-100.json/v1:0317b6e1a99a3c41a927bb86c54709b6a5daaa84fb17871e70aaf9b9d5b7db5e",
+      "locator": "T-100#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T13:4xZ'",
+      "path": "governance/tasks/T-100.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T13:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-101.json/v1:58b90612a9b6c7dfccf7dfe9098bd519796e581b8222c54c685672002c3f61b9",
+      "locator": "T-101#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T13:0xZ'",
+      "path": "governance/tasks/T-101.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T08:52:39Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-103.json/v1:1b9480e4a9b07fe3c8ff7a040b708e6c9b1b127e5f8c60a170b54ce46ecfbe2e",
+      "locator": "T-103#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T08:52:39Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-103.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-106.json/v1:1917c8b729f73a5b51b1b95b4fc95f85c6235a794231d4fd28f5f3e29d90a011",
+      "locator": "T-106#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-106.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-107.json/v1:e17e26989e08019269342a935e2226fe19d0d9cb0ac2591216207e83eaa35ab7",
+      "locator": "T-107#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-107.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-109.json/v1:eaf748fda1574c4df8fb5ce76ef763e1327a8b0746a9d38d4ea21cf7efc2a19f",
+      "locator": "T-109#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-109.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T16:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-123.json/v1:98f651eaf37b40de511b42578e7ad911b8b7bbd10c07cbb763c64543744c76ef",
+      "locator": "T-123#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T16:4xZ'",
+      "path": "governance/tasks/T-123.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T01:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-126.json/v1:daba4fcabbb701c2f4f58d471e1a9565143fe4dabd240fbe6353f59eb2b6d67e",
+      "locator": "T-126#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T01:1xZ'",
+      "path": "governance/tasks/T-126.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T01:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-128.json/v1:ec6d27b46a6a9cf2e686507241c4e6de6ed5cc514213c3612f7a0aefdcb4e937",
+      "locator": "T-128#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T01:4xZ'",
+      "path": "governance/tasks/T-128.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T02:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-129.json/v1:eb444b160ef3736d99a030d738fcc32b6b914410abb69637271aa4e8aaf737d6",
+      "locator": "T-129#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T02:0xZ'",
+      "path": "governance/tasks/T-129.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-05T22:08:47.600780+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-157.json/v1:b269be1658e4549a96bbb520da9464b7929767c3fb662bebdaa2cf74ce69eed3",
+      "locator": "T-157#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-05T22:08:47.600780+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-157.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T16:44:51.434946+00:00 → 2026-09-06T17:34:30.762737+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-169.json/v1:ae92d4c5eba5f8178ce9412a3d42adc9e6336cc622be272371fdd262f2707de7",
+      "locator": "T-169#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T16:44:51.434946+00:00 → 2026-09-06T17:34:30.762737+00:00'",
+      "path": "governance/tasks/T-169.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T17:43:29.070699+00:00 → 2026-09-06T18:12:50.230466+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-171.json/v1:3d71b5843366ebb13e435930f5bbae249c5d86bc69968b831df6c299adfc80e8",
+      "locator": "T-171#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T17:43:29.070699+00:00 → 2026-09-06T18:12:50.230466+00:00'",
+      "path": "governance/tasks/T-171.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T18:42:47.924964+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-172.json/v1:15677d9a0ef8f46cc455ff8b010d1f0ba9d34293fe3b31c09d26f03d4d22d61f",
+      "locator": "T-172#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T18:42:47.924964+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-172.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T18:58Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-173.json/v1:18cc0d4e8a332af8c2441d8fd390ca0155f4db9dde889244932754f8ce0ab87f",
+      "locator": "T-173#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T18:58Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-173.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T19:01Z → 2026-09-06T19:33Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-174.json/v1:86af97c1d386aec445ecff17bcb890b55a93dfdfdf844aab9b0ddd7496a91aa8",
+      "locator": "T-174#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T19:01Z → 2026-09-06T19:33Z'",
+      "path": "governance/tasks/T-174.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-06T19:08Z → 2026-09-06T19:31Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-175.json/v1:559153d7d5983c256b01964445a0f58e1cbb69298f026bdac5f9b55b2f0191b7",
+      "locator": "T-175#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-06T19:08Z → 2026-09-06T19:31Z'",
+      "path": "governance/tasks/T-175.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T01:56Z → 2026-09-07T05:52:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-177.json/v1:e31c38fc36bfb0e5a5c2ed55512758cb43253671d61be55592f4cc7483202a49",
+      "locator": "T-177#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T01:56Z → 2026-09-07T05:52:41Z'",
+      "path": "governance/tasks/T-177.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T02:00:56.423022+00:00 → 2026-09-07T03:05:43.220846+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-178.json/v1:4760acf5d5f025971eac783aefdfde3807542456e37223ca6436fdd28aa25c7e",
+      "locator": "T-178#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T02:00:56.423022+00:00 → 2026-09-07T03:05:43.220846+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-178.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T02:30:08.581688+00:00 → 2026-09-07T03:05:43.220846+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-179.json/v1:2fcf13bd214b6b06660d46575b7c978a95af4b8218fa9f3795b43e45e379bbf3",
+      "locator": "T-179#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T02:30:08.581688+00:00 → 2026-09-07T03:05:43.220846+00:00'",
+      "path": "governance/tasks/T-179.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T03:14:31.260803+00:00 → 2026-09-07T03:24:17.343433+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-180.json/v1:2267deaad2496976c1bd6fad8772ecc300cb1790d344e9cc3f8e0f3120b741da",
+      "locator": "T-180#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T03:14:31.260803+00:00 → 2026-09-07T03:24:17.343433+00:00'",
+      "path": "governance/tasks/T-180.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T04:38:47Z → 2026-09-07T05:50:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-181.json/v1:3e750521c4989753f7f0dd92ce971a509f49bd99ca075a33201a343c4ce1512b",
+      "locator": "T-181#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T04:38:47Z → 2026-09-07T05:50:32Z'",
+      "path": "governance/tasks/T-181.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T06:01:03Z → 2026-09-07T06:13:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-182.json/v1:0ce333c1ec59b75ecf6143f391a7988cf13c9896815a7184d3a60e63f946fc9e",
+      "locator": "T-182#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T06:01:03Z → 2026-09-07T06:13:35Z'",
+      "path": "governance/tasks/T-182.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T06:13:26Z → 2026-09-07T06:27:57Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-183.json/v1:41d8da292f0e3b60f65fb67273ed1ea82adf6a3db061ba18c9983b68c4d3a038",
+      "locator": "T-183#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T06:13:26Z → 2026-09-07T06:27:57Z'",
+      "path": "governance/tasks/T-183.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T06:22:52Z → 2026-09-07T06:31:46Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-184.json/v1:98ede22bae78fa2dc536b46db541acf1685fc4d6988c6d1b42fa877197011535",
+      "locator": "T-184#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T06:22:52Z → 2026-09-07T06:31:46Z'",
+      "path": "governance/tasks/T-184.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T06:38:59Z → 2026-09-07T07:00:19Z → 2026-09-07T07:24:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-185.json/v1:17f4d2ce1031cc607b332f61570e295f95364715a386e92592a8f1e39bb1c13d",
+      "locator": "T-185#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T06:38:59Z → 2026-09-07T07:00:19Z → 2026-09-07T07:24:29Z'",
+      "path": "governance/tasks/T-185.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T06:40:50Z → 2026-09-07T07:28:58Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-186.json/v1:5e3e7a892519810c8ad21af8d23ad926e428e2e621528540035bbf906b8efd88",
+      "locator": "T-186#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T06:40:50Z → 2026-09-07T07:28:58Z'",
+      "path": "governance/tasks/T-186.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T07:07:39Z → 2026-09-07T07:24:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-187.json/v1:7d7144992b9b884c390cd8b128800aff1f50e37c036091766bc5ac8bf83c57b0",
+      "locator": "T-187#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T07:07:39Z → 2026-09-07T07:24:29Z'",
+      "path": "governance/tasks/T-187.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T07:31:25Z → 2026-09-07T07:34:40Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-188.json/v1:096feebc7299d50a1538b1f19970c7f5192bc954a3ed13822d9b5ee16674e7a3",
+      "locator": "T-188#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T07:31:25Z → 2026-09-07T07:34:40Z'",
+      "path": "governance/tasks/T-188.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T07:38:52Z → 2026-09-07T07:54:52Z → 2026-09-07T07:57:49Z → 2026-09-07T08:10:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-189.json/v1:4dcdb60126d960cfdd33d45e72717c8e79af57509952768e08f85f89d3c24a7a",
+      "locator": "T-189#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T07:38:52Z → 2026-09-07T07:54:52Z → 2026-09-07T07:57:49Z → 2026-09-07T08:10:18Z'",
+      "path": "governance/tasks/T-189.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T08:17:10Z → 2026-09-07T08:20:14Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-191.json/v1:3779b51162eaf7ca7ac53932c47df13364c11d66577646031af4f51c61f846e6",
+      "locator": "T-191#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T08:17:10Z → 2026-09-07T08:20:14Z'",
+      "path": "governance/tasks/T-191.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T08:22:28Z → 2026-09-07T08:27:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-192.json/v1:61b5233870c7c3796d530f6fe980064dc87e1f2fad6035dcc34b0eb2040657da",
+      "locator": "T-192#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T08:22:28Z → 2026-09-07T08:27:18Z'",
+      "path": "governance/tasks/T-192.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T08:29:41Z → 2026-09-07T08:31:27Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-193.json/v1:145bd9b067af03e0415105dc630a6a0b4e2428094a3d0c4711515a222d88c732",
+      "locator": "T-193#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T08:29:41Z → 2026-09-07T08:31:27Z'",
+      "path": "governance/tasks/T-193.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T08:37:39Z → 2026-09-07T09:03:20Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-195.json/v1:8474ed893ccddab4a7dbdaa1cccb3d0d20372046bc1f3d3ce4dc9aafa275404c",
+      "locator": "T-195#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T08:37:39Z → 2026-09-07T09:03:20Z'",
+      "path": "governance/tasks/T-195.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T09:36:21Z → 2026-09-07T10:40:25Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-197.json/v1:9d226b7d56e343f077ff283b65c9a70bac64fb2c8d4518c39571044267b7ed92",
+      "locator": "T-197#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T09:36:21Z → 2026-09-07T10:40:25Z'",
+      "path": "governance/tasks/T-197.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T10:47:25Z → 2026-09-07T10:53:56Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-200.json/v1:6bef6a9ec13fcc74bda1a9882bb7a085101655549b5ae26f62636f8d55474541",
+      "locator": "T-200#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T10:47:25Z → 2026-09-07T10:53:56Z'",
+      "path": "governance/tasks/T-200.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T12:06:23Z BLOCKED → 2026-09-07T12:19:40Z 接手 CLAIMED → 2026-09-07T12:56:26Z BLOCKED（等人類） → 2026-09-07T13:10:11Z CLAIMED（人類答「合 / attest corpus 6466e61」） → 2026-09-07T13:24:48Z DONE",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-201.json/v1:b9e3bdf8a35640395ab5f84de7b5747c115a7278f32367bb78f862bbeef76e7f",
+      "locator": "T-201#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T12:06:23Z BLOCKED → 2026-09-07T12:19:40Z 接手 CLAIMED → 2026-09-07T12:56:26Z BLOCKED（等人類） → 2026-09-07T13:10:11Z CLAIMED（人類答「合 / attest corpus 6466e61」） → 2026-09-07T13:24:48Z DONE'",
+      "path": "governance/tasks/T-201.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T13:10:11Z → 2026-09-07T13:19:23Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-203.json/v1:9201d851b07e7ad6492e1f226d7a2c32b1eb12596d0a0911cbdb6721ea3dfade",
+      "locator": "T-203#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T13:10:11Z → 2026-09-07T13:19:23Z'",
+      "path": "governance/tasks/T-203.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T13:42:24Z（工作先做、列後補，同一次 push）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-204.json/v1:cbdaf573f34b0796ba7d7e3be684970727cef20bcb18687fbc16cec0e0d93f39",
+      "locator": "T-204#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T13:42:24Z（工作先做、列後補，同一次 push）'",
+      "path": "governance/tasks/T-204.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T14:00:14Z → 2026-09-07T14:12:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-206.json/v1:a53e726bcda11324ea4432a29841cc89784678040fb549cf8aa0e402a8f3bdf1",
+      "locator": "T-206#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T14:00:14Z → 2026-09-07T14:12:00Z'",
+      "path": "governance/tasks/T-206.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T14:27:51Z → 2026-09-07T14:50:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-209.json/v1:c4cc82a15817e6f141b95bb06c2f0bb0242f5000ae0e1315771b48a35fe54b96",
+      "locator": "T-209#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T14:27:51Z → 2026-09-07T14:50:00Z'",
+      "path": "governance/tasks/T-209.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:34:50Z（認領 15:04:09Z）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-212.json/v1:fb6d1d1dda988ca79205170c963fa0ad1d4324dff5dd38848572436271f99e7d",
+      "locator": "T-212#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T15:34:50Z（認領 15:04:09Z）'",
+      "path": "governance/tasks/T-212.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:00:09Z → 2026-09-07T15:07:03Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-213.json/v1:d74ddeec48d1a0e774625c925a8af673896449debce15305c99c5f85e78fe6cf",
+      "locator": "T-213#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T15:00:09Z → 2026-09-07T15:07:03Z'",
+      "path": "governance/tasks/T-213.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:11:34Z → 2026-09-07T15:18:52Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-214.json/v1:396d2acbbc794f2231e50612f9730d8846af678e8e316c17207ee3ab7a7fdd99",
+      "locator": "T-214#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T15:11:34Z → 2026-09-07T15:18:52Z'",
+      "path": "governance/tasks/T-214.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:28:37Z → 2026-09-07T15:33:14Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-217.json/v1:dc77440709af9b0a08d2685096cac6a072cc7aaac42697e3ae00c47b4a8b9131",
+      "locator": "T-217#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T15:28:37Z → 2026-09-07T15:33:14Z'",
+      "path": "governance/tasks/T-217.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:37:54Z → 2026-09-07T15:46:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-219.json/v1:683cce2ed277b516be8915330b984c226c25962421b9a0164b4a669ff7408a69",
+      "locator": "T-219#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T15:37:54Z → 2026-09-07T15:46:06Z'",
+      "path": "governance/tasks/T-219.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T18:30:11Z → 2026-09-07T20:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-221.json/v1:3e9f91183fd4250bc5ee70e02760fa7a19fa53a8721fa56139918fe4f859014a",
+      "locator": "T-221#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-07T18:30:11Z → 2026-09-07T20:1xZ'",
+      "path": "governance/tasks/T-221.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T08:31:38.804401+00:00 → 2026-09-08T08:38:24.951938+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-232.json/v1:7db2339700aab757200e86c2fadf64ed873113307f18a4e189793297837541da",
+      "locator": "T-232#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T08:31:38.804401+00:00 → 2026-09-08T08:38:24.951938+00:00'",
+      "path": "governance/tasks/T-232.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T09:51:48Z → 2026-09-08T10:25:57Z（合）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-233.json/v1:2f0fa6337a62f326ae7914c6d3256886391d53b614c829cbc7c609541b2c3aa0",
+      "locator": "T-233#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T09:51:48Z → 2026-09-08T10:25:57Z（合）'",
+      "path": "governance/tasks/T-233.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T10:20:57Z → 2026-09-08T10:26:38Z（合）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-234.json/v1:d56710daba24a24ca9e4ed8577daed250cd61dd07b8af8a34fcd57c581f326f6",
+      "locator": "T-234#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T10:20:57Z → 2026-09-08T10:26:38Z（合）'",
+      "path": "governance/tasks/T-234.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T11:18:33Z → 2026-09-08T11:57:32Z（交付）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-235.json/v1:b3da35bfa6d7928dd202d006b97a4616e8c9de585299893a6d0fde8addcdc366",
+      "locator": "T-235#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T11:18:33Z → 2026-09-08T11:57:32Z（交付）'",
+      "path": "governance/tasks/T-235.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T12:15:49.726541Z → 2026-09-08T12:34:16.687219Z（收尾）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-236.json/v1:b053f56482081233edc13be9ceff00670fe513369258183843217a9132a65ada",
+      "locator": "T-236#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T12:15:49.726541Z → 2026-09-08T12:34:16.687219Z（收尾）'",
+      "path": "governance/tasks/T-236.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T15:27:23Z → 2026-09-08T15:38:25Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-238.json/v1:e89258479347199e51bb91f74174c0a2c6810141ec802cc8bc0cb0e647c7c413",
+      "locator": "T-238#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T15:27:23Z → 2026-09-08T15:38:25Z'",
+      "path": "governance/tasks/T-238.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T15:56:35Z → 2026-09-08T16:08:01Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-239.json/v1:71ab955229e40da2c50b9c6c0d69b56d2ea984b7e15828785d4f25a3d7d564a1",
+      "locator": "T-239#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T15:56:35Z → 2026-09-08T16:08:01Z'",
+      "path": "governance/tasks/T-239.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T16:08:01Z → 2026-09-08T16:16:20Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-240.json/v1:a083c1536014c373c5235d928e2b675373bea3770e2d5f8b3912c8066e1d4d90",
+      "locator": "T-240#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T16:08:01Z → 2026-09-08T16:16:20Z'",
+      "path": "governance/tasks/T-240.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T16:24:06Z → 2026-09-08T16:26:24Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-241.json/v1:b3ba06cfab0e6cb0ae9f220442fa7b06de8561c002c1adc7ea6ab5257b99b50b",
+      "locator": "T-241#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T16:24:06Z → 2026-09-08T16:26:24Z'",
+      "path": "governance/tasks/T-241.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T17:00:30Z → 2026-09-08T18:08:11Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-242.json/v1:2e5b8b3f2d52951dee547d287e2507c18fe1bbd65a474a2c4a3631a154d19e4b",
+      "locator": "T-242#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T17:00:30Z → 2026-09-08T18:08:11Z'",
+      "path": "governance/tasks/T-242.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T18:13:22Z → 2026-09-08T23:54:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-243.json/v1:1e8b6314e05d5ff7d16c5f9a16ebf364d5cce5121b546e7bae988a17227d5728",
+      "locator": "T-243#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T18:13:22Z → 2026-09-08T23:54:41Z'",
+      "path": "governance/tasks/T-243.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T18:25:32Z → 2026-09-08T18:39:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-244.json/v1:fddc5227b48cae8e44726f6f58d133c482e89c0a9a638f3495561a42cffede84",
+      "locator": "T-244#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T18:25:32Z → 2026-09-08T18:39:32Z'",
+      "path": "governance/tasks/T-244.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T18:42:43Z → 2026-09-08T23:53:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-245.json/v1:226af0ee827bcec19a7af31786659865af3d0af2a02929a707c5bd8ea38e9c8e",
+      "locator": "T-245#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T18:42:43Z → 2026-09-08T23:53:32Z'",
+      "path": "governance/tasks/T-245.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-08T18:48:44Z → 2026-09-08T18:58:03Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-246.json/v1:06334dabd8fe0cfcdf1bd745bb4cfc53cc73f458a92709405d0d2b5013be6be5",
+      "locator": "T-246#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-08T18:48:44Z → 2026-09-08T18:58:03Z'",
+      "path": "governance/tasks/T-246.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T01:31:56Z → 2026-09-09T01:58:11Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-247.json/v1:bd53c53e4e6c65c6732116f8e442bb56f372fc35a7e3dcc13b5fdfd9752ab9cf",
+      "locator": "T-247#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T01:31:56Z → 2026-09-09T01:58:11Z'",
+      "path": "governance/tasks/T-247.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T02:03:14Z → 2026-09-09T02:16:17Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-248.json/v1:5723591e493363e45144be00de15575e7a741e9744b7761ccd2764dc41b5c1c4",
+      "locator": "T-248#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T02:03:14Z → 2026-09-09T02:16:17Z'",
+      "path": "governance/tasks/T-248.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T02:34:16Z → 2026-09-09T02:43:10Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-249.json/v1:ed7838126046a691a74b8ff73ab7c3498d0ac789b07c6d42b7a30d16d49f81aa",
+      "locator": "T-249#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T02:34:16Z → 2026-09-09T02:43:10Z'",
+      "path": "governance/tasks/T-249.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T03:12:36.394409Z → 2026-09-09T03:22:49.964512Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-250.json/v1:cd72b74b30e573e544e993a0e9e4bf7794614a00bb607d22225408187be7a626",
+      "locator": "T-250#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T03:12:36.394409Z → 2026-09-09T03:22:49.964512Z'",
+      "path": "governance/tasks/T-250.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T03:22:49.964512Z → 2026-09-09T03:33:27.482797Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-251.json/v1:9165986288ac7f46c75ec519e7002c2338c74df998b2513a2844ab697c2e6672",
+      "locator": "T-251#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T03:22:49.964512Z → 2026-09-09T03:33:27.482797Z'",
+      "path": "governance/tasks/T-251.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T03:41:09.074902Z → 2026-09-09T03:42:11.326876Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-252.json/v1:dedc96c6c0db162e1429ebeb05aa21dd215faac830d6293056f06764648c4ccb",
+      "locator": "T-252#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T03:41:09.074902Z → 2026-09-09T03:42:11.326876Z'",
+      "path": "governance/tasks/T-252.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T03:54:25.240288Z → 2026-09-09T04:12:14.780236Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-253.json/v1:e2fce624150a3842d62dcdf2fed124519ee803bd46990cb2e7d7307f908e6f6a",
+      "locator": "T-253#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T03:54:25.240288Z → 2026-09-09T04:12:14.780236Z'",
+      "path": "governance/tasks/T-253.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T04:34:02Z → 2026-09-09T04:36:04Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-254.json/v1:ad9a592a8cb726f5830524c01da0f1d47b0192cfc002f347412079c1383cf7bc",
+      "locator": "T-254#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T04:34:02Z → 2026-09-09T04:36:04Z'",
+      "path": "governance/tasks/T-254.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T14:25:03Z → 2026-09-09T14:58:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-255.json/v1:a0f55bd3f02f4cb0706e8385369ba32eaf8d3e8257f4a961e4f5eb19bd408e59",
+      "locator": "T-255#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T14:25:03Z → 2026-09-09T14:58:06Z'",
+      "path": "governance/tasks/T-255.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T05:53:15Z → 2026-09-09T06:23:07Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-256.json/v1:6f651d2432ccd16cad6fd40659a989323cb29d189a84f945b16be48250a769ed",
+      "locator": "T-256#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T05:53:15Z → 2026-09-09T06:23:07Z'",
+      "path": "governance/tasks/T-256.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T06:26:02Z → 2026-09-09T06:53:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-257.json/v1:c1f447a92890a86a34643827076778fb871fa86c22cea765595cd305c1b41198",
+      "locator": "T-257#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T06:26:02Z → 2026-09-09T06:53:18Z'",
+      "path": "governance/tasks/T-257.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T06:32:47Z → 2026-09-09T06:38:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-258.json/v1:49dd6a8f3fea2b0a922a7b5023c2035a1c8eeaf112c9199c1cce336f7c1e0124",
+      "locator": "T-258#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T06:32:47Z → 2026-09-09T06:38:35Z'",
+      "path": "governance/tasks/T-258.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T06:45:31Z → 2026-09-09T08:31:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-259.json/v1:adf1c36e502909e96e668244743ade13999d920259ee8972de0920ab7920e083",
+      "locator": "T-259#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T06:45:31Z → 2026-09-09T08:31:41Z'",
+      "path": "governance/tasks/T-259.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T06:58:19Z → 2026-09-09T07:25:12Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-260.json/v1:8465f397f9f201d10d7a2fb871ec94c4a67f390ac12524cfd74e8128f8ec5755",
+      "locator": "T-260#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T06:58:19Z → 2026-09-09T07:25:12Z'",
+      "path": "governance/tasks/T-260.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T06:59:57Z → 2026-09-09T07:18:44Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-261.json/v1:e13d24de5a42278bdfa87d8985a94535c7713ed7a4a157e819da5cb18bfd1f4f",
+      "locator": "T-261#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T06:59:57Z → 2026-09-09T07:18:44Z'",
+      "path": "governance/tasks/T-261.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T07:23:16Z → 2026-09-09T07:41:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-262.json/v1:27b35331a6e04e350aa500f735516102aef67dc7425be126f3595bfe7bfc189f",
+      "locator": "T-262#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T07:23:16Z → 2026-09-09T07:41:32Z'",
+      "path": "governance/tasks/T-262.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T07:44:30Z → 2026-09-09T07:55:07Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-263.json/v1:b54296f7a424c31467761763600a665af7af4fa4981bc0168fa4e2e3e067295b",
+      "locator": "T-263#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T07:44:30Z → 2026-09-09T07:55:07Z'",
+      "path": "governance/tasks/T-263.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T07:57:45Z → 2026-09-09T08:06:59Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-264.json/v1:40bc22ecae619869683e0871971cadc63250409717a572a8f27a2d3f83c2de2b",
+      "locator": "T-264#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T07:57:45Z → 2026-09-09T08:06:59Z'",
+      "path": "governance/tasks/T-264.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T08:10:05Z → 2026-09-09T08:50:58Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-265.json/v1:a57ee60a3edfe11feae9b36cf97863dd5c10a983053b4f7908908cc1461ac4cc",
+      "locator": "T-265#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T08:10:05Z → 2026-09-09T08:50:58Z'",
+      "path": "governance/tasks/T-265.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T08:11:43Z → 2026-09-09T08:23:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-266.json/v1:a742e0d356b16bbb7a8c31621576af6bd6d8ff2ef258d333ac828346e60cd221",
+      "locator": "T-266#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T08:11:43Z → 2026-09-09T08:23:06Z'",
+      "path": "governance/tasks/T-266.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T08:25:20Z → 2026-09-09T08:35:48Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-267.json/v1:abcf07b88f9a1643ca0410b09a9855df2ba5fc84f9afc9a53abe8cd3d0a1b6b2",
+      "locator": "T-267#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T08:25:20Z → 2026-09-09T08:35:48Z'",
+      "path": "governance/tasks/T-267.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T09:04:34Z → 2026-09-09T09:18:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-269.json/v1:aa950d8d21c6e9690ffd6ce20d120c7839a34c007ae1a64d53b27e3cbd2f31c4",
+      "locator": "T-269#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T09:04:34Z → 2026-09-09T09:18:32Z'",
+      "path": "governance/tasks/T-269.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T09:08:49Z → 2026-09-09T09:39:49Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-270.json/v1:4bc128438a99119e10f27501d55818f43f06558a8f5cb1e5067732b889010aed",
+      "locator": "T-270#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T09:08:49Z → 2026-09-09T09:39:49Z'",
+      "path": "governance/tasks/T-270.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T09:22:13Z → 2026-09-09T09:35:33Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-271.json/v1:82a8f3c77fc16992f963f09fda180ef5f72597b1560555e614a1ba2b99af4b2f",
+      "locator": "T-271#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T09:22:13Z → 2026-09-09T09:35:33Z'",
+      "path": "governance/tasks/T-271.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T09:44:57Z → 2026-09-09T10:11:15Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-272.json/v1:26a4889f46b79676d6303fb93a1c8f06c3afa8cd2e5d9796a4b73796f2e6c0ba",
+      "locator": "T-272#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T09:44:57Z → 2026-09-09T10:11:15Z'",
+      "path": "governance/tasks/T-272.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T13:31:45Z → 2026-09-09T13:35:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-274.json/v1:676e06adf4fb08d680827f3affb24158a3761b5294b10f9c466713ff83d331e8",
+      "locator": "T-274#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T13:31:45Z → 2026-09-09T13:35:35Z'",
+      "path": "governance/tasks/T-274.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-09T16:52:03Z → 2026-09-09T16:54:30Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-276.json/v1:2e3634ac5af4b7769403ca1be61f15c10a9f6b16ab7299e4e6772fd7d9eb7d2a",
+      "locator": "T-276#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-09T16:52:03Z → 2026-09-09T16:54:30Z'",
+      "path": "governance/tasks/T-276.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "claim 2026-09-10T03:16Z；finish 2026-09-10T07:45Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-281.json/v1:e63ec311f5f9203d8fc5e9259fc57541401aaa97da6b8e27e648e276d0d77bcb",
+      "locator": "T-281#time",
+      "message": "task time does not parse as ISO-8601: 'claim 2026-09-10T03:16Z；finish 2026-09-10T07:45Z'",
+      "path": "governance/tasks/T-281.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T05:58:38Z；finish 2026-09-10T06:47:44Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-289.json/v1:442d9e12434349b3efb62841c69b6bb11c32c7c645e7ace94a41be1cf903c9b8",
+      "locator": "T-289#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-10T05:58:38Z；finish 2026-09-10T06:47:44Z'",
+      "path": "governance/tasks/T-289.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "claim 2026-09-10T07:06:39Z；finish 2026-09-10T07:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-290.json/v1:c524234bf4a54e304e4b0247d7b98c411167e26345c70077696de6adf3d1a933",
+      "locator": "T-290#time",
+      "message": "task time does not parse as ISO-8601: 'claim 2026-09-10T07:06:39Z；finish 2026-09-10T07:29Z'",
+      "path": "governance/tasks/T-290.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T07:26:10Z → 2026-09-10T07:52:30Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-294.json/v1:952f1abe58d376072c233d71e19b3e131e96ec90158a8ac2ea981221cf4a88ef",
+      "locator": "T-294#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-10T07:26:10Z → 2026-09-10T07:52:30Z'",
+      "path": "governance/tasks/T-294.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T08:05:00Z → 2026-09-10T09:35:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-295.json/v1:7c91354d5914d883397925135c6c8a10cf92091697c1c1f6d1c1a1240d4107a5",
+      "locator": "T-295#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-10T08:05:00Z → 2026-09-10T09:35:00Z'",
+      "path": "governance/tasks/T-295.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T09:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-84a.json/v1:a98ee58d60e3d55611731db8b0977e5b1211714cf7b05a4556033b1f7e6385d2",
+      "locator": "T-84a#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T09:0xZ'",
+      "path": "governance/tasks/T-84a.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T09:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-85.json/v1:2077ad03c9a1e8a83b714986aea9e91a72a8922a01312abdaaa5e0711000caa3",
+      "locator": "T-85#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T09:0xZ'",
+      "path": "governance/tasks/T-85.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T11:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-87.json/v1:99462a7d8455503651b68355e4cafb98ba3b112c671c989fc53148ce97033838",
+      "locator": "T-87#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T11:3xZ'",
+      "path": "governance/tasks/T-87.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T03:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-90.json/v1:c23c8f81b2696c846fe362dcb7c805a7d5030c441e20aea69a2a17effa9230c7",
+      "locator": "T-90#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T03:5xZ'",
+      "path": "governance/tasks/T-90.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T08:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-90b.json/v1:a81827aaf75ae442962b18e1d9fc3b3f7047fe04dc66d6784172e3232f1eb8bb",
+      "locator": "T-90b#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T08:2xZ'",
+      "path": "governance/tasks/T-90b.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T04:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-92.json/v1:cdd8d94bf1c01e772352a01bbe0d8dd0fbb892cdfedc85ef0ce655693f259bb6",
+      "locator": "T-92#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T04:2xZ'",
+      "path": "governance/tasks/T-92.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T06:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-93.json/v1:f65743e1e7313940c1eaec78b66d05a5b9e79676f7aa47e08e311a06740179f9",
+      "locator": "T-93#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T06:3xZ'",
+      "path": "governance/tasks/T-93.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T06:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-94.json/v1:e0da4e8b4a274f8fe2fe2a0d5fb74503af892786f9fb963ba51e1dbe2f66d127",
+      "locator": "T-94#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T06:3xZ'",
+      "path": "governance/tasks/T-94.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T06:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-95.json/v1:bdf36a5dcce247278fe640b07329f9621b06603caf2840ef68717d016ff3dfe0",
+      "locator": "T-95#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T06:5xZ'",
+      "path": "governance/tasks/T-95.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T12:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-96.json/v1:89202a5a443c228cc730bfd0860b481bafc95fe00481aeee910151176d800dd2",
+      "locator": "T-96#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T12:4xZ'",
+      "path": "governance/tasks/T-96.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-97.json/v1:877afc1c10763c8b9aac6c8ff3b585ca23c29ec12fc3458465f7c9577ce7054a",
+      "locator": "T-97#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-97.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-98.json/v1:0bc35eed15b65e0c2ee532a6846101b53654f840e52a4ddb38518a1761e9950f",
+      "locator": "T-98#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-98.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-99.json/v1:28546a6c36d15f7d67452004289fc97f377f71a31fc69a7fdd1fdf92b525b723",
+      "locator": "T-99#time",
+      "message": "task time does not parse as ISO-8601: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-99.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    }
+  ],
+  "ledgerwash_findings_version": 1,
+  "observations": [
+    {
+      "actor_equals_owner": {
+        "differ": 104,
+        "same": 473
+      },
+      "kind": "self_signing"
+    },
+    {
+      "expires_at": "2026-09-27T16:38:02Z",
+      "kind": "snapshot_expires_at",
+      "note": "recorded as found; no freshness judgment (no clock in this tool)"
+    },
+    {
+      "counts": {
+        "1": 462
+      },
+      "kind": "schema_versions"
+    }
+  ],
+  "residuals": [],
+  "run": {
+    "adapter": "ec-ledger",
+    "epoch": "b8761e95bbd92c4cd1d1917cbf70ff84e74c97f8",
+    "ledgerwash_version": "0.1.0",
+    "ref": "b8761e95",
+    "spec_version": 1,
+    "target": "C:\\Users\\nelson\\dev\\estate-consolidation"
+  },
+  "summary": {
+    "critical": 0,
+    "high": 1,
+    "info": 0,
+    "warn": 202
+  },
+  "verdict": "pass"
+}

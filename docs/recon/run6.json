@@ -1,0 +1,2071 @@
+{
+  "findings": [
+    {
+      "after": "b55a636b3a590c9f2a5dca1c9cd58aa57798a06ddb67e6a6ef86a67d4dd319e5",
+      "before": "evidence/T-289-ec-mechanical-workflows.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json/v1:7b6ce41c790caaaba706b97a320575a4c775891a56adf1e378d137ffefd8cc29",
+      "locator": "2c22ea03-ccc1-49c8-ac68-f507f25b5873.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 2c29d7a8af58 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "be732f4a75e34f0a57967b932b23a6e36316567c45c6e9c3717ed0053725d6bb",
+      "before": "evidence/T-289-validation.json",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json/v1:db9f7b09a179c67be6f09430b12fb30d893e20008b4fcad1ed7e8e1c983a4b90",
+      "locator": "2c22ea03-ccc1-49c8-ac68-f507f25b5873.json#source_fingerprints[1]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 2c29d7a8af58 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/2c22ea03-ccc1-49c8-ac68-f507f25b5873.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "90a208b0649f3e1d5ef02d0cc46051ea866d02979a7e9e2572653da9b3739fec",
+      "before": "evidence/T-290-stateweaver-dependabot.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json/v1:d36305b2c5c6bf16d437f819152857a67674134f9a266c197218516b0627ad12",
+      "locator": "c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor b8925c8ea774 (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": "535e59a99f5d9e99c20214c12dca8765406351e6fc6560f00c80ece314205b2d",
+      "before": "evidence/ec-task-writer-migration-20260910.md",
+      "fingerprint": "CONTRACT_UNDOCUMENTED/evidence/task-operations/e1cd3c0e-dbca-4c20-9834-6fd7278704df.json/v1:48c7faa38063ac70efcce8a25729e5667d15f83531964f04f12489b707674e42",
+      "locator": "e1cd3c0e-dbca-4c20-9834-6fd7278704df.json#source_fingerprints[0]",
+      "message": "undocumented fingerprint combo (hash_format='raw-git-blob-bytes', origin=None); bytes match birth-side anchor 574364f9461e (evidence validates, contract undeclared)",
+      "path": "evidence/task-operations/e1cd3c0e-dbca-4c20-9834-6fd7278704df.json",
+      "rule": "CONTRACT_UNDOCUMENTED",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/FINAL-REVIEW.md/v1:ba84f0407895c801cf863b353a7f653ec8cf530c387e2ee253615d7bd349d07f",
+      "locator": "T-299",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-299)",
+      "path": "docs/FINAL-REVIEW.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/GROWTH_POOL.md/v1:efa5a70a204793c81a8250327338e876c1a941011eec9cd89c468661f001acc4",
+      "locator": "T-453",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-453)",
+      "path": "docs/GROWTH_POOL.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/LOOP-NOTES.md/v1:ef3c23a0626a5334f198f060ab5e31df6182efe767ce372796e6f4792276da0d",
+      "locator": "T-394",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-394)",
+      "path": "docs/LOOP-NOTES.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/PROBE.md/v1:8ab061a2e723baf1ebfc25e2352a1d2f5bc84fa91fcbc100f0ba4ca63110cadb",
+      "locator": "T-81",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-81)",
+      "path": "docs/PROBE.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/RELEASING.md/v1:6cc428b2e71cdecf74e004018505438442825f587dc3bea7ae11c9b212200590",
+      "locator": "T-128 T-212 T-52",
+      "message": "referenced path does not exist in the epoch tree (referenced by 3 task record(s): T-128, T-212, T-52)",
+      "path": "docs/RELEASING.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/TRY.md/v1:39ed7e3909028b37a5f8b536938fd34018ddfaa2530e39a2e52e7186692c2b9c",
+      "locator": "T-384 T-394",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-384, T-394)",
+      "path": "docs/TRY.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M1.md/v1:eb317b71e74c05cdb6d40d5b18a58ac79649d366951115c12f555bfea288b7f5",
+      "locator": "T-14",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-14)",
+      "path": "docs/adapters/CHECKWASH_M1.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M2.md/v1:a8d922d92bf969adc87d64a4ced5ba8f10068d67915528b1ebe9208795ded780",
+      "locator": "T-16",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-16)",
+      "path": "docs/adapters/CHECKWASH_M2.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M6.md/v1:965b59bed17a9c663a496fe2f3fce590140bf63acce488e6319ee3305ead3169",
+      "locator": "T-76 T-77 T-78 T-79 T-80",
+      "message": "referenced path does not exist in the epoch tree (referenced by 5 task record(s): T-76, T-77, T-78, T-79 (+1 more))",
+      "path": "docs/adapters/CHECKWASH_M6.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/CHECKWASH_M7.md/v1:277b02c8dcd329dc3ff6d7a8692d74058149f087c68467daa749206631631f1c",
+      "locator": "T-211",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-211)",
+      "path": "docs/adapters/CHECKWASH_M7.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/adapters/checkwash.md/v1:5070d7605f12b687717677fd299f180784141cafa94f1d5133a888542cccfa77",
+      "locator": "T-11",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-11)",
+      "path": "docs/adapters/checkwash.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/campaign/v1:b6b77f1fd61f2072357ac38c9b03dfda77da03431d7bff5bc87fb2837069efd4",
+      "locator": "T-282",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-282)",
+      "path": "docs/campaign",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/consolidation/2026-09-05.md/v1:3befd91b2a946adc787cf6528ba0856a271057e3e5c8ee4513883b9749ce9753",
+      "locator": "T-191 T-193",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-191, T-193)",
+      "path": "docs/consolidation/2026-09-05.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/current-state-consistency/v1:6869c4d018ecf46bd4dbfb0caeceb8594c8c3c52d69da867fabc9abec35d32db",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/current-state-consistency",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/enterprise.md/v1:22cce1c995753f0c6a79036300923548aa7d26148b023cc4abc00ab2b26d058e",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/enterprise.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/evidence/m7-content-capsule-01-art-signoff-2026-09-04.md/v1:4f43ddf976ce8f9ea3432b7c82c744c5673fb7a60575de636229641ed964da34",
+      "locator": "T-91",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-91)",
+      "path": "docs/evidence/m7-content-capsule-01-art-signoff-2026-09-04.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/evidence/m7-self-hosted-main-2026-09-06.md/v1:33b086c1e7efac1099ae5428362bd04dab132f056fcb76ea50298d3d89247b4e",
+      "locator": "T-357",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-357)",
+      "path": "docs/evidence/m7-self-hosted-main-2026-09-06.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/fixtures/v1:a61d448e55ef4bf48ccbfa4f1e21b6c3484b1ab7c8ed58b4a2fc0f5e51d6abb6",
+      "locator": "T-365",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-365)",
+      "path": "docs/fixtures",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/fixtures/content-capsule-02-source-pack.json/v1:43af70b63672dae0497b895f6839b9378329d4dfc781529d92b4887b653cf89a",
+      "locator": "T-365",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-365)",
+      "path": "docs/fixtures/content-capsule-02-source-pack.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/handoff.md/v1:5207561e778140e2c13fe8ed86bae7f0673dce188af4e3ac50503ccdff335514",
+      "locator": "T-221",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-221)",
+      "path": "docs/handoff.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/implementation-status.md/v1:cb86f39555deb315d84419647f3ece05289dc44aa054d8370bd46fafd2e8983c",
+      "locator": "T-357 T-368",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-357, T-368)",
+      "path": "docs/implementation-status.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r02-growth-contract-admission.md/v1:8f1cc4946422479dfb0a5b374210e0789446da9c8243c26538a2ce4a5110e83f",
+      "locator": "T-423",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-423)",
+      "path": "docs/integrated-product-r02-growth-contract-admission.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r04-controller-core.md/v1:3a4ed2d10e77a2456c7fa84bdba7f99e4cff1eef24b013ead0fdb3477fd0b87a",
+      "locator": "T-425",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-425)",
+      "path": "docs/integrated-product-r04-controller-core.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r04b-run-loop.md/v1:702119265b0ba35b224157285d23c9e1c80f60464eafcc9274a60776dcb3ee4d",
+      "locator": "T-433",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-433)",
+      "path": "docs/integrated-product-r04b-run-loop.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-r05-adapter-verifier.md/v1:c374b357bf5f80a712cf11fd4147a7a742c8f7b5b6267747f91ae36d6d33bc05",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "docs/integrated-product-r05-adapter-verifier.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/integrated-product-roadmap-v1.0.md/v1:c97880c0fc0d98d6c067df9ae8ffc2bcfd33042a8790ab56ab470243d0064feb",
+      "locator": "T-419 T-439",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-419, T-439)",
+      "path": "docs/integrated-product-roadmap-v1.0.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/interface.md/v1:01b6bc20e224facda41bf6bb194472178335a6a05f0f23b734feb240a97f8903",
+      "locator": "T-413",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-413)",
+      "path": "docs/interface.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/launch-v0.3.0.md/v1:72f495ded6c6eec4d3e03289238df41078f650657f26e667d7dac4f4a7c9243e",
+      "locator": "T-200 T-211",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-200, T-211)",
+      "path": "docs/launch-v0.3.0.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/launch.md/v1:a7813a26499d88b9fd92e0e1083f22415fa2794c4dcaf1eee92a01ff7835d1a0",
+      "locator": "T-43 T-51",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-43, T-51)",
+      "path": "docs/launch.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/migrations/engineering-preview.md/v1:4ea20548e388798e72a358fb54b93fdc55a1ef45221b2cce431605f99b0ec58e",
+      "locator": "T-357",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-357)",
+      "path": "docs/migrations/engineering-preview.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/PANEL-2026-09-13.md/v1:aa4da87b6ee49a5a7e10ca77c2ee8b2a9f868a85ebe465dc96b30b2bd92c2818",
+      "locator": "T-371",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-371)",
+      "path": "docs/pregate/PANEL-2026-09-13.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/PROTOCOL.md/v1:bbeb88e006baf76811c37c1618edf8c18a2905b8e3afda36ce398d5c8831812c",
+      "locator": "T-366",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-366)",
+      "path": "docs/pregate/PROTOCOL.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/RUN-2026-09-13.md/v1:4222eb38181748a4d5caef8de4ab292e98a4cd66bfa220a8589a862198e7e8f8",
+      "locator": "T-366",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-366)",
+      "path": "docs/pregate/RUN-2026-09-13.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/pregate/run-2026-09-13-round4.json/v1:9b14fce2762cd9b56ffc6519a15733442fd771644fe733c61ac3d2e980eb0213",
+      "locator": "T-369",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-369)",
+      "path": "docs/pregate/run-2026-09-13-round4.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/qualification/backlog.json/v1:e154bf604add8872593f799885f2c927a27f72ed2952b4f12388c397fb73e183",
+      "locator": "T-258",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-258)",
+      "path": "docs/qualification/backlog.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/recon/v1:509f17a341f9ac6c9a79bc3102a16dcc871df3b8cf89cfba69960ce6b51045cb",
+      "locator": "T-282",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-282)",
+      "path": "docs/recon",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/releases/v0.3.0-public-launch.md/v1:33cf7a88af56024da8b8b4e861448cfc81269bfebda04a615f2ee24acfceeb0c",
+      "locator": "T-200 T-201",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-200, T-201)",
+      "path": "docs/releases/v0.3.0-public-launch.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/remediation-upgrade.md/v1:c9808835c89fcb9eaef327cfb979c21f659f6038868a870ed49adaa6afe408e0",
+      "locator": "T-197",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-197)",
+      "path": "docs/remediation-upgrade.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/remote-access.md/v1:b3538cfdc1eae5887c6153f6011d98ed66c83372098922e74ea5a4f93f00b962",
+      "locator": "T-242",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-242)",
+      "path": "docs/remote-access.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/roadmap.md/v1:52e286129d2a5a62d9b3a1dc4f175f40ad834d19799552118fa4155f9cf81fbf",
+      "locator": "T-430",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-430)",
+      "path": "docs/roadmap.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/spec.md/v1:8d8614313f48e848329276ceb6fb2d7cb85c2163dcb4ef5f9073b56c32727697",
+      "locator": "T-413",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-413)",
+      "path": "docs/spec.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/stability.md/v1:45eb2ff74d7a0008722a636cf459705ae3bd4c02a67fc47e4e5b5c1516bb434b",
+      "locator": "T-212",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-212)",
+      "path": "docs/stability.md",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/t209-archive-index/v1:5695f4370b32d5b1437aad1c93707a994797a3d67f79afa3ca1f0d3ad2bc82f4",
+      "locator": "T-245",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-245)",
+      "path": "docs/t209-archive-index",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/v0.3.0-maintainer-pass/v1:a0f52c82764f76392c2b54d0f7b67a4e83a04eeb95bb1cac8a0535e1315b6191",
+      "locator": "T-204",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-204)",
+      "path": "docs/v0.3.0-maintainer-pass",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/docs/verification/frozen-core-baseline.json/v1:e20aac5bd3a73ff90e3e933e39df8e7e75622b6185204e4b2d61966395730a04",
+      "locator": "T-393",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-393)",
+      "path": "docs/verification/frozen-core-baseline.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/evidence/T-82-stress-llm-2026-09-03-/v1:783d8316b3cdb934c36d5bef1a6def635f2ddab8c083c48d5da318a0af867486",
+      "locator": "T-82",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-82)",
+      "path": "evidence/T-82-stress-llm-2026-09-03-",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/gc-agent-accelerator-01.v1.json/v1:28f7d23cb669a15e00e9e42f99d72c448f01f9b783d43b83db8db75913cf2c3d",
+      "locator": "T-427",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-427)",
+      "path": "governance/growth-contracts/gc-agent-accelerator-01.v1.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/gc-md-brain-01.v1.json/v1:83eab152bb070c9b459e061f0693eff4cdb8d58b9f18b9f47f8c5462b0093cfe",
+      "locator": "T-429",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-429)",
+      "path": "governance/growth-contracts/gc-md-brain-01.v1.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/growth-contracts/qualified-executors.json/v1:28a4fc63a87296aabf484ab0c84849d68f01127bd1a4962af089ed68fc97c643",
+      "locator": "T-427",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-427)",
+      "path": "governance/growth-contracts/qualified-executors.json",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/governance/tools/workflows/v1:bf12dd4eb3b98e6815e473ef001a89297cdc79794d445155178c9bb71d79acc6",
+      "locator": "T-358",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-358)",
+      "path": "governance/tools/workflows",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/boundkit.py/v1:3e4c797312a94072aa65654d12f8e2452a8caeadb063ae8b2c283c8126af530d",
+      "locator": "T-310",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-310)",
+      "path": "tools/boundkit.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/claim.py/v1:ea5e929a9b33c52a647c643105c7dd756fd0d89de9c10de6a7529d2624aed0c4",
+      "locator": "T-114",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-114)",
+      "path": "tools/claim.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_adapter.py/v1:d4658b64de29416e2607294c91d8fc99c96d1e9fd8660c6f8c9b0e26eef1632f",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "tools/ec_adapter.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_admission.py/v1:b3dedd9c4edbc07483d735d8761d84f5b18ff8b4ce6c7501c8c8f0ead05d7808",
+      "locator": "T-424",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-424)",
+      "path": "tools/ec_admission.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/ec_controller.py/v1:9ef0889219739bf35f33e8047c61a5fa22a83acdd5d7d8b7160455031d5a6a56",
+      "locator": "T-425 T-433",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-425, T-433)",
+      "path": "tools/ec_controller.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/labels/v1:afba09f3ef4a66fb7ca30f220f3393e1c64c95140c79d0e74563c6908ce7334b",
+      "locator": "T-451",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-451)",
+      "path": "tools/labels",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/llm-arm/rejudge_llm_cli.py/v1:1e0c9222a26550657b4cbbff4803c0a9d14db4c3879ed5240d918239c89d3022",
+      "locator": "T-201 T-205",
+      "message": "referenced path does not exist in the epoch tree (referenced by 2 task record(s): T-201, T-205)",
+      "path": "tools/llm-arm/rejudge_llm_cli.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/release.py/v1:7c72a1dc2edfb466d716c9be8dbd4554994476cab3ab96c36b4028b17a3faa86",
+      "locator": "T-114",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-114)",
+      "path": "tools/release.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_adapter.py/v1:c35f50e69da749504b9104c216ce3b98f3eb077362750f24048b0200d472eaef",
+      "locator": "T-426",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-426)",
+      "path": "tools/test_ec_adapter.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_admission.py/v1:751d389bcde57c6b05d605485f46affb47c2f5ad5851167d13f6924d32dfdf63",
+      "locator": "T-424",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-424)",
+      "path": "tools/test_ec_admission.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "DANGLING_REF/tools/test_ec_controller.py/v1:5382c6751ac374e032c6179ef5e31815eede10f1e7315462c1389b2361f25456",
+      "locator": "T-425",
+      "message": "referenced path does not exist in the epoch tree (referenced by 1 task record(s): T-425)",
+      "path": "tools/test_ec_controller.py",
+      "rule": "DANGLING_REF",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-106.json/v1:96cb174c0624a35d76b1c9a6df31fd9c7ca87c16e689c71a0b816a9b5c252296",
+      "locator": "T-106",
+      "message": "sha 26055b272a5012788c9971bd21f39353c9f9cb9f referenced in task record(s) (T-106) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-106.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-106.json/v1:96cb174c0624a35d76b1c9a6df31fd9c7ca87c16e689c71a0b816a9b5c252296",
+      "locator": "T-106",
+      "message": "sha b8ac410515c39a1f3eb2f4d2142d0b5ff536cc0f referenced in task record(s) (T-106) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-106.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-107.json/v1:35fea190353403859f0b706a70a00def126c725e04024b5c143ca70d9b53f92d",
+      "locator": "T-107",
+      "message": "sha 34e5d63fd1b7b8bcf17e7b44f3483994995ce6c0 referenced in task record(s) (T-107) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-107.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-109.json/v1:4e085d81ec3210a625f62e1ea7a7e6d4948a3b1265aedaa47bce133672acc68e",
+      "locator": "T-109",
+      "message": "sha 5e876007c2cc5aaff8735f67663b7044800bf12e referenced in task record(s) (T-109) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-109.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-146.json/v1:9c96bdf76ae071fe458f94f627fcfb4ae3d883b0704a36856cb10d99d6521b5a",
+      "locator": "T-146 T-148",
+      "message": "sha 4bab72c23275a4f6d02de1da4a2d796aec783d00 referenced in task record(s) (T-146, T-148) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-146.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-146.json/v1:9c96bdf76ae071fe458f94f627fcfb4ae3d883b0704a36856cb10d99d6521b5a",
+      "locator": "T-146 T-148",
+      "message": "sha b346b5626ccea0c909ee6d1f52532ec74733e556 referenced in task record(s) (T-146, T-148) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-146.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-149.json/v1:c0e5ef7b3f5e34c485739db2d1e96e8f78a6585e5fe08baefec98173a648b5dd",
+      "locator": "T-149 T-151",
+      "message": "sha 7f26dd10d16e98fc9f8991972199d17690422a43 referenced in task record(s) (T-149, T-151) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-149.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-158.json/v1:a9c58f339130ef43e965e634ae89488d3b157ef389bda49eac0a9d77f8cb2d21",
+      "locator": "T-158",
+      "message": "sha 39ed4df952c80252931dfb77d01be6bd12d13442 referenced in task record(s) (T-158) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-158.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-158.json/v1:a9c58f339130ef43e965e634ae89488d3b157ef389bda49eac0a9d77f8cb2d21",
+      "locator": "T-158",
+      "message": "sha f8e92ade9934b9e938b9b39535a9077169cc892a referenced in task record(s) (T-158) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-158.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-160.json/v1:2ac4879325cc260c82560b7d5b894f55e4fe5347ef9318c5be692f1c933193e4",
+      "locator": "T-160 T-162",
+      "message": "sha 3e8c8d9e7aed963321e73f3c202d92cbdaf38811 referenced in task record(s) (T-160, T-162) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-160.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-160.json/v1:2ac4879325cc260c82560b7d5b894f55e4fe5347ef9318c5be692f1c933193e4",
+      "locator": "T-160 T-162",
+      "message": "sha a4acb97ea6d5dd699d2a540fbc30b711cc4c9486 referenced in task record(s) (T-160, T-162) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-160.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-163.json/v1:7cfad69860c4ca55fdaf3722ded6c71ded89a3213aa4dba0526180862f41d79c",
+      "locator": "T-163",
+      "message": "sha 912cb52b1427cbf332bca0893a0c73cd09f79aea referenced in task record(s) (T-163) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-163.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-164.json/v1:f588fd63e684409cbc3d040771c02785948aec1c1af306027edbcd471cb73896",
+      "locator": "T-164",
+      "message": "sha 63c43d3e303264d3512febe5f576a3f5faf2bca7 referenced in task record(s) (T-164) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-164.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-165.json/v1:138aa05b45a9a18fc2086194ca06f7829e8512d73294f3814a7e392c362acd0a",
+      "locator": "T-165",
+      "message": "sha d74282c979ef3a41025516467cf8203ef453f3e5 referenced in task record(s) (T-165) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-165.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-168.json/v1:df336160bcd40cc2529a9c8b32e6f1a08303ff7631754cd551430b0528853ce0",
+      "locator": "T-168",
+      "message": "sha 758cc1004cec263673aa472dbe2b4288a1e26d73 referenced in task record(s) (T-168) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-168.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:7f30ac94fb1b45ff97cf609646fd11eac399c539bf682f77e92e355438b6104d",
+      "locator": "T-170",
+      "message": "sha 1fa883baabacf314083fd80c15fffa68c4001ade referenced in task record(s) (T-170) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:7f30ac94fb1b45ff97cf609646fd11eac399c539bf682f77e92e355438b6104d",
+      "locator": "T-170",
+      "message": "sha cfa6c1dd30b7fdb0a86865e1d2a2e93646a46c31 referenced in task record(s) (T-170) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-170.json/v1:08b1322ff8b3fa728dffe76085643bfa17f8095d8fae2ed9f9b2ecff9fa480ba",
+      "locator": "T-170 T-172",
+      "message": "sha 0981045d0fb0335f5d7266ae1597d7e399263259 referenced in task record(s) (T-170, T-172) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-170.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-172.json/v1:a69c4b2ba8540b0b9839b4680e02a55f64bb8d806cd925b0f96463d623656d24",
+      "locator": "T-172",
+      "message": "sha 057c65bba438de27c11efaf3c4524c1403a5a7f5 referenced in task record(s) (T-172) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-172.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-304.json/v1:c42a6725f2fc0a64518f1d577aebf5afadf34f68182b8686f192c1a5e7aa9a88",
+      "locator": "T-304",
+      "message": "sha e5fc2cf25af6eb86d4c8662623f54e87acb72215 referenced in task record(s) (T-304) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-304.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-333.json/v1:b674643fa660c30321c9306d357d50532eef5025bade886465f7224bf7508239",
+      "locator": "T-333",
+      "message": "sha 709240deca64b231e236291f9bbd1272c8e79458 referenced in task record(s) (T-333) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-333.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-357.json/v1:e42731a7a9461851239db56f9056cd43d1cf78926f209cc6448987bfd3830a61",
+      "locator": "T-357",
+      "message": "sha 595c8966eddbf04497c08639d1eb5fa648efe2d2 referenced in task record(s) (T-357) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-357.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-357.json/v1:e42731a7a9461851239db56f9056cd43d1cf78926f209cc6448987bfd3830a61",
+      "locator": "T-357",
+      "message": "sha b0797cd66e735fa462f2e8f3796814ef5a84b6a8 referenced in task record(s) (T-357) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-357.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-365.json/v1:7d474b2c6477d3e612ec3553b6b8c9abdef2e5f09b1c9b8817b99aaaa4b2fb4e",
+      "locator": "T-365",
+      "message": "sha 799cfa9f77467af768dcb54120a4865c406d871b referenced in task record(s) (T-365) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-365.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": null,
+      "before": null,
+      "fingerprint": "PIN_UNROUTABLE/governance/tasks/T-370.json/v1:2d34dac5bcab4346dee6ab0df405bec7c8807ad771d9372e6e628e3db59294d8",
+      "locator": "T-370",
+      "message": "sha 23fce200561ae4a95e46539ed9e668088591d1c1 referenced in task record(s) (T-370) is not an object in the target repo; bare reference cannot be routed to a source repo; unverified",
+      "path": "governance/tasks/T-370.json",
+      "rule": "PIN_UNROUTABLE",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T07:12:17Z",
+      "before": "2026-09-10T09:55:00Z",
+      "fingerprint": "TIMELINE_INVERSION/evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json/v1:a2a5cd2c523461454151a5427f8b3b498e33fef8b8d47126ec3a8caa9c3c46a9",
+      "locator": "T-292:c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "message": "task T-292: recorded_at 2026-09-10T07:12:17Z is earlier than request.at 2026-09-10T09:55:00Z; clock or timezone mislabeling suspected",
+      "path": "evidence/task-operations/c8d5a3b2-8f04-4e3b-bc7a-f0e4d6a39b25.json",
+      "rule": "TIMELINE_INVERSION",
+      "severity": "high"
+    },
+    {
+      "after": "2026-09-07T13:42:24Z（工作先做、列後補，同一次 push）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-204.json/v1:cbdaf573f34b0796ba7d7e3be684970727cef20bcb18687fbc16cec0e0d93f39",
+      "locator": "T-204#time",
+      "message": "timestamp does not parse as ISO-8601: '2026-09-07T13:42:24Z（工作先做、列後補，同一次 push）'",
+      "path": "governance/tasks/T-204.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-07T15:34:50Z（認領 15:04:09Z）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-212.json/v1:fb6d1d1dda988ca79205170c963fa0ad1d4324dff5dd38848572436271f99e7d",
+      "locator": "T-212#time",
+      "message": "timestamp does not parse as ISO-8601: '2026-09-07T15:34:50Z（認領 15:04:09Z）'",
+      "path": "governance/tasks/T-212.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "claim 2026-09-10T03:16Z；finish 2026-09-10T07:45Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-281.json/v1:e63ec311f5f9203d8fc5e9259fc57541401aaa97da6b8e27e648e276d0d77bcb",
+      "locator": "T-281#time",
+      "message": "timestamp does not parse as ISO-8601: 'claim 2026-09-10T03:16Z；finish 2026-09-10T07:45Z'",
+      "path": "governance/tasks/T-281.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-09-10T05:58:38Z；finish 2026-09-10T06:47:44Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-289.json/v1:442d9e12434349b3efb62841c69b6bb11c32c7c645e7ace94a41be1cf903c9b8",
+      "locator": "T-289#time",
+      "message": "timestamp does not parse as ISO-8601: '2026-09-10T05:58:38Z；finish 2026-09-10T06:47:44Z'",
+      "path": "governance/tasks/T-289.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "claim 2026-09-10T07:06:39Z；finish 2026-09-10T07:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_MALFORMED/governance/tasks/T-290.json/v1:c524234bf4a54e304e4b0247d7b98c411167e26345c70077696de6adf3d1a933",
+      "locator": "T-290#time",
+      "message": "timestamp does not parse as ISO-8601: 'claim 2026-09-10T07:06:39Z；finish 2026-09-10T07:29Z'",
+      "path": "governance/tasks/T-290.json",
+      "rule": "TIMESTAMP_MALFORMED",
+      "severity": "warn"
+    },
+    {
+      "after": "2026-07-27T15:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-02.json/v1:a03cdde44fc2c32cace92904986c18e2505fe1ec8692526be059eccff2fcba63",
+      "locator": "T-02#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-27T15:2xZ'",
+      "path": "governance/tasks/T-02.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-07-27T15:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-03.json/v1:0240b0d53f43164b1a4818338b950beca368af104f8fc17a8485b80ec1de0525",
+      "locator": "T-03#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-27T15:5xZ'",
+      "path": "governance/tasks/T-03.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-07-28T00:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-06.json/v1:2cb64eed4bef6fb5f3e3b99642fca492cf37d4aae478559ce9b877f5ed236720",
+      "locator": "T-06#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-28T00:1xZ'",
+      "path": "governance/tasks/T-06.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-07-28T02:xxZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-07.json/v1:61c44a304e9498a86ec3e0ef1c918bc6565deb380f0b2bb0207939d4521910f3",
+      "locator": "T-07#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-28T02:xxZ'",
+      "path": "governance/tasks/T-07.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-07-28T01:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-08.json/v1:4b59c338afe8d4b1ffec7f5dcc74235b95cafd0c38aaa04aea0d4733247680a5",
+      "locator": "T-08#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-28T01:0xZ'",
+      "path": "governance/tasks/T-08.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-07-28T02:xxZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-09.json/v1:915ebb525a51df75d09f8866eb4498e1828547b33b8e2c1a812a742b96a66c73",
+      "locator": "T-09#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-07-28T02:xxZ'",
+      "path": "governance/tasks/T-09.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T13:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-100.json/v1:66a65854c2b798653074e38608ff2046871b4561175b648de0db11871afb0e7c",
+      "locator": "T-100#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T13:4xZ'",
+      "path": "governance/tasks/T-100.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T13:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-101.json/v1:dcf1f1bea0651430cf085b73f03d61687c4a2f78d7efe2d5e023fe5958ccb507",
+      "locator": "T-101#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T13:0xZ'",
+      "path": "governance/tasks/T-101.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T08:52:39Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-103.json/v1:b67b847fb44e34bd79455686c5ff32567eac9315cfef5bf2f85f087c8aea00b3",
+      "locator": "T-103#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T08:52:39Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-103.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-106.json/v1:960a956b5d182acbb81585b8447d271b390cb783771bb81a2d9328e9cd1cabc7",
+      "locator": "T-106#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-106.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-107.json/v1:76c148ce6b232558fa314fb9f396f69656a217fe006c63c6dd70af85037b1b4d",
+      "locator": "T-107#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-107.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-109.json/v1:9ed60f85af978faecaf805a55037bf456bba5281e62279af2c4e261c80a74863",
+      "locator": "T-109#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T19:12:50Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-109.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T16:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-123.json/v1:98ef7325624ea665379467ece6dbb727f7292746d9d6fda91cf5d4395ad7f9e3",
+      "locator": "T-123#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T16:4xZ'",
+      "path": "governance/tasks/T-123.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T01:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-126.json/v1:bdcc800cdd4b484d85f3a762aa60aceb97929b4407233d592408217b8f65313f",
+      "locator": "T-126#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T01:1xZ'",
+      "path": "governance/tasks/T-126.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T01:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-128.json/v1:b06e84b6e750b2db3fbbd371496bb8834226f63396a897fd05a6336e23919ee7",
+      "locator": "T-128#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T01:4xZ'",
+      "path": "governance/tasks/T-128.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T02:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-129.json/v1:1b9edd214cbb96c5e12dae69fb6f2641dacdf5845b44685aa09944b94bbab7d1",
+      "locator": "T-129#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T02:0xZ'",
+      "path": "governance/tasks/T-129.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-05T22:08:47.600780+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-157.json/v1:1c6460c1b17b7ee0213fb4b1d4447354e9cf72bc361808c643a5456c5eb84360",
+      "locator": "T-157#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-05T22:08:47.600780+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-157.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T16:44:51.434946+00:00 → 2026-09-06T17:34:30.762737+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-169.json/v1:3eeafcc5b3b09909921eef91508eb42aca6dafbdae6722ab3bfee1b2a4504e9d",
+      "locator": "T-169#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T16:44:51.434946+00:00 → 2026-09-06T17:34:30.762737+00:00'",
+      "path": "governance/tasks/T-169.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T17:43:29.070699+00:00 → 2026-09-06T18:12:50.230466+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-171.json/v1:c936206797e6ab55b417ce2d6fa50b8b5a9cbec0be2ce24cd1ee78edf09de097",
+      "locator": "T-171#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T17:43:29.070699+00:00 → 2026-09-06T18:12:50.230466+00:00'",
+      "path": "governance/tasks/T-171.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T18:42:47.924964+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-172.json/v1:0735dbb45b1a09634c87b2d948cbb44419177678093634f76d92474dd09e8c81",
+      "locator": "T-172#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T18:42:47.924964+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-172.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T18:58Z → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-173.json/v1:a06b1fa867dff7da389385a9b4d70a384b7b46553d6f5e5c1e7ccfc233366436",
+      "locator": "T-173#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T18:58Z → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-173.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T19:01Z → 2026-09-06T19:33Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-174.json/v1:b118670ec40b4c88d833dac72b6e6b9692214fda53491ed6ca5af08cd0187a8b",
+      "locator": "T-174#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T19:01Z → 2026-09-06T19:33Z'",
+      "path": "governance/tasks/T-174.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-06T19:08Z → 2026-09-06T19:31Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-175.json/v1:b5cd917e37ed39a89bff0edb504b531986474904cc231b1126781b37fcced044",
+      "locator": "T-175#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-06T19:08Z → 2026-09-06T19:31Z'",
+      "path": "governance/tasks/T-175.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T01:56Z → 2026-09-07T05:52:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-177.json/v1:6f4f12b238e99e1f6f2c895a09d8f9c2caf91d4f32038ba4359ffbc823dd66b5",
+      "locator": "T-177#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T01:56Z → 2026-09-07T05:52:41Z'",
+      "path": "governance/tasks/T-177.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T02:00:56.423022+00:00 → 2026-09-07T03:05:43.220846+00:00 → 2026-09-07T07:00:19Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-178.json/v1:b414383a1d5001a26c8f6cf416162182643c9b903464e5d0a13c8f1a82eff775",
+      "locator": "T-178#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T02:00:56.423022+00:00 → 2026-09-07T03:05:43.220846+00:00 → 2026-09-07T07:00:19Z'",
+      "path": "governance/tasks/T-178.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T02:30:08.581688+00:00 → 2026-09-07T03:05:43.220846+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-179.json/v1:7fafc6e9e814804788e38155ab0950cae34f6680d32a2778848364c5efa07349",
+      "locator": "T-179#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T02:30:08.581688+00:00 → 2026-09-07T03:05:43.220846+00:00'",
+      "path": "governance/tasks/T-179.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T03:14:31.260803+00:00 → 2026-09-07T03:24:17.343433+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-180.json/v1:ab39eef2c0500c307f051aba9d9f155d5d1d7d0a685659f5b7c9b76e4beaf686",
+      "locator": "T-180#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T03:14:31.260803+00:00 → 2026-09-07T03:24:17.343433+00:00'",
+      "path": "governance/tasks/T-180.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T04:38:47Z → 2026-09-07T05:50:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-181.json/v1:469235629d564ee051397545b80a8844f1a8e6fceea2e4cdae24330838ff6bd4",
+      "locator": "T-181#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T04:38:47Z → 2026-09-07T05:50:32Z'",
+      "path": "governance/tasks/T-181.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T06:01:03Z → 2026-09-07T06:13:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-182.json/v1:8e1b6716d9ed64e1b33b73f43d19b30e4a34fb2c0f395f69cd5ad023a031de8a",
+      "locator": "T-182#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T06:01:03Z → 2026-09-07T06:13:35Z'",
+      "path": "governance/tasks/T-182.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T06:13:26Z → 2026-09-07T06:27:57Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-183.json/v1:5f86f74f335ba5d422a41239449c990206978d3a9dc3ce6684a40b05355f9010",
+      "locator": "T-183#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T06:13:26Z → 2026-09-07T06:27:57Z'",
+      "path": "governance/tasks/T-183.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T06:22:52Z → 2026-09-07T06:31:46Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-184.json/v1:61db7d17906fe7857f6fbe6b11736a7d56d11100541e41dd3dfe6970c684b099",
+      "locator": "T-184#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T06:22:52Z → 2026-09-07T06:31:46Z'",
+      "path": "governance/tasks/T-184.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T06:38:59Z → 2026-09-07T07:00:19Z → 2026-09-07T07:24:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-185.json/v1:93001e3e2cad0060e14ed10702ef29a0f9ae44ded524d2d11f02e068ada82c4d",
+      "locator": "T-185#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T06:38:59Z → 2026-09-07T07:00:19Z → 2026-09-07T07:24:29Z'",
+      "path": "governance/tasks/T-185.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T06:40:50Z → 2026-09-07T07:28:58Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-186.json/v1:cc626e967d2198b942a037428d41fd1ac2296c3aeb394b47f3b37c8545a202ee",
+      "locator": "T-186#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T06:40:50Z → 2026-09-07T07:28:58Z'",
+      "path": "governance/tasks/T-186.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T07:07:39Z → 2026-09-07T07:24:29Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-187.json/v1:af65a88a32e0f8aab84aaae7e91edc6c261d6c49feb7bc2d0ea5508616d3dfc4",
+      "locator": "T-187#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T07:07:39Z → 2026-09-07T07:24:29Z'",
+      "path": "governance/tasks/T-187.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T07:31:25Z → 2026-09-07T07:34:40Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-188.json/v1:4d56c796329c663124b79f1f06bbba747583208e56db766572cd0ca6d03b511d",
+      "locator": "T-188#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T07:31:25Z → 2026-09-07T07:34:40Z'",
+      "path": "governance/tasks/T-188.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T07:38:52Z → 2026-09-07T07:54:52Z → 2026-09-07T07:57:49Z → 2026-09-07T08:10:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-189.json/v1:fb53ddf53da2848e0f929bc9b2123cb1de777708b2bc82280d1a73c09884142f",
+      "locator": "T-189#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T07:38:52Z → 2026-09-07T07:54:52Z → 2026-09-07T07:57:49Z → 2026-09-07T08:10:18Z'",
+      "path": "governance/tasks/T-189.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T08:17:10Z → 2026-09-07T08:20:14Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-191.json/v1:5eb4295379f3533a6010cb7065076b6df956973494d2774afc518d528b87d260",
+      "locator": "T-191#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T08:17:10Z → 2026-09-07T08:20:14Z'",
+      "path": "governance/tasks/T-191.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T08:22:28Z → 2026-09-07T08:27:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-192.json/v1:39a036f18c28550990aca508cce0593610cfc9f4549bf1afd600bd4dd0177ac0",
+      "locator": "T-192#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T08:22:28Z → 2026-09-07T08:27:18Z'",
+      "path": "governance/tasks/T-192.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T08:29:41Z → 2026-09-07T08:31:27Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-193.json/v1:2db929c8a1ca1f9adaf8107901f6fbcf8588997b61e991662b113af362bf54dd",
+      "locator": "T-193#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T08:29:41Z → 2026-09-07T08:31:27Z'",
+      "path": "governance/tasks/T-193.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T08:37:39Z → 2026-09-07T09:03:20Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-195.json/v1:2e3ee0c5de73476730537abeeb8519a5089fafd17e38c1b3c913407b839e7502",
+      "locator": "T-195#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T08:37:39Z → 2026-09-07T09:03:20Z'",
+      "path": "governance/tasks/T-195.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T09:36:21Z → 2026-09-07T10:40:25Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-197.json/v1:3be44a5caa0f00fd612e1e71a86221248521c1fcccf5dc285d48d715569c06e6",
+      "locator": "T-197#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T09:36:21Z → 2026-09-07T10:40:25Z'",
+      "path": "governance/tasks/T-197.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T10:47:25Z → 2026-09-07T10:53:56Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-200.json/v1:f66a151f50ded00c4617e24b73942be6c4a0ab439f978b7a5c44b151417975ea",
+      "locator": "T-200#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T10:47:25Z → 2026-09-07T10:53:56Z'",
+      "path": "governance/tasks/T-200.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T12:06:23Z BLOCKED → 2026-09-07T12:19:40Z 接手 CLAIMED → 2026-09-07T12:56:26Z BLOCKED（等人類） → 2026-09-07T13:10:11Z CLAIMED（人類答「合 / attest corpus 6466e61」） → 2026-09-07T13:24:48Z DONE",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-201.json/v1:2a35778733194b46eb58d642d740c0093871568d49b20d316a2326ecb7d6924a",
+      "locator": "T-201#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T12:06:23Z BLOCKED → 2026-09-07T12:19:40Z 接手 CLAIMED → 2026-09-07T12:56:26Z BLOCKED（等人類） → 2026-09-07T13:10:11Z CLAIMED（人類答「合 / attest corpus 6466e61」） → 2026-09-07T13:24:48Z DONE'",
+      "path": "governance/tasks/T-201.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T13:10:11Z → 2026-09-07T13:19:23Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-203.json/v1:5c515856c53eee10c0b02d2377f8bd4291ee609336f7bdd3bf44175203e5776c",
+      "locator": "T-203#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T13:10:11Z → 2026-09-07T13:19:23Z'",
+      "path": "governance/tasks/T-203.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T14:00:14Z → 2026-09-07T14:12:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-206.json/v1:898c498580729c03b1aa6c05c8c9ef9bfff86688b1d6ba03cb555d52ec0b0c1b",
+      "locator": "T-206#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T14:00:14Z → 2026-09-07T14:12:00Z'",
+      "path": "governance/tasks/T-206.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T14:27:51Z → 2026-09-07T14:50:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-209.json/v1:fd0088947322e6830e1edb80ded34bbaae2c29c6d9bb20c4da223b4245714a56",
+      "locator": "T-209#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T14:27:51Z → 2026-09-07T14:50:00Z'",
+      "path": "governance/tasks/T-209.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T15:00:09Z → 2026-09-07T15:07:03Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-213.json/v1:2a6f82a4e40b4c4823cd6d46effe126862476f6007c16c35f7e1365626703981",
+      "locator": "T-213#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T15:00:09Z → 2026-09-07T15:07:03Z'",
+      "path": "governance/tasks/T-213.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T15:11:34Z → 2026-09-07T15:18:52Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-214.json/v1:11a3666356f7ccf73032cf0971c644e05ffef029560f75e4f6be87024c4814b9",
+      "locator": "T-214#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T15:11:34Z → 2026-09-07T15:18:52Z'",
+      "path": "governance/tasks/T-214.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T15:28:37Z → 2026-09-07T15:33:14Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-217.json/v1:4f3eaa4b1303b4653744738ed9484bf5bcf8aae5ed5f4715f119270943cb47d2",
+      "locator": "T-217#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T15:28:37Z → 2026-09-07T15:33:14Z'",
+      "path": "governance/tasks/T-217.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T15:37:54Z → 2026-09-07T15:46:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-219.json/v1:83deba7852ca550919b21c9fe2b27810bf651dc28d80d55a577ebb74c90119b6",
+      "locator": "T-219#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T15:37:54Z → 2026-09-07T15:46:06Z'",
+      "path": "governance/tasks/T-219.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-07T18:30:11Z → 2026-09-07T20:1xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-221.json/v1:982eaa49b239148b3349b42fc1a99edabcf118b5280882d04070cef84b1eeead",
+      "locator": "T-221#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-07T18:30:11Z → 2026-09-07T20:1xZ'",
+      "path": "governance/tasks/T-221.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T08:31:38.804401+00:00 → 2026-09-08T08:38:24.951938+00:00",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-232.json/v1:3ddafd95d3d0831edab0eea340cb494629f29386ea2d5a47fb0c83568d2e056a",
+      "locator": "T-232#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T08:31:38.804401+00:00 → 2026-09-08T08:38:24.951938+00:00'",
+      "path": "governance/tasks/T-232.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T09:51:48Z → 2026-09-08T10:25:57Z（合）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-233.json/v1:312ef25beb712ea8782c2e5aec424eb67566f9a24500872e58155e0c8f7522ef",
+      "locator": "T-233#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T09:51:48Z → 2026-09-08T10:25:57Z（合）'",
+      "path": "governance/tasks/T-233.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T10:20:57Z → 2026-09-08T10:26:38Z（合）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-234.json/v1:6e25c4b73849b25861fe680db475b6f5f9b15bce5f57640cd74d657f668215f0",
+      "locator": "T-234#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T10:20:57Z → 2026-09-08T10:26:38Z（合）'",
+      "path": "governance/tasks/T-234.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T11:18:33Z → 2026-09-08T11:57:32Z（交付）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-235.json/v1:f45a4907fb2f1608cca0a9ff78ecb916d826bfda38560ceec2a57f533265b24f",
+      "locator": "T-235#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T11:18:33Z → 2026-09-08T11:57:32Z（交付）'",
+      "path": "governance/tasks/T-235.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T12:15:49.726541Z → 2026-09-08T12:34:16.687219Z（收尾）",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-236.json/v1:8179281a09a396100cb69af785f4d9a4d57d5fa41b1cd3690b671e3fd7ccb881",
+      "locator": "T-236#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T12:15:49.726541Z → 2026-09-08T12:34:16.687219Z（收尾）'",
+      "path": "governance/tasks/T-236.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T15:27:23Z → 2026-09-08T15:38:25Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-238.json/v1:274daf71d2ba81062ff00ffa67bd81ea2f8ede9c22de02d6a7b1fdefdc3cb92e",
+      "locator": "T-238#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T15:27:23Z → 2026-09-08T15:38:25Z'",
+      "path": "governance/tasks/T-238.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T15:56:35Z → 2026-09-08T16:08:01Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-239.json/v1:b88b6c5644c780bdf9b54ae3c52cb7849b677d52bfd26489278e817db380d316",
+      "locator": "T-239#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T15:56:35Z → 2026-09-08T16:08:01Z'",
+      "path": "governance/tasks/T-239.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T16:08:01Z → 2026-09-08T16:16:20Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-240.json/v1:7dc60b132e2d8bc23bb9871aa2edd064d68ec8a08b441eb0df514c11f4a03c60",
+      "locator": "T-240#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T16:08:01Z → 2026-09-08T16:16:20Z'",
+      "path": "governance/tasks/T-240.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T16:24:06Z → 2026-09-08T16:26:24Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-241.json/v1:fa1ac037d0bcf39e9a2137fbaba57be6f8370e13e3c1359941ab8a6d74c58682",
+      "locator": "T-241#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T16:24:06Z → 2026-09-08T16:26:24Z'",
+      "path": "governance/tasks/T-241.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T17:00:30Z → 2026-09-08T18:08:11Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-242.json/v1:0ff18810e3ec4d36786a8bd019c35d8bdab1a0c088ab8ffd3e53713e388d4425",
+      "locator": "T-242#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T17:00:30Z → 2026-09-08T18:08:11Z'",
+      "path": "governance/tasks/T-242.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T18:13:22Z → 2026-09-08T23:54:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-243.json/v1:2fa838f55cbc964118e5647278f695b5e5170e4b13628b5629f812a15e1d6bd3",
+      "locator": "T-243#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T18:13:22Z → 2026-09-08T23:54:41Z'",
+      "path": "governance/tasks/T-243.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T18:25:32Z → 2026-09-08T18:39:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-244.json/v1:f296f2cb80827259905e5920368915b2ab77750aebc2043fa05c61b39ff9f8ff",
+      "locator": "T-244#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T18:25:32Z → 2026-09-08T18:39:32Z'",
+      "path": "governance/tasks/T-244.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T18:42:43Z → 2026-09-08T23:53:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-245.json/v1:2e8156b6e5e67f7d433ee9b7de4a1c6c1d8a91e0286e360e77339cf07ce7d84b",
+      "locator": "T-245#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T18:42:43Z → 2026-09-08T23:53:32Z'",
+      "path": "governance/tasks/T-245.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-08T18:48:44Z → 2026-09-08T18:58:03Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-246.json/v1:53dd1cfcc4d19bf39e44cac330f153a2ede95d1242b0d569a5c7f838fd9df205",
+      "locator": "T-246#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-08T18:48:44Z → 2026-09-08T18:58:03Z'",
+      "path": "governance/tasks/T-246.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T01:31:56Z → 2026-09-09T01:58:11Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-247.json/v1:47252e47ad089a1057b0153c2213b0a801e11799e920270c89fe452a86cab7c8",
+      "locator": "T-247#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T01:31:56Z → 2026-09-09T01:58:11Z'",
+      "path": "governance/tasks/T-247.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T02:03:14Z → 2026-09-09T02:16:17Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-248.json/v1:cc0444a2f581924bdd91a92057c212e6c2b2f2bdab33391edafc2c5f1dada5a6",
+      "locator": "T-248#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T02:03:14Z → 2026-09-09T02:16:17Z'",
+      "path": "governance/tasks/T-248.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T02:34:16Z → 2026-09-09T02:43:10Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-249.json/v1:50b7e72051975f54e3a5e483d91100312e91f5af8180ad6b456370398329723b",
+      "locator": "T-249#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T02:34:16Z → 2026-09-09T02:43:10Z'",
+      "path": "governance/tasks/T-249.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T03:12:36.394409Z → 2026-09-09T03:22:49.964512Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-250.json/v1:44501e8cdf9783d1c71b87c7b01707f37c24887f48228b540edd4580e7ecd4eb",
+      "locator": "T-250#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T03:12:36.394409Z → 2026-09-09T03:22:49.964512Z'",
+      "path": "governance/tasks/T-250.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T03:22:49.964512Z → 2026-09-09T03:33:27.482797Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-251.json/v1:329bdb6851ae7c9496aecafbfa4ba26b6bfdb97059297b2df27f1de3805756b3",
+      "locator": "T-251#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T03:22:49.964512Z → 2026-09-09T03:33:27.482797Z'",
+      "path": "governance/tasks/T-251.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T03:41:09.074902Z → 2026-09-09T03:42:11.326876Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-252.json/v1:08f63ca8485363f47fa5cea29774815e688e91e3810306c97186aeb843f0b738",
+      "locator": "T-252#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T03:41:09.074902Z → 2026-09-09T03:42:11.326876Z'",
+      "path": "governance/tasks/T-252.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T03:54:25.240288Z → 2026-09-09T04:12:14.780236Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-253.json/v1:0e036e224babfa2f83b1ac36b71562ebcdcdffa351680c2b41af296d3c4964a7",
+      "locator": "T-253#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T03:54:25.240288Z → 2026-09-09T04:12:14.780236Z'",
+      "path": "governance/tasks/T-253.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T04:34:02Z → 2026-09-09T04:36:04Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-254.json/v1:5ec7aaf852175523dddb4f547c9bc5cd3c604a9a173a83b6eeffc4f7a95fffaf",
+      "locator": "T-254#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T04:34:02Z → 2026-09-09T04:36:04Z'",
+      "path": "governance/tasks/T-254.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T14:25:03Z → 2026-09-09T14:58:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-255.json/v1:64f3ed2f29bd8692b45ce46162ea88adcdfa188c1a5f1982266ddc3e13600cb1",
+      "locator": "T-255#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T14:25:03Z → 2026-09-09T14:58:06Z'",
+      "path": "governance/tasks/T-255.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T05:53:15Z → 2026-09-09T06:23:07Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-256.json/v1:a5b59ce112e486a52e2d0fe9e24f63faf82040e0e839c8c9d6663bdbe84e0046",
+      "locator": "T-256#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T05:53:15Z → 2026-09-09T06:23:07Z'",
+      "path": "governance/tasks/T-256.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T06:26:02Z → 2026-09-09T06:53:18Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-257.json/v1:3ccc33ff8eed00f63d54830ded4c47a81b59aa81968d2bd272772c01402f7b03",
+      "locator": "T-257#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T06:26:02Z → 2026-09-09T06:53:18Z'",
+      "path": "governance/tasks/T-257.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T06:32:47Z → 2026-09-09T06:38:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-258.json/v1:ccc13d2c153cf7edc104b36eccb516fef27df129cd18bf57a0c098aa32f66c3b",
+      "locator": "T-258#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T06:32:47Z → 2026-09-09T06:38:35Z'",
+      "path": "governance/tasks/T-258.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T06:45:31Z → 2026-09-09T08:31:41Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-259.json/v1:6111d6a91f2846d2c0ba6a22982e7e1ffc2a2303e24f14502d79ece03a50319c",
+      "locator": "T-259#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T06:45:31Z → 2026-09-09T08:31:41Z'",
+      "path": "governance/tasks/T-259.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T06:58:19Z → 2026-09-09T07:25:12Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-260.json/v1:f1c5786977cfed833fac0e987f84146971ccce47d0f1f99ee88710b91a2c1b91",
+      "locator": "T-260#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T06:58:19Z → 2026-09-09T07:25:12Z'",
+      "path": "governance/tasks/T-260.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T06:59:57Z → 2026-09-09T07:18:44Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-261.json/v1:925f23e3c81f1816569ae155480e5f0b452f98a4cc7270139b0ece8ee04a8278",
+      "locator": "T-261#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T06:59:57Z → 2026-09-09T07:18:44Z'",
+      "path": "governance/tasks/T-261.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T07:23:16Z → 2026-09-09T07:41:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-262.json/v1:53f305264dee7bae46d49404cd8e4f841d6d4153a371428ac252d49874eea9db",
+      "locator": "T-262#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T07:23:16Z → 2026-09-09T07:41:32Z'",
+      "path": "governance/tasks/T-262.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T07:44:30Z → 2026-09-09T07:55:07Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-263.json/v1:799f6532b6a4fc28e99b157622449b9446cd11723a51c84c3ede1717942a695b",
+      "locator": "T-263#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T07:44:30Z → 2026-09-09T07:55:07Z'",
+      "path": "governance/tasks/T-263.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T07:57:45Z → 2026-09-09T08:06:59Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-264.json/v1:73aaca59d3578daed7d1f837f428c735657ee1ff932238bf33bc53a09447d7b1",
+      "locator": "T-264#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T07:57:45Z → 2026-09-09T08:06:59Z'",
+      "path": "governance/tasks/T-264.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T08:10:05Z → 2026-09-09T08:50:58Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-265.json/v1:7d0471bdb193d2b4b38c7a6647ef8b58f135ccfeabaa47d16c53c40481f6fc17",
+      "locator": "T-265#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T08:10:05Z → 2026-09-09T08:50:58Z'",
+      "path": "governance/tasks/T-265.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T08:11:43Z → 2026-09-09T08:23:06Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-266.json/v1:5fc94a446fedef7beeaa97cde94fa335104a6f4bc3bf770e890b053f55ff3c9d",
+      "locator": "T-266#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T08:11:43Z → 2026-09-09T08:23:06Z'",
+      "path": "governance/tasks/T-266.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T08:25:20Z → 2026-09-09T08:35:48Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-267.json/v1:5368395cbbb2263fa399a3c9f08cc0b68ea4e722588c0bf37a34018c49fa16d0",
+      "locator": "T-267#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T08:25:20Z → 2026-09-09T08:35:48Z'",
+      "path": "governance/tasks/T-267.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T09:04:34Z → 2026-09-09T09:18:32Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-269.json/v1:c58c48471a011320bfcc0e685ce90bb8ffa583fd4e4e275f344b71143ac07165",
+      "locator": "T-269#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T09:04:34Z → 2026-09-09T09:18:32Z'",
+      "path": "governance/tasks/T-269.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T09:08:49Z → 2026-09-09T09:39:49Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-270.json/v1:994bbba4cf9cbde27eb48c2a894f1f72aa236466115576ab35808fe94902329d",
+      "locator": "T-270#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T09:08:49Z → 2026-09-09T09:39:49Z'",
+      "path": "governance/tasks/T-270.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T09:22:13Z → 2026-09-09T09:35:33Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-271.json/v1:18ac4f03f0db1d4f2cd0e6029ac45beb2682e9cb976ed6da310bdbe20a40e4a6",
+      "locator": "T-271#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T09:22:13Z → 2026-09-09T09:35:33Z'",
+      "path": "governance/tasks/T-271.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T09:44:57Z → 2026-09-09T10:11:15Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-272.json/v1:41adc47157efbb9f8834868aee1f3b1392d46fc6a97e5dae4cc4180a4434f8dd",
+      "locator": "T-272#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T09:44:57Z → 2026-09-09T10:11:15Z'",
+      "path": "governance/tasks/T-272.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T13:31:45Z → 2026-09-09T13:35:35Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-274.json/v1:95628bb4ced2c5d3933e4d3b95ff886de92aeb93dc74215c2e26856561096b61",
+      "locator": "T-274#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T13:31:45Z → 2026-09-09T13:35:35Z'",
+      "path": "governance/tasks/T-274.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-09T16:52:03Z → 2026-09-09T16:54:30Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-276.json/v1:4a0def45cdaea1258dc27bf64f4274f47e78b7faf05608271299b275fe7c944e",
+      "locator": "T-276#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-09T16:52:03Z → 2026-09-09T16:54:30Z'",
+      "path": "governance/tasks/T-276.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-10T07:26:10Z → 2026-09-10T07:52:30Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-294.json/v1:bd6659eed8b27428af40bbbd2ccf9457164eb0eb5c527b3ffd297f008d898936",
+      "locator": "T-294#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-10T07:26:10Z → 2026-09-10T07:52:30Z'",
+      "path": "governance/tasks/T-294.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-10T08:05:00Z → 2026-09-10T09:35:00Z",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-295.json/v1:4191fc083b4d845da97c9024f028a450c7be1d3aac66f6d839c40a51bbfa2595",
+      "locator": "T-295#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-10T08:05:00Z → 2026-09-10T09:35:00Z'",
+      "path": "governance/tasks/T-295.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T09:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-84a.json/v1:19901bce412cc9c20e21760591c7df708eae225d9abe8b10b18514eb554a8c41",
+      "locator": "T-84a#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T09:0xZ'",
+      "path": "governance/tasks/T-84a.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T09:0xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-85.json/v1:8e08890f2349ac7b0037c843e8e4b5c8c2cffe304f5d130dca2be693616c0d15",
+      "locator": "T-85#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T09:0xZ'",
+      "path": "governance/tasks/T-85.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T11:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-87.json/v1:b53a325d1dbd8ccbefd7f0c1bb87cf409fdcb05e8c9f1a7a0322c7bbc2c1d8a6",
+      "locator": "T-87#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T11:3xZ'",
+      "path": "governance/tasks/T-87.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T03:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-90.json/v1:63510c31586384aaa27bd1929f15e415a5b3b09f8d73e00cbee94a16725ecf49",
+      "locator": "T-90#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T03:5xZ'",
+      "path": "governance/tasks/T-90.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T08:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-90b.json/v1:a7ade38a2bace8dd3af24ce71afe69454d224ad941651cb4839d1fe85dfce7b1",
+      "locator": "T-90b#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T08:2xZ'",
+      "path": "governance/tasks/T-90b.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T04:2xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-92.json/v1:4ad3adcbe0374c83d10066cfee73e8d11c2510809f6aad10d0e50bbcbdda37f6",
+      "locator": "T-92#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T04:2xZ'",
+      "path": "governance/tasks/T-92.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T06:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-93.json/v1:6eec0a67cefead06fa22bbe56442c2b29c10d8a1e13a643e054cbdf9ae1f5ec8",
+      "locator": "T-93#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T06:3xZ'",
+      "path": "governance/tasks/T-93.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T06:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-94.json/v1:f05bf077b974efd0392a264171693b60494997fb90d3b2b24e912f59b8fecc64",
+      "locator": "T-94#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T06:3xZ'",
+      "path": "governance/tasks/T-94.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T06:5xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-95.json/v1:255734d9c57785881394157ac9f76267bcf5c1ed807f350946386f4ac2d18e6a",
+      "locator": "T-95#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T06:5xZ'",
+      "path": "governance/tasks/T-95.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T12:4xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-96.json/v1:3df15f9ade0b488a831ea70098ec43a471fd7ddcca7898a4f1a341ad88c5d30a",
+      "locator": "T-96#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T12:4xZ'",
+      "path": "governance/tasks/T-96.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-97.json/v1:5d766a63ea64bffde0a4a92c297c7ec832c24ec8a0145b03883d1a23ef414aef",
+      "locator": "T-97#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-97.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-98.json/v1:af8fbc92e5a3e5db3dc67f8ba7687e9c962bd2342af0bd586afc0d393bcc1471",
+      "locator": "T-98#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-98.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    },
+    {
+      "after": "2026-09-04T12:3xZ",
+      "before": null,
+      "fingerprint": "TIMESTAMP_REDACTED/governance/tasks/T-99.json/v1:ff340ef434c62de4afdfae9fbf36198810fd42b2f1c50636a523fb786de28158",
+      "locator": "T-99#time",
+      "message": "timestamp is redacted (digit-masked or a range), not orderable: '2026-09-04T12:3xZ'",
+      "path": "governance/tasks/T-99.json",
+      "rule": "TIMESTAMP_REDACTED",
+      "severity": "info"
+    }
+  ],
+  "ledgerwash_findings_version": 1,
+  "observations": [
+    {
+      "actor_equals_owner": {
+        "differ": 104,
+        "same": 473
+      },
+      "kind": "self_signing"
+    },
+    {
+      "expires_at": "2026-09-27T16:38:02Z",
+      "kind": "snapshot_expires_at",
+      "note": "recorded as found; no freshness judgment (no clock in this tool)"
+    },
+    {
+      "counts": {
+        "1": 462
+      },
+      "kind": "schema_versions"
+    }
+  ],
+  "residuals": [],
+  "run": {
+    "adapter": "ec-ledger",
+    "epoch": "b8761e95bbd92c4cd1d1917cbf70ff84e74c97f8",
+    "ledgerwash_version": "0.2.0",
+    "ref": "b8761e95",
+    "spec_version": 2,
+    "target": "C:\\Users\\nelson\\dev\\estate-consolidation"
+  },
+  "summary": {
+    "critical": 0,
+    "high": 1,
+    "info": 107,
+    "warn": 95
+  },
+  "verdict": "pass"
+}

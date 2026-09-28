@@ -15,7 +15,9 @@ Layers — [SPEC.md](SPEC.md) wins on conflict:
 
 Invariants:
 
-- Rules never run git; they only see the epoch reader and loaded corpus.
+- Rules never run git; they see the epoch reader and the loaded corpus. Rules may append
+  verification residuals (e.g. an unresolvable fingerprint anchor); adapter-shape residuals
+  are the adapter's.
 - Every rule ID in SPEC §4 has a planted fixture case (gate A3) — a rule that stops firing
   breaks the gate instead of passing silently.
 - The adapter's contract table is the single source of truth for fingerprint anchors.

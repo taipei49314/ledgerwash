@@ -29,9 +29,25 @@ def _verify_at(corpus, commit: str, src: str, want: str):
     """-> (status, got) where status in {"missing", "match", "mismatch"}."""
     blob = corpus.epoch.blob_at(commit, src)
     if blob is None:
-        return "missing", None
+        return "missing", None, None
     got = hashlib.sha256(blob).hexdigest()
-    return ("match" if got == want else "mismatch"), got
+    return ("match" if got == want else "mismatch"), got, blob
+
+
+def _eol_hint(blob: bytes, want: str) -> str:
+    """Deterministic EOL-mismatch diagnostic: the claimed digest matches an
+    EOL-converted variant of the anchor bytes (writer hashed the worktree file
+    while autocrlf stored normalized bytes). Never changes the verdict."""
+    if blob is None:
+        return ""
+    for variant in (blob.replace(b"\r\n", b"\n"), blob.replace(b"\n", b"\r\n")):
+        if hashlib.sha256(variant).hexdigest() == want:
+            return (
+                "; digest matches an EOL-converted variant of the anchor bytes "
+                "(CRLF/LF): writer likely hashed worktree bytes — receipts must "
+                "hash raw blob bytes (raw-git-blob-bytes)"
+            )
+    return ""
 
 
 def _undocumented(corpus, receipt, locator, hf, origin, src, want) -> Finding:
@@ -55,7 +71,7 @@ def _undocumented(corpus, receipt, locator, hf, origin, src, want) -> Finding:
     trail = []
     matched = None
     for commit in anchors:
-        status, _got = _verify_at(corpus, commit, src, want)
+        status, _got, _blob = _verify_at(corpus, commit, src, want)
         if status == "match":
             matched = commit
             trail.append(f"{commit[:12]}:match")
@@ -137,7 +153,7 @@ def run(corpus) -> list[Finding]:
                     }
                 )
                 continue
-            status, got = _verify_at(corpus, anchor, src, want)
+            status, got, blob = _verify_at(corpus, anchor, src, want)
             if status == "missing":
                 findings.append(
                     Finding(
@@ -159,7 +175,7 @@ def run(corpus) -> list[Finding]:
                         message=(
                             f"sha256 mismatch at {anchor_kind} anchor {anchor[:12]}: "
                             f"receipt {want[:12]}… vs actual {got[:12]}…"
-                        ),
+                        ) + _eol_hint(blob, want),
                         path=receipt.path,
                         locator=locator,
                         before=want,

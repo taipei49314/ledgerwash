@@ -33,8 +33,8 @@ def test_envelope_shape(mini_envelope):
         "target",
     }
     assert run["adapter"] == "ec-ledger"
-    assert run["ledgerwash_version"] == "0.2.0"
-    assert run["spec_version"] == 2
+    assert run["ledgerwash_version"] == "0.3.0"
+    assert run["spec_version"] == 3
     assert len(run["epoch"]) == 40
     assert mini_envelope["ledgerwash_findings_version"] == 1
 
@@ -75,7 +75,7 @@ def test_observations(mini_envelope):
     self_signing = next(o for o in mini_envelope["observations"] if o["kind"] == "self_signing")
     assert self_signing["actor_equals_owner"]["same"] == 2  # r900a + r900b
     versions = next(o for o in mini_envelope["observations"] if o["kind"] == "schema_versions")
-    assert versions["counts"] == {"1": 10}  # T-907 is unparseable, not counted
+    assert versions["counts"] == {"1": 11}  # T-907 is unparseable, not counted
 
 
 def test_qualify_subcommand(capsys):

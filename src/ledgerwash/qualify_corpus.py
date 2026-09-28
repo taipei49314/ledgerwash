@@ -20,8 +20,9 @@ EXPECTED = {
     "CHAIN_BREAK": 1,
     "CONTRACT_UNDOCUMENTED": 2,
     "DANGLING_REF": 1,
-    "FP_HASH_MISMATCH": 1,
+    "FP_HASH_MISMATCH": 2,
     "FP_SOURCE_MISSING": 1,
+    "NO_OPERATION_HISTORY": 1,
     "PIN_LOCAL_MISSING": 1,
     "PIN_UNROUTABLE": 1,
     "POST_HOC_DRIFT": 1,
@@ -33,6 +34,9 @@ EXPECTED = {
 }
 
 _NOTE_V1 = "clean note v1\n"
+# worktree-style digest target: the CRLF variant of the blob bytes (what a
+# writer hashing the autocrlf worktree file would record)
+_NOTE_V1_CRLF = "clean note v1\r\n"
 _CHANGING_V1 = "changing v1\n"
 _CHANGING_V2 = "changing v2\n"
 _DIGEST_NOTE = hashlib.sha256(_NOTE_V1.encode("utf-8")).hexdigest()
@@ -218,6 +222,11 @@ def build_corpus(root: Path, planted: bool = True) -> Path:
             _task("T-910", "DONE", "**DONE**", "2026-07-27T15:2xZ",
                   "redacted-timestamp case (legacy digit masking)"),
         )
+        _write_json(
+            repo, "governance/tasks/T-911.json",
+            _task("T-911", "DONE", "**DONE**", "2026-01-05T00:00:00Z",
+                  "closed after the receipt system existed but with no receipts"),
+        )  # NO_OPERATION_HISTORY (era-aware: closed after first receipt)
         _write(repo, "evidence/notes/changing.md", _CHANGING_V1)
     _commit(repo, "c1: tasks, first evidence, first receipt", "2026-01-01T00:00:00+00:00")
     sha_c1 = subprocess.run(
@@ -254,6 +263,14 @@ def build_corpus(root: Path, planted: bool = True) -> Path:
                  "source": "evidence/notes/changing.md", "sha256": "f" * 64}]},
             "T-902", "2026-01-02T00:00:13Z", "2026-01-02T00:00:00Z", "agent/mimo",
         ))  # undocumented; matches nothing: CONTRACT_UNDOCUMENTED
+        _write_json(repo, "evidence/task-operations/r902f.json", _receipt(
+            {"expected_head": sha_c1,
+             "source_fingerprints": [
+                 {"hash_format": "raw-git-blob-bytes", "origin": "expected-head-blob",
+                  "source": "evidence/notes/clean-note.md",
+                  "sha256": hashlib.sha256(_NOTE_V1_CRLF.encode()).hexdigest()}]},
+            "T-902", "2026-01-02T00:00:15Z", "2026-01-02T00:00:00Z", "agent/mimo",
+        ))  # FP_HASH_MISMATCH with EOL hint (worktree-style digest of the blob)
         _write_json(repo, "evidence/task-operations/r902e.json", _receipt(
             {"source_fingerprints": [
                 {"hash_format": "raw-git-blob-bytes",

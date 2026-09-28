@@ -39,6 +39,24 @@ Record the judge's identity with the verdict: `block @ ledgerwash 0.2.0, spec 2,
 b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
 
+## Writing receipts that verify
+
+`raw-git-blob-bytes` fingerprints are sha256 over the bytes git stores — the blob — never
+the worktree file. In a repo with `core.autocrlf=true`, hashing the worktree file bakes
+CRLF into the digest while the blob stores LF, and every receipt becomes unverifiable at
+its anchor (the S4 round reproduced this live; the tool now hints at it):
+
+```python
+import hashlib, subprocess
+blob = subprocess.run(["git", "cat-file", "blob", f"{commit}:{path}"],
+                      capture_output=True).stdout
+digest = hashlib.sha256(blob).hexdigest()
+```
+
+At write time the receipt's birth commit does not exist yet, so hash the exact bytes you
+are about to commit, and pin line endings (`* -text` in `.gitattributes`) to remove the
+ambiguity entirely.
+
 ## Round-0 pedigree
 
 The thirteen rules formalize a preregistered human triage of a real 462-row agent task

@@ -82,7 +82,8 @@ Severity ladder: `info < warn < high < critical`. One ID = one mechanically dist
 |---|---|---|
 | `DANGLING_REF` | warn | a path matching the reference grammar does not exist in the epoch tree; deduped per referenced path (locator names the referencing task ids) |
 | `FP_SOURCE_MISSING` | high | a `source_fingerprints` entry's `source` does not exist at its documented anchor |
-| `FP_HASH_MISMATCH` | high | sha256 of the source bytes at the documented anchor != the claimed digest |
+| `FP_HASH_MISMATCH` | high | sha256 of the source bytes at the documented anchor != the claimed digest; when the claimed digest matches an EOL-converted variant of the anchor bytes the message says so (deterministic diagnostic hint, severity unchanged) |
+| `NO_OPERATION_HISTORY` | high | a task whose `state` is `DONE` has zero operation receipts, and its `time` parses to a moment on/after the earliest receipt `recorded_at` in the ledger (era-aware: the receipt system must demonstrably exist at close time; pre-system tasks and tasks with unparseable `time` stay silent) |
 | `CONTRACT_UNDOCUMENTED` | warn | a fingerprint entry's `(hash_format, origin)` is not in the adapter table, or required fields are missing; best-effort anchors (birth, then birth^) are tried and the outcome is recorded in `message` |
 | `PIN_UNROUTABLE` | warn | a 40-hex sha referenced in a task record is not an object of the target repo and is not a routable pin; unverified, not failed |
 | `PIN_LOCAL_MISSING` | warn | a receipt's `expected_head` (a pin on the target repo itself) is not an object of the target repo; wording says "unverified locally", never "failed" |

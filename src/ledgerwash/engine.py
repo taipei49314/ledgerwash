@@ -6,7 +6,7 @@ from ledgerwash import SPEC_VERSION, __version__
 from ledgerwash.adapters import ec_ledger
 from ledgerwash.epoch import Epoch
 from ledgerwash.models import SEVERITY_ORDER, SEVERITY_RANK, Finding, finding_fingerprint
-from ledgerwash.rules import drift, fingerprints, pins, records, refs, timeline
+from ledgerwash.rules import drift, fingerprints, nohistory, pins, records, refs, timeline
 
 ADAPTERS = {"ec-ledger": ec_ledger}
 
@@ -17,6 +17,7 @@ RULE_IDS = [
     "DANGLING_REF",
     "FP_HASH_MISMATCH",
     "FP_SOURCE_MISSING",
+    "NO_OPERATION_HISTORY",
     "PIN_LOCAL_MISSING",
     "PIN_UNROUTABLE",
     "POST_HOC_DRIFT",
@@ -27,7 +28,8 @@ RULE_IDS = [
     "TIMESTAMP_REDACTED",
 ]
 
-_RULES = (refs.run, fingerprints.run, pins.run, timeline.run, drift.run, records.run)
+_RULES = (refs.run, fingerprints.run, pins.run, timeline.run, drift.run,
+          nohistory.run, records.run)
 
 
 def build_observations(corpus):

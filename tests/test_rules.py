@@ -15,10 +15,29 @@ def test_dangling_ref(mini_envelope):
 
 
 def test_fp_hash_mismatch(mini_envelope):
-    (finding,) = by_rule(mini_envelope)["FP_HASH_MISMATCH"]
+    (finding,) = [f for f in by_rule(mini_envelope)["FP_HASH_MISMATCH"]
+                  if f["path"].endswith("r902b.json")]
     assert finding["path"].endswith("r902b.json")
+    assert "EOL" not in finding["message"]  # r902b's digest matches no EOL variant
     assert finding["before"] == "0" * 64
     assert "expected_head anchor" in finding["message"]
+
+
+def test_fp_hash_eol_hint(mini_envelope):
+    """A worktree-style digest (CRLF variant of the blob) gets the diagnostic hint."""
+    matches = [f for f in by_rule(mini_envelope)["FP_HASH_MISMATCH"]
+               if f["path"].endswith("r902f.json")]
+    (finding,) = matches
+    assert "EOL-converted variant" in finding["message"]
+    assert "raw blob bytes" in finding["message"]
+
+
+def test_no_operation_history(mini_envelope):
+    """T-911 closed after the first receipt with zero receipts -> high.
+    T-901..T-909 close before the first receipt -> era-aware silence."""
+    findings = by_rule(mini_envelope)["NO_OPERATION_HISTORY"]
+    assert [f["locator"] for f in findings] == ["T-911:state=DONE"]
+    assert findings[0]["severity"] == "high"
 
 
 def test_fp_source_missing(mini_envelope):

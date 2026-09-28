@@ -29,6 +29,7 @@ EXPECTED = {
     "STATUS_STATE_MISMATCH": 1,
     "TIMELINE_INVERSION": 1,
     "TIMESTAMP_MALFORMED": 1,
+    "TIMESTAMP_REDACTED": 1,
 }
 
 _NOTE_V1 = "clean note v1\n"
@@ -211,6 +212,11 @@ def build_corpus(root: Path, planted: bool = True) -> Path:
             repo, "governance/tasks/T-909.json",
             _task("T-909", "CLAIMED", "**DONE**", "2026-01-01T00:00:00Z",
                   "status/state mismatch case"),
+        )
+        _write_json(
+            repo, "governance/tasks/T-910.json",
+            _task("T-910", "DONE", "**DONE**", "2026-07-27T15:2xZ",
+                  "redacted-timestamp case (legacy digit masking)"),
         )
         _write(repo, "evidence/notes/changing.md", _CHANGING_V1)
     _commit(repo, "c1: tasks, first evidence, first receipt", "2026-01-01T00:00:00+00:00")

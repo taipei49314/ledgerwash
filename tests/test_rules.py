@@ -83,7 +83,16 @@ def test_post_hoc_drift(mini_envelope):
 def test_timestamp_malformed(mini_envelope):
     (finding,) = by_rule(mini_envelope)["TIMESTAMP_MALFORMED"]
     assert finding["locator"] == "r904a.json#recorded_at"
+    assert finding["severity"] == "warn"
     assert "not-a-timestamp" in finding["after"]
+
+
+def test_timestamp_redacted(mini_envelope):
+    """EC legacy digit masking is a convention, not weakening: info, not warn."""
+    (finding,) = by_rule(mini_envelope)["TIMESTAMP_REDACTED"]
+    assert finding["locator"] == "T-910#time"
+    assert finding["severity"] == "info"
+    assert "15:2xZ" in finding["after"]
 
 
 def test_record_unparseable(mini_envelope):

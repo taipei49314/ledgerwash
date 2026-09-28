@@ -4,7 +4,29 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding
 
-from .common import parse_ts, present_but_unparseable, ts_or_min
+from .common import is_redacted_ts, parse_ts, present_but_unparseable, ts_or_min
+
+
+def _timestamp_finding(corpus_receipt_path, locator, raw_value, task_id=None) -> Finding:
+    if is_redacted_ts(raw_value):
+        return Finding(
+            rule="TIMESTAMP_REDACTED",
+            severity="info",
+            message=(
+                f"timestamp is redacted (digit-masked or a range), not orderable: {raw_value!r}"
+            ),
+            path=corpus_receipt_path,
+            locator=locator,
+            after=str(raw_value),
+        )
+    return Finding(
+        rule="TIMESTAMP_MALFORMED",
+        severity="warn",
+        message=f"timestamp does not parse as ISO-8601: {raw_value!r}",
+        path=corpus_receipt_path,
+        locator=locator,
+        after=str(raw_value),
+    )
 
 
 def run(corpus) -> list[Finding]:
@@ -15,13 +37,8 @@ def run(corpus) -> list[Finding]:
         rec = parse_ts(rec_raw)
         if present_but_unparseable(rec_raw):
             findings.append(
-                Finding(
-                    rule="TIMESTAMP_MALFORMED",
-                    severity="warn",
-                    message=f"receipt recorded_at does not parse as ISO-8601: {rec_raw!r}",
-                    path=receipt.path,
-                    locator=f"{receipt.name}#recorded_at",
-                    after=str(rec_raw),
+                _timestamp_finding(
+                    receipt.path, f"{receipt.name}#recorded_at", rec_raw
                 )
             )
         request = receipt.data.get("request")
@@ -29,26 +46,21 @@ def run(corpus) -> list[Finding]:
         req = parse_ts(req_raw)
         if present_but_unparseable(req_raw):
             findings.append(
-                Finding(
-                    rule="TIMESTAMP_MALFORMED",
-                    severity="warn",
-                    message=f"receipt request.at does not parse as ISO-8601: {req_raw!r}",
-                    path=receipt.path,
-                    locator=f"{receipt.name}#request.at",
-                    after=str(req_raw),
-                )
+                _timestamp_finding(receipt.path, f"{receipt.name}#request.at", req_raw)
             )
         if rec is not None and req is not None and rec < req:
+            task_id = receipt.data.get("task_id")
+            shown = task_id if isinstance(task_id, str) and task_id else "?"
             findings.append(
                 Finding(
                     rule="TIMELINE_INVERSION",
                     severity="high",
                     message=(
-                        f"recorded_at {rec_raw} is earlier than request.at {req_raw}; "
-                        "clock or timezone mislabeling suspected"
+                        f"task {shown}: recorded_at {rec_raw} is earlier than "
+                        f"request.at {req_raw}; clock or timezone mislabeling suspected"
                     ),
                     path=receipt.path,
-                    locator=receipt.name,
+                    locator=f"{shown}:{receipt.name}",
                     before=str(req_raw),
                     after=str(rec_raw),
                 )
@@ -58,14 +70,7 @@ def run(corpus) -> list[Finding]:
         t_raw = task.data.get("time")
         if present_but_unparseable(t_raw):
             findings.append(
-                Finding(
-                    rule="TIMESTAMP_MALFORMED",
-                    severity="warn",
-                    message=f"task time does not parse as ISO-8601: {t_raw!r}",
-                    path=task.path,
-                    locator=f"{task.id}#time",
-                    after=str(t_raw),
-                )
+                _timestamp_finding(task.path, f"{task.id}#time", t_raw)
             )
 
     for task_id in sorted(corpus.ops_by_task()):

@@ -119,4 +119,14 @@ def load(epoch: Epoch) -> Corpus:
             corpus.snapshot = snapshot if isinstance(snapshot, dict) else None
 
     corpus.current_text = epoch.read_text(CURRENT_PATH)
+
+    # A repo with no ledger must not read as a clean ledger (SPEC §3).
+    if not corpus.tasks:
+        corpus.residuals.append(
+            {"path": TASKS_DIR, "reason": "no task records found at epoch"}
+        )
+    if not corpus.receipts:
+        corpus.residuals.append(
+            {"path": RECEIPTS_DIR, "reason": "no operation receipts found at epoch"}
+        )
     return corpus

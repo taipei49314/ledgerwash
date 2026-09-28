@@ -41,8 +41,9 @@ reproducible (SPEC §8).
 
 ## Round 0 pedigree
 
-The twelve rules formalize the round-0 human triage of the EC corpus (91 real instances,
+The thirteen rules formalize the round-0 human triage of the EC corpus (91 real instances,
 4 categories, 205 raw signals → ~98% naive false-positive rate): era-aware fingerprint
 anchors (birth / expected_head instead of current HEAD), a closed fingerprint contract
-table, routed pins that never claim death from local unreachability, and timestamp quality
-as a first-class check instead of a silent skip.
+table, routed pins that never claim death from local unreachability, timestamp quality as a
+first-class check instead of a silent skip, and the EC legacy redaction convention
+(`TIMESTAMP_REDACTED`) kept apart from genuinely malformed timestamps.

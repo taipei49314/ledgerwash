@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding, short_json, strict_eq
 
-from .common import parse_ts, ts_or_min
+from .common import ts_or_min
 
 
 def _diff_keys(a, b, prefix: str = ""):

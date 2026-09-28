@@ -22,7 +22,7 @@ def _anchor_commits(corpus):
         expected = receipt.data.get("expected_head")
         if isinstance(expected, str):
             anchors.add(expected)
-    return corpus.epoch.has_objects(anchors)
+    return corpus.epoch.commits(anchors)
 
 
 def _verify_at(corpus, commit: str, src: str, want: str):

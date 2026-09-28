@@ -119,6 +119,24 @@ class Epoch:
                 have.add(parts[0])
         return have
 
+    def commits(self, shas) -> set[str]:
+        """Shas that resolve to commit objects.
+
+        Fingerprint anchors must be commits: hashing `blob-sha:path` fails even
+        when the object exists, which would masquerade as FP_SOURCE_MISSING.
+        """
+        candidates = sorted({s for s in shas if isinstance(s, str) and _HEX40.fullmatch(s)})
+        if not candidates:
+            return set()
+        stdin = ("\n".join(candidates) + "\n").encode("ascii")
+        out = self._git("cat-file", "--batch-check", input_bytes=stdin)
+        have = set()
+        for line in out.decode("ascii", "replace").splitlines():
+            parts = line.split()
+            if len(parts) >= 2 and parts[1].lower() == "commit":
+                have.add(parts[0])
+        return have
+
     def blob_at(self, commit: str, rel: str) -> bytes | None:
         proc = subprocess.run(
             ["git", "cat-file", "blob", f"{commit}:{rel}"],

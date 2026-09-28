@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import re
 from datetime import datetime, timezone
 
 MIN_TS = datetime.min.replace(tzinfo=timezone.utc)
+
+# Date + "THH:M" — masked minutes (…T15:2xZ) must still match the prefix.
+_ISO_PREFIX = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d")
 
 
 def iter_strings(value):
@@ -48,3 +52,13 @@ def ts_or_min(value):
 
 def present_but_unparseable(value) -> bool:
     return value is not None and value != "" and parse_ts(value) is None
+
+
+def is_redacted_ts(value) -> bool:
+    """EC legacy redaction shape: digit-masked (`2026-07-27T15:2xZ`) or an
+    `A → B` range. Unorderable by convention, not a malformed timestamp."""
+    if not isinstance(value, str):
+        return False
+    if "→" in value:
+        return True
+    return bool(_ISO_PREFIX.search(value)) and any(ch in value for ch in "xX")

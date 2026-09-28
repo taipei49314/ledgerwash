@@ -70,7 +70,9 @@ fingerprint is then unverified, not failed.
 (the containing commit) and are out of fingerprint scope.
 
 Records that do not fit the adapter shape (missing `task_id`, non-string `status`/`state`,
-`schema_version` other than 1) are surfaced in `residuals` — they never silently vanish.
+`schema_version` other than 1) are surfaced in `residuals` — they never silently vanish. An
+absent or empty `governance/tasks/` or `evidence/task-operations/` is itself a residual: a
+repo with no ledger must not read as a clean ledger.
 
 ## 4. Rule IDs (frozen)
 
@@ -87,7 +89,8 @@ Severity ladder: `info < warn < high < critical`. One ID = one mechanically dist
 | `TIMELINE_INVERSION` | high | a receipt's `recorded_at` is earlier than its `request.at` |
 | `CHAIN_BREAK` | high | consecutive operations of one task disagree: previous `after_record_sha256` vs next `before_record_sha256`, both present and unequal; ops ordered by `(recorded_at, filename)` |
 | `POST_HOC_DRIFT` | high | the anchor operation (max `(recorded_at, filename)`) embeds an `after_record` that is not type-strict-equal to the current task record (bool != int; coerced fields show up) |
-| `TIMESTAMP_MALFORMED` | warn | a timestamp the rules depend on (`recorded_at`, `request.at`, task `time`) does not parse as ISO-8601; the dependent ordering/verification is skipped and this finding records the raw value |
+| `TIMESTAMP_MALFORMED` | warn | a timestamp the rules depend on (`recorded_at`, `request.at`, task `time`) does not parse as ISO-8601 and carries no redaction shape; the dependent ordering/verification is skipped and this finding records the raw value |
+| `TIMESTAMP_REDACTED` | info | an unparseable timestamp carrying the redaction shape — an ISO-8601 prefix with digit masking (`15:2xZ`) or an `A → B` range; unorderable by convention (the EC legacy redaction style), recorded, not treated as weakening |
 | `RECORD_UNPARSEABLE` | high | a task or receipt file fails JSON parsing; that record is excluded from other rules |
 | `STATUS_STATE_MISMATCH` | warn | normalized `status` head (strip `*`, whitespace-split, keep the leading ASCII `[A-Za-z0-9_-]+` run) != `state`; a status with no ASCII head is skipped |
 
@@ -162,3 +165,8 @@ Example: `pass @ ledgerwash 0.1.0, spec 1, epoch b8761e95…, adapter ec-ledger,
 
 - spec 1 (v0.1.0): initial contract. Twelve frozen rule IDs; `ec-ledger` adapter; epoch
   reader; fingerprint contract table with two documented combos.
+- spec 2 (v0.2.0): `TIMESTAMP_REDACTED` (info) split from `TIMESTAMP_MALFORMED` — digit-masked
+  and range timestamps are a redaction convention, not weakening (rule count 12 → 13).
+  Timeline findings carry the task id in locator and message. Fingerprint anchors must
+  resolve to commit objects; a non-commit or unresolvable anchor is a residual, never an
+  FP finding. Empty tasks/receipts directories are residuals (no-ledger ≠ clean-ledger).

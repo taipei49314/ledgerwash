@@ -24,6 +24,7 @@ RULE_IDS = [
     "STATUS_STATE_MISMATCH",
     "TIMELINE_INVERSION",
     "TIMESTAMP_MALFORMED",
+    "TIMESTAMP_REDACTED",
 ]
 
 _RULES = (refs.run, fingerprints.run, pins.run, timeline.run, drift.run, records.run)

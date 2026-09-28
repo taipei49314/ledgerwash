@@ -10,14 +10,13 @@ from __future__ import annotations
 import ast
 import json
 import re
+import subprocess
 from pathlib import Path
 
 from ledgerwash.cli import main
-from ledgerwash.engine import RULE_IDS
+from ledgerwash.engine import RULE_IDS, run_scan
 from ledgerwash.qualify import cmd_qualify
 from ledgerwash.qualify_corpus import EXPECTED, build_corpus
-
-from tests.conftest import by_rule
 
 SRC = Path(__file__).resolve().parents[1] / "src" / "ledgerwash"
 SPEC = Path(__file__).resolve().parents[1] / "SPEC.md"
@@ -58,21 +57,15 @@ def test_a1_no_network_imports():
     assert not offenders, offenders
 
 
-def test_a2_determinism(tmp_path):
-    envelopes = []
-    for i in range(2):
-        repo = build_corpus(tmp_path / f"repo{i}")
-        envelope = run_scan_json(repo)
-        envelopes.append(envelope)
-    assert envelopes[0] == envelopes[1]
-
-
 def run_scan_json(repo: Path) -> str:
-    from ledgerwash.engine import run_scan
-
     envelope = run_scan(repo)
     envelope["run"]["target"] = "<normalized>"
     return json.dumps(envelope, sort_keys=True, ensure_ascii=False)
+
+
+def test_a2_determinism(tmp_path):
+    envelopes = [run_scan_json(build_corpus(tmp_path / f"repo{i}")) for i in range(2)]
+    assert envelopes[0] == envelopes[1]
 
 
 def test_a3_rule_coverage(mini_envelope):
@@ -125,3 +118,22 @@ def test_a8_spec_rule_sync():
     spec_rows = set(re.findall(r"^\| `([A-Z_]+)` \| (?:info|warn|high|critical) \|",
                                SPEC.read_text(encoding="utf-8"), re.M))
     assert spec_rows == set(RULE_IDS), spec_rows ^ set(RULE_IDS)
+
+
+def test_a9_empty_ledger_is_not_clean(tmp_path, capsys):
+    """A repo with no ledger must not read as a clean ledger (SPEC §3)."""
+    repo = tmp_path / "bare"
+    repo.mkdir()
+    subprocess.run(["git", "init", "-b", "main"], cwd=repo, capture_output=True, check=True)
+    (repo / "README.md").write_text("not a ledger\n", encoding="utf-8")
+    subprocess.run(["git", "add", "-A"], cwd=repo, capture_output=True, check=True)
+    subprocess.run(
+        ["git", "-c", "user.name=t", "-c", "user.email=t@t.invalid", "commit", "-m", "init"],
+        cwd=repo, capture_output=True, check=True,
+    )
+    assert main(["scan", str(repo)]) == 0
+    envelope = json.loads(capsys.readouterr().out)
+    assert envelope["findings"] == []
+    reasons = {r["reason"] for r in envelope["residuals"]}
+    assert any("no task records" in r for r in reasons)
+    assert any("no operation receipts" in r for r in reasons)

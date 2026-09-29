@@ -1,4 +1,4 @@
-"""Frozen acceptance gates (A1–A8).
+"""Frozen acceptance gates (A1–A9).
 
 These gates are the tool's frozen acceptance, mirroring the SPEC. They may only
 be strengthened, never weakened: a failing gate means the engine regressed, and

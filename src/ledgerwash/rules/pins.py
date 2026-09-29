@@ -4,7 +4,7 @@ Round-0 lesson 3: "not found in the local clone" is not "pin failure". Pins on
 the target repo itself (receipt expected_head) are verified locally; bare
 40-hex references that cannot be routed to a source repo are reported as
 unroutable. Wording never claims a pin is dead — remote checks are out of
-scope for v1 (SPEC §9).
+scope (SPEC §9).
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ _QUALIFIED = re.compile(r"([A-Za-z0-9_.\-]+)@([0-9a-f]{40})(?![0-9a-f])")
 
 
 def qualified_pins(corpus) -> list[dict]:
-    """repo@sha qualified references seen (observation input; not verified in v1)."""
+    """repo@sha qualified references seen (observation input; not verified, SPEC §9)."""
     seen: dict[tuple[str, str], set[str]] = {}
     for task in corpus.tasks.values():
         for text in iter_strings(task.data):

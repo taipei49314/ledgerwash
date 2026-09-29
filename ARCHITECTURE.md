@@ -1,4 +1,4 @@
-# ledgerwash ARCHITECTURE (v0.1)
+# ledgerwash ARCHITECTURE (v0.3)
 
 Layers — [SPEC.md](SPEC.md) wins on conflict:
 

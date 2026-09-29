@@ -9,8 +9,9 @@ Era-awareness (round-0 lesson 1): the rule fires only when the receipt system
 demonstrably existed at the task's close time — state is DONE, the task has
 zero receipts, and its `time` parses to a moment on/after the earliest receipt
 `recorded_at` in the ledger. Pre-receipt-system tasks and tasks with
-unparseable time stay silent (on the round-0 corpus: 275 DONE tasks without
-receipts, all closed before the first receipt — zero fires).
+unparseable time stay silent (on the round-0 corpus: 275 receipt-less DONE
+tasks closed before the first receipt stay silent; 3 closed after it fire —
+T-291, T-293, T-297).
 """
 
 from __future__ import annotations

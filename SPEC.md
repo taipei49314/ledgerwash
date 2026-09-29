@@ -1,6 +1,6 @@
-# ledgerwash SPEC (spec v1)
+# ledgerwash SPEC (spec 3)
 
-The contract for ledgerwash v0.1. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
+The contract for ledgerwash v0.3. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
 conflict this file wins. Frozen means: changes here require a spec bump, an independent
 commit, and fixture/gate re-runs.
 
@@ -39,7 +39,7 @@ in a multi-file commit is mapped), and blob-at-commit.
 
 ## 3. Ledger adapters (closed set)
 
-v0.1 ships exactly one adapter: `ec-ledger`.
+v0.3 ships exactly one adapter: `ec-ledger`.
 
 Layout (repo-relative):
 
@@ -105,7 +105,7 @@ newline:
 ```json
 {
   "ledgerwash_findings_version": 1,
-  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.1.0", "ref": "<as given>", "spec_version": 1, "target": "<path>"},
+  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.3.0", "ref": "<as given>", "spec_version": 3, "target": "<path>"},
   "verdict": "pass | block",
   "findings": [],
   "observations": [],
@@ -147,20 +147,20 @@ A crash must not exit 1.
 
 A pass/block statement that cannot name the judge is not reproducible. Record: ledgerwash
 version (or git revision), `spec_version`, epoch pin (sha), adapter, and the exit code.
-Example: `pass @ ledgerwash 0.1.0, spec 1, epoch b8761e95…, adapter ec-ledger, exit 0`.
+Example: `pass @ ledgerwash 0.3.0, spec 3, epoch <pinned-sha>, adapter ec-ledger, exit 0`.
 
-## 9. Non-goals for spec v1
+## 9. Non-goals (spec 3)
 
-- No network verification of pins (remote fallback is v0.2+); PIN findings therefore never
-  claim a pin is dead — only that it is unroutable or unverified locally.
+- No network verification of pins (no remote fallback as of spec 3); PIN findings
+  therefore never claim a pin is dead — only that it is unroutable or unverified locally.
 - No freshness verdicts (needs a clock and a freshness policy).
 - No self-signing verdicts (structural observation only; round 0 found design risk, not
   confirmed forgery).
 - No equivalence-weakening checks (taxonomy 3) and no scope-drift checks (taxonomy 7) —
-  round 0 produced no confirmed instance; reconsider at v0.2.
+  round 0 produced no confirmed instance; still out of scope in spec 3.
 - Only `source_fingerprints` entries are hash-verified. `request.expected.sources`,
   `request.guards.policy_sources`, `LEDGER.md`, and session transcripts are out of scope
-  for v1.
+  for spec 3.
 
 ## 10. Spec changelog
 
@@ -171,3 +171,8 @@ Example: `pass @ ledgerwash 0.1.0, spec 1, epoch b8761e95…, adapter ec-ledger,
   Timeline findings carry the task id in locator and message. Fingerprint anchors must
   resolve to commit objects; a non-commit or unresolvable anchor is a residual, never an
   FP finding. Empty tasks/receipts directories are residuals (no-ledger ≠ clean-ledger).
+- spec 3 (v0.3.0): `NO_OPERATION_HISTORY` (high) added — a `DONE` task with zero operation
+  receipts whose `time` is on/after the ledger's earliest receipt `recorded_at` (era-aware;
+  closes the S4 receipt-less record-rewrite escape, docs/s4/REPORT.md) (rule count 13 → 14).
+  `FP_HASH_MISMATCH` messages carry a deterministic diagnostic hint when the claimed digest
+  matches an EOL-converted variant of the anchor bytes (severity unchanged).

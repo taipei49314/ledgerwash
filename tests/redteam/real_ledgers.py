@@ -4,14 +4,15 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-import subprocess
 
 from tests.redteam.harness import git
 from tests.redteam.replay import ROOT, baseline_source, scan
 
 
 def finding_keys(record):
-    return sorted((item["rule"], item["path"], item.get("locator", "")) for item in record.get("findings", []))
+    return sorted(json.dumps({key: item.get(key) for key in (
+        "rule", "path", "locator", "severity", "before", "after", "fingerprint")}, sort_keys=True,
+        ensure_ascii=False) for item in record.get("findings", []))
 
 
 def main():
@@ -53,6 +54,8 @@ def main():
         before, after = item["judges"]["baseline"], item["judges"]["candidate"]
         old_keys, new_keys = set(finding_keys(before)), set(finding_keys(after))
         item["finding_changes"] = {"added": sorted(new_keys - old_keys), "removed": sorted(old_keys - new_keys)}
+        item["coverage_changes"] = {"before": before.get("coverage"), "after": after.get("coverage")}
+        item["residual_changes"] = {"before": before.get("residuals"), "after": after.get("residuals")}
         # Coverage additions must not silently change existing finding identities.
         if old_keys != new_keys:
             problems.append(f"{name}: existing finding identity drift requires explicit triage")

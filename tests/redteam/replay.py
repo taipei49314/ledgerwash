@@ -110,6 +110,10 @@ def replay(out, work, *, candidate_sha=None):
     a4c = next(item for item in records if item["case"] == "A4C-OPEN-TASK-HIDDEN")
     if not any(f["rule"] == "STATUS_STATE_MISMATCH" for f in a4c["judges"]["baseline"].get("findings", [])):
         problems.append("A4C expected visible status mismatch warning")
+    a4b = next(item for item in records if item["case"].startswith("A4B-"))
+    if (a4b["judges"]["baseline"]["exit_code"] != 1 or not any(
+            f["rule"] == "NO_OPERATION_HISTORY" for f in a4b["judges"]["baseline"].get("findings", []))):
+        problems.append("A4B expected explicit NO_OPERATION_HISTORY block")
     result = {"schema_version": 1, "original_case_count": len(records), "baseline_sha": pinned,
               "candidate_sha": candidate_sha, "baseline_pass": baseline_pass,
               "baseline_block": len(records) - baseline_pass, "cases": records,

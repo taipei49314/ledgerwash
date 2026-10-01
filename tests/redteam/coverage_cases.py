@@ -20,11 +20,20 @@ def modern_receipt(repo, before, after, index, operation):
     anchor = git(repo, "rev-parse", "HEAD").decode().strip()
     after["history"] = (before["history"] if before else []) + [
         {"kind": "operation", "hash_format": "git-commit-bound", "source": path}]
+    request = {"at": f"2026-09-28T{9 + index:02d}:00:00Z", "actor": "agent-7",
+               "operation": operation, "sources": [SRC_REL], "operation_id": IDS[index - 1],
+               "request_id": IDS[index - 1], "expected": {"head": anchor},
+               "reason": after["evidence"], "summary": {"checked_at": "2026-09-28T09:00:00Z"}}
+    intent = deepcopy(request)
+    intent.pop("operation_id")
+    intent.pop("at")
+    intent["expected"].pop("head")
+    intent["summary"].pop("checked_at")
     return path, {"schema_version": 2, "kind": "ec-task-operation",
                   "operation_id": IDS[index - 1], "task_id": "T-100", "expected_head": anchor,
+                  "request_id": IDS[index - 1], "intent_sha256": record_digest(intent),
                   "recorded_at": f"2026-09-28T{9 + index:02d}:00:00Z",
-                  "request": {"at": "2026-09-28T09:00:00Z", "actor": "agent-7",
-                              "operation": operation, "sources": [SRC_REL]},
+                  "request": request,
                   "before_record": before,
                   "before_record_sha256": record_digest(before) if before is not None else None,
                   "after_record": after, "after_record_sha256": record_digest(after),
@@ -35,14 +44,17 @@ def complete_ledger(repo, *, two=True, final_state="DONE"):
     w(repo, ".gitattributes", b"* -text\n")
     w(repo, SRC_REL, SRC_BYTES)
     commit(repo, "sources")
-    first = task("T-100", state="CLAIMED", status="CLAIMED", id="T-100", history=[], description="中文驗收")
+    first = {"schema_version": 1, "id": "T-100", "state": "CLAIMED", "status": "CLAIMED",
+             "owner": "agent-7", "time": "2026-09-28T10:00:00Z", "description": "中文驗收",
+             "history": [], "evidence": "initial source", "handoff": None}
     path, receipt = modern_receipt(repo, None, first, 1, "claim")
     w(repo, "governance/tasks/T-100.json", first)
     w(repo, path, receipt)
     commit(repo, "claim")
     if two:
         second = deepcopy(first)
-        second.update(state=final_state, status=final_state, title="legitimate changed title")
+        second.update(state=final_state, status=final_state, evidence="legitimate changed evidence",
+                      time="2026-09-28T11:00:00Z")
         path, receipt = modern_receipt(repo, first, second, 2, "finish" if final_state == "DONE" else "progress")
         w(repo, "governance/tasks/T-100.json", second)
         w(repo, path, receipt)
@@ -75,7 +87,7 @@ def controls():
     def true_drift(repo):
         complete_ledger(repo)
         data = json.loads((repo / "governance/tasks/T-100.json").read_text(encoding="utf-8"))
-        data["title"] = "unrecorded rewrite"
+        data["evidence"] = "unrecorded rewrite"
         w(repo, "governance/tasks/T-100.json", data)
         commit(repo, "unrecorded rewrite")
     entries.append({"id": "TRUE-DRIFT", "plan": true_drift, "expected_strict": 1, "expected_rule": "POST_HOC_DRIFT"})
@@ -87,7 +99,7 @@ def controls():
         complete_ledger(repo)
         current = json.loads((repo / "governance/tasks/T-100.json").read_text(encoding="utf-8"))
         before = deepcopy(current)
-        current["title"] = "new unrecorded scope"
+        current["evidence"] = "new unrecorded scope"
         path, receipt = modern_receipt(repo, before, current, 3, "progress")
         # This matches current yet fails to attach the new receipt to its history.
         current["history"] = before["history"]
@@ -111,6 +123,7 @@ def controls():
     entries.append({"id": "UNEXPECTED-TASK", "plan": unexpected_task, "expected_strict": 1})
     def duplicate_sources(repo):
         complete_ledger(repo)
-        mutate_receipt(repo, "source_fingerprints", [fp_entry(digest=sha_of(SRC_BYTES)), fp_entry(digest=sha_of(SRC_BYTES))])
+        entry = fp_entry(digest=sha_of(SRC_BYTES), origin="expected-head-blob")
+        mutate_receipt(repo, "source_fingerprints", [entry, deepcopy(entry)])
     entries.append({"id": "DUPLICATE-SOURCE-CONTRACT", "plan": duplicate_sources, "expected_strict": 1})
     return entries

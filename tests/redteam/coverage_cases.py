@@ -19,6 +19,7 @@ EXPECTED_IDS = {
     "PAIRED-EMPTY-RECEIPT", "DUPLICATE-JSON-KEY", "NONFINITE-JSON", "NONFINITE-EXPONENT",
     "LONE-SURROGATE-RECEIPT", "UNSUPPORTED-MIGRATION", "LONE-SURROGATE-TASK", "LONE-SURROGATE-SNAPSHOT",
     "UNATTACHED-NONLATEST", "DUPLICATE-REQUEST-UUID", "EXPECTED-HEAD-BINDING",
+    "DUPLICATE-SURROGATE-KEY",
 }
 
 
@@ -197,6 +198,7 @@ def controls():
         commit(repo, "empty receipt")
     entries.append({"id": "PAIRED-EMPTY-RECEIPT", "plan": empty_receipt, "expected_strict": 1, "expected_check": "fingerprint_list"})
     for raw, label in ((b'{"task_id":"T-100","task_id":"T-200"}', "DUPLICATE-JSON-KEY"),
+                       (b'{"\\ud800":1,"\\ud800":2}', "DUPLICATE-SURROGATE-KEY"),
                        (b'{"task_id":"T-100","x":NaN}', "NONFINITE-JSON"),
                        (b'{"task_id":"T-100","x":1e999}', "NONFINITE-EXPONENT"),
                        (b'{"task_id":"T-100","request":{"extra":"\\ud800"}}', "LONE-SURROGATE-RECEIPT")):

@@ -28,7 +28,7 @@ def decode(raw):
         result = {}
         for key, value in items:
             if key in result:
-                raise ValueError("duplicate JSON key: " + key)
+                raise ValueError("duplicate JSON key: " + ascii(key))
             result[key] = value
         return result
     def constant(value):

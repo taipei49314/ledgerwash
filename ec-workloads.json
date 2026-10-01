@@ -8,6 +8,14 @@
       "timeout_minutes": 20,
       "cache": false,
       "parameters": {}
+    },
+    "redteam-verify": {
+      "profile": "profile-ec-integrity",
+      "timeout_minutes": 30,
+      "entry": "workloads/redteam_verify/run.py",
+      "cache": false,
+      "parameters": {},
+      "description": "Replay all 21 preserved red-team cases against the frozen PR2 judge dc133028fb7405ed61c315ea3efbee26f134d015 and the exact candidate; use isolated hash-pinned pytest dependencies, all tests and qualify, independent-process byte replay, full raw logs, fixture and judge SHAs. Scope also covers later verification-coverage spec changes, paired positive/negative controls, and readonly scans of fixed historical/current EC Git corpus inputs with before/after triage. Never execute subject code, access credentials, call models, publish packages or deploy. Network downloads only hash-pinned pytest wheels; corpus inputs are offline and pinned. Errors, missing cases, invalid outputs, skips or nondeterminism fail the workload; attacks passing the baseline are recorded as observations, not claimed as caught."
     }
   }
 }

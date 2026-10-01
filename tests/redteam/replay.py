@@ -36,7 +36,7 @@ def baseline_source(work):
     return destination / "src", manifest["judge_sha"]
 
 
-def scan(repo, epoch, source, judge_sha, out, label, *, seed="1", strict=False):
+def scan(repo, epoch, source, judge_sha, out, label, *, seed="1", strict=False, timeout=120):
     env = {key: value for key, value in os.environ.items()
            if not key.startswith("PYTHON") and not key.startswith("PYTEST")}
     env.update(PYTHONPATH=str(source), PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1",
@@ -56,7 +56,7 @@ def scan(repo, epoch, source, judge_sha, out, label, *, seed="1", strict=False):
     if strict:
         command += ["--require-complete"]
     try:
-        process = subprocess.run(command, cwd=repo.parent, env=env, capture_output=True, timeout=120)
+        process = subprocess.run(command, cwd=repo.parent, env=env, capture_output=True, timeout=timeout)
         code, stdout, stderr, timed_out = process.returncode, process.stdout, process.stderr, False
     except subprocess.TimeoutExpired as exc:
         code, stdout, stderr, timed_out = 2, exc.stdout or b"", exc.stderr or b"", True

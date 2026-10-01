@@ -33,6 +33,10 @@ def main():
     expected = os.environ["EC_WORKLOAD_SHA"]
     if not re.fullmatch(r"[0-9a-f]{40}", expected):
         raise RuntimeError("an exact reviewed source SHA is required")
+    parameters = json.loads(Path(os.environ["EC_WORKLOAD_PARAMETERS"]).read_text(encoding="utf-8"))
+    phase = parameters["phase"]
+    if phase not in {"baseline", "coverage"}:
+        raise RuntimeError("unexpected acceptance phase")
     out = Path(os.environ["EC_WORKLOAD_OUT"]).resolve()
     work = Path(os.environ["EC_WORKLOAD_WORK"]).resolve()
     out.mkdir(parents=True, exist_ok=True)
@@ -159,6 +163,14 @@ def main():
             "--candidate-sha", expected], timeout=900)
         if code:
             problems.append("redteam controls, full case set or raw replay failed")
+        if phase == "coverage":
+            code, _, _ = run("real-ledger", command + ["-m", "tests.redteam.real_ledgers",
+                "--out", str(out / "real-ledger"), "--work", str(work / "real-ledger"),
+                "--ec-source", os.environ["GITHUB_WORKSPACE"],
+                "--historical-sha", parameters["historical_sha"],
+                "--current-sha", parameters["current_sha"], "--candidate-sha", expected], timeout=900)
+            if code:
+                problems.append("real-ledger pinned replay or triage invariants failed")
         code, final, _ = run("final-source", ["git", "rev-parse", "--verify", "HEAD"])
         if code or final.decode("ascii", "replace").strip() != expected:
             problems.append("validation changed the source SHA")
@@ -166,7 +178,8 @@ def main():
         if code or status:
             problems.append("validation changed the source checkout")
 
-    result = {"schema_version": 1, "task": "LW-002", "requested_sha": expected,
+    result = {"schema_version": 1, "task": "LW-002", "phase": phase, "parameters": parameters,
+              "requested_sha": expected,
               "actual_sha": actual, "runtime": {"python": sys.version, "platform": platform.platform()},
               "uv_lock_sha256": digest(lock_bytes) if lock_bytes is not None else None,
               "requirements": requirements,

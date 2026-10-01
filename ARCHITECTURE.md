@@ -1,4 +1,4 @@
-# ledgerwash ARCHITECTURE (v0.3)
+# ledgerwash ARCHITECTURE (v0.4)
 
 Layers — [SPEC.md](SPEC.md) wins on conflict:
 
@@ -6,9 +6,13 @@ Layers — [SPEC.md](SPEC.md) wins on conflict:
 - `models.py` — Finding, severity ladder, type-strict equality, fingerprint canonicalization.
 - `adapters/ec_ledger.py` — layout constants, the closed fingerprint contract table, and the
   corpus loader. Owns ALL layout knowledge; rules never parse paths themselves.
-- `rules/` — pure functions `(corpus, epoch) -> list[Finding]`, one module per rule family.
+- `rules/` — functions `(corpus) -> list[Finding]`, one module per rule family.
+- `coverage.py` — supported EC record, history, identity and source verification checks;
+  runs after findings rules so their residuals also make coverage incomplete. Does not
+  authenticate execution, decisions or trusted time (SPEC §3.1).
 - `engine.py` — orchestration: load corpus, run rules in fixed order, sort, fingerprint,
-  build the envelope, decide the verdict. Never interprets rule semantics.
+  build the envelope, retain the finding verdict and apply the optional completeness gate.
+  Never interprets rule semantics.
 - `cli.py` — `scan` / `qualify` subcommands and exit codes.
 - `qualify_corpus.py` — deterministic synthetic ledger builder (the red-by-design fixture).
   `ledgerwash qualify` scans a freshly built corpus and asserts the expected finding matrix.

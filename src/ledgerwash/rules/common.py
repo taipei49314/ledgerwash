@@ -5,8 +5,6 @@ from __future__ import annotations
 import re
 from datetime import datetime, timezone
 
-MIN_TS = datetime.min.replace(tzinfo=timezone.utc)
-
 # Date-level prefix — masking can eat the whole time part (…T02:xxZ).
 _ISO_PREFIX = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -46,8 +44,16 @@ def parse_ts(value):
     return parsed
 
 
-def ts_or_min(value):
-    return parse_ts(value) or MIN_TS
+def ordered_ops(ops):
+    """All operations in timestamp/name order, or None if ordering is unknown.
+
+    Removing undated operations could join non-adjacent operations or select a
+    stale anchor. The whole task's dependent checks must instead remain unverified.
+    """
+    dated = [(parse_ts(op.data.get("recorded_at")), op) for op in ops]
+    if any(stamp is None for stamp, _op in dated):
+        return None
+    return [op for _stamp, op in sorted(dated, key=lambda pair: (pair[0], pair[1].name))]
 
 
 def present_but_unparseable(value) -> bool:

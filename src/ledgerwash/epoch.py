@@ -54,7 +54,7 @@ class Epoch:
 
     def read_bytes(self, rel: str) -> bytes | None:
         proc = subprocess.run(
-            ["git", "cat-file", "blob", f"{self.ref}:{rel}"],
+            ["git", "cat-file", "blob", f"{self.sha}:{rel}"],
             cwd=self.repo,
             capture_output=True,
         )
@@ -67,7 +67,7 @@ class Epoch:
     def list_dir(self, rel: str) -> list[str]:
         """Direct children of a directory in the epoch tree; [] if the dir is absent."""
         proc = subprocess.run(
-            ["git", "ls-tree", "--name-only", f"{self.ref}:{rel}"],
+            ["git", "ls-tree", "--name-only", f"{self.sha}:{rel}"],
             cwd=self.repo,
             capture_output=True,
         )
@@ -78,7 +78,7 @@ class Epoch:
     def tree_files(self) -> set[str]:
         """All file paths in the epoch tree (cached)."""
         if self._tree_files is None:
-            out = self._git("ls-tree", "-r", "--name-only", self.ref)
+            out = self._git("ls-tree", "-r", "--name-only", self.sha)
             self._tree_files = {
                 line for line in out.decode("utf-8", "replace").splitlines() if line
             }
@@ -87,7 +87,7 @@ class Epoch:
     def tree_dirs(self) -> set[str]:
         """All directory paths in the epoch tree (cached)."""
         if self._tree_dirs is None:
-            out = self._git("ls-tree", "-r", "-d", "--name-only", self.ref)
+            out = self._git("ls-tree", "-r", "-d", "--name-only", self.sha)
             self._tree_dirs = {
                 line for line in out.decode("utf-8", "replace").splitlines() if line
             }
@@ -159,13 +159,15 @@ class Epoch:
     # -- birth map -----------------------------------------------------------
 
     def birth_map(self, rel_dir: str) -> dict[str, str]:
-        """Map each file under rel_dir to the commit that added it.
+        """Map each file under rel_dir to its latest addition at the pinned epoch.
 
         Every filename under a commit header is mapped; round-0's scan_birth
         mapped only the first file of each commit and silently dropped the rest.
+        Deletion/recreation starts a new incarnation; renames add the new path.
         """
         out = self._git(
-            "log", "--diff-filter=A", "--format=%x01%H", "--name-only", "--", rel_dir
+            "log", "--no-renames", "--diff-filter=A", "--format=%x01%H",
+            "--name-only", self.sha, "--", rel_dir
         )
         births: dict[str, str] = {}
         current: str | None = None
@@ -173,5 +175,5 @@ class Epoch:
             if line.startswith("\x01"):
                 current = line[1:].strip() or None
             elif line.strip() and current:
-                births[line.strip()] = current
+                births.setdefault(line.strip(), current)
         return births

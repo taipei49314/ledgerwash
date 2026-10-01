@@ -41,7 +41,10 @@ def build_observations(corpus):
         request = receipt.data.get("request")
         actor = request.get("actor") if isinstance(request, dict) else None
         task_id = receipt.data.get("task_id")
-        owner = corpus.tasks[task_id].data.get("owner") if task_id in corpus.tasks else None
+        owner = (
+            corpus.tasks[task_id].data.get("owner")
+            if isinstance(task_id, str) and task_id in corpus.tasks else None
+        )
         if isinstance(actor, str) and isinstance(owner, str):
             if actor == owner:
                 same += 1

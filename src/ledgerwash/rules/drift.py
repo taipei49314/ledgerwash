@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding, short_json, strict_eq
 
-from .common import ts_or_min
+from .common import ordered_ops
 
 
 def _diff_keys(a, b, prefix: str = ""):
@@ -18,18 +18,21 @@ def _diff_keys(a, b, prefix: str = ""):
                 yield (key_path, a[key], None)
             else:
                 yield from _diff_keys(a[key], b[key], key_path)
-    elif not (type(a) is type(b) and a == b):
+    elif not strict_eq(a, b):
         yield (prefix, a, b)
 
 
 def run(corpus) -> list[Finding]:
     findings: list[Finding] = []
-    for task_id in sorted(corpus.ops_by_task()):
+    grouped = corpus.ops_by_task()
+    for task_id in sorted(grouped):
         task = corpus.tasks.get(task_id)
         if task is None:
             continue
-        ops = corpus.ops_by_task()[task_id]
-        anchor = max(ops, key=lambda r: (ts_or_min(r.data.get("recorded_at")), r.name))
+        ordered = ordered_ops(grouped[task_id])
+        if ordered is None:
+            continue
+        anchor = ordered[-1]
         after = anchor.data.get("after_record")
         if not isinstance(after, dict):
             continue

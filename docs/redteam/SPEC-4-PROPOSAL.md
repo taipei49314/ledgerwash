@@ -1,7 +1,8 @@
 # Spec 4 proposal — explicit verification coverage
 
-Status: proposed, not the active contract. Activate in a separate spec/version
-commit only after the pinned PR2 pool red-team replay. Scope is completeness of
+Status: adopted by the separate spec/version commit after pool run36844522913
+replayed the pinned PR2 judge and candidate7499115 (21cases17pass4block, raw replay equal).
+The authoritative active contract is ../../SPEC.md. Scope is completeness of
 mechanical verification inputs, not execution authenticity.
 
 ## Verdicts and compatibility
@@ -9,7 +10,7 @@ mechanical verification inputs, not execution authenticity.
 Retain all fourteen rule IDs, severities and default fail_on behavior. Add an
 envelope coverage report and finding_verdict. Default verdict equals the finding
 verdict. With --require-complete, verdict additionally blocks incomplete coverage.
-Exit 1 means that selected gate blocked; parsing/runtime failures remain exit 2.
+Exit 1 means that selected gate blocked; malformed target records remain RECORD_UNPARSEABLE; engine failures remain exit 2.
 Coverage issues are not accusations and do not silently become high findings.
 The new fields and gate require spec 4 / engine 0.4.0 / envelope version 2.
 

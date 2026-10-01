@@ -71,6 +71,7 @@ def scan(repo, epoch, source, judge_sha, out, label, *, seed="1", strict=False, 
         result.update(verdict=envelope["verdict"], run=envelope["run"],
                       findings=envelope["findings"], residuals=envelope["residuals"],
                       coverage=envelope.get("coverage"), judge_identity=identity)
+        result["finding_verdict"] = envelope.get("finding_verdict", envelope["verdict"])
         if (envelope["run"]["epoch"] != epoch or code not in (0, 1)
                 or (code == 0) != (envelope["verdict"] == "pass")
                 or identity["version"] != envelope["run"]["ledgerwash_version"]
@@ -81,7 +82,7 @@ def scan(repo, epoch, source, judge_sha, out, label, *, seed="1", strict=False, 
     return result
 
 
-def replay(out, work, *, candidate_sha=None):
+def replay(out, work, *, candidate_sha=None, strict_candidate=False):
     out.mkdir(parents=True, exist_ok=False)
     work.mkdir(parents=True, exist_ok=False)
     baseline, pinned = baseline_source(work)
@@ -104,6 +105,19 @@ def replay(out, work, *, candidate_sha=None):
             if case["category"] == "control" and (first["exit_code"] != 1 or first.get("verdict") != "block"):
                 problems.append(f"{case['id']}/{name}: positive block control failed")
         records.append(item)
+        if candidate_sha:
+            old, new = item["judges"]["baseline"], item["judges"]["candidate"]
+            if old.get("findings") != new.get("findings") or old.get("verdict") != new.get("finding_verdict"):
+                problems.append(f"{case['id']}: original default finding contract changed")
+            if strict_candidate:
+                first = scan(repo, epoch, ROOT / "src", candidate_sha, out, f"{case['id']}-strict-seed1", strict=True)
+                second = scan(repo, epoch, ROOT / "src", candidate_sha, out, f"{case['id']}-strict-seed17", seed="17", strict=True)
+                first["raw_replay_equal"] = first["stdout_sha256"] == second["stdout_sha256"] and first["exit_code"] == second["exit_code"]
+                item["judges"]["candidate-strict"] = first
+                if (first.get("error") or second.get("error") or not first["raw_replay_equal"]
+                        or first["exit_code"] != 1 or (first.get("coverage") or {}).get("complete") is not False
+                        or first.get("findings") != old.get("findings")):
+                    problems.append(f"{case['id']}: strict original-case coverage/replay failed")
     baseline_pass = sum(item["judges"]["baseline"]["exit_code"] == 0 for item in records)
     if baseline_pass != 17:
         problems.append(f"baseline expected 17 pass and 4 block, got {baseline_pass} pass")
@@ -129,8 +143,10 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--work", type=Path, required=True)
     parser.add_argument("--candidate-sha")
+    parser.add_argument("--strict-candidate", action="store_true")
     args = parser.parse_args()
-    result = replay(args.out.resolve(), args.work.resolve(), candidate_sha=args.candidate_sha)
+    result = replay(args.out.resolve(), args.work.resolve(), candidate_sha=args.candidate_sha,
+                    strict_candidate=args.strict_candidate)
     print(json.dumps({key: result[key] for key in ("original_case_count", "baseline_pass", "baseline_block", "passed", "problems")}))
     return 0 if result["passed"] else 1
 

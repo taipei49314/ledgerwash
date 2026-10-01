@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass, field
 
 from ledgerwash.epoch import Epoch
@@ -20,6 +21,39 @@ CONTRACT_TABLE = {
     ("raw-git-blob-bytes", "new-utf8-blob-in-containing-commit"): "birth",
     ("raw-git-blob-bytes", "expected-head-blob"): "expected_head",
 }
+
+
+def decode(raw):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError("duplicate JSON key: " + key)
+            result[key] = value
+        return result
+    def constant(value):
+        raise ValueError("non-finite JSON value: " + value)
+    def floating(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError("non-finite JSON number: " + value)
+        return number
+    value = json.loads(raw.decode("utf-8"), object_pairs_hook=pairs,
+                       parse_constant=constant, parse_float=floating)
+    pending = [value]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, dict):
+            pending.extend(item.keys())
+            pending.extend(item.values())
+        elif isinstance(item, list):
+            pending.extend(item)
+        elif isinstance(item, str):
+            try:
+                item.encode("utf-8")
+            except UnicodeEncodeError as exc:
+                raise ValueError("invalid Unicode scalar value") from exc
+    return value
 
 
 @dataclass
@@ -61,16 +95,17 @@ def load(epoch: Epoch) -> Corpus:
     corpus = Corpus(epoch=epoch)
 
     for name in sorted(epoch.list_dir(TASKS_DIR)):
-        if not (name.startswith("T-") and name.endswith(".json")):
-            continue
         rel = f"{TASKS_DIR}/{name}"
+        if rel in epoch.tree_dirs() or not (name.startswith("T-") and name.endswith(".json")):
+            corpus.residuals.append({"path": rel, "reason": "unexpected direct task entry outside adapter scope"})
+            continue
         raw = epoch.read_bytes(rel)
         if raw is None:
             corpus.residuals.append({"path": rel, "reason": "task file unreadable at epoch"})
             continue
         try:
-            data = json.loads(raw.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            data = decode(raw)
+        except (UnicodeDecodeError, ValueError) as exc:
             corpus.unparsed.append({"path": rel, "reason": f"json: {exc}"})
             continue
         if not isinstance(data, dict):
@@ -90,16 +125,17 @@ def load(epoch: Epoch) -> Corpus:
 
     corpus.births = epoch.birth_map(RECEIPTS_DIR)
     for name in sorted(epoch.list_dir(RECEIPTS_DIR)):
-        if not name.endswith(".json"):
-            continue
         rel = f"{RECEIPTS_DIR}/{name}"
+        if rel in epoch.tree_dirs() or not name.endswith(".json"):
+            corpus.residuals.append({"path": rel, "reason": "unexpected direct receipt entry outside adapter scope"})
+            continue
         raw = epoch.read_bytes(rel)
         if raw is None:
             corpus.residuals.append({"path": rel, "reason": "receipt unreadable at epoch"})
             continue
         try:
-            data = json.loads(raw.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            data = decode(raw)
+        except (UnicodeDecodeError, ValueError) as exc:
             corpus.unparsed.append({"path": rel, "reason": f"json: {exc}"})
             continue
         if not isinstance(data, dict):
@@ -112,11 +148,13 @@ def load(epoch: Epoch) -> Corpus:
     snap_raw = epoch.read_bytes(SNAPSHOT_PATH)
     if snap_raw is not None:
         try:
-            snapshot = json.loads(snap_raw.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError):
+            snapshot = decode(snap_raw)
+        except (UnicodeDecodeError, ValueError):
             corpus.residuals.append({"path": SNAPSHOT_PATH, "reason": "snapshot json unparseable"})
         else:
             corpus.snapshot = snapshot if isinstance(snapshot, dict) else None
+            if corpus.snapshot is None:
+                corpus.residuals.append({"path": SNAPSHOT_PATH, "reason": "snapshot is not a JSON object"})
 
     corpus.current_text = epoch.read_text(CURRENT_PATH)
 

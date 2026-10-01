@@ -160,15 +160,20 @@ def main():
                     problems.append("independent process scan replay differs or lacks all 14 planted rules")
         code, _, _ = run("redteam", command + ["-m", "tests.redteam.replay",
             "--out", str(out / "redteam"), "--work", str(work / "redteam"),
-            "--candidate-sha", expected], timeout=900)
+            "--candidate-sha", expected] + (["--strict-candidate"] if phase == "coverage" else []), timeout=900)
         if code:
             problems.append("redteam controls, full case set or raw replay failed")
         if phase == "coverage":
+            code, _, _ = run("coverage-controls", command + ["-m", "tests.redteam.coverage_replay",
+                "--out", str(out / "coverage-controls"), "--work", str(work / "coverage-controls"),
+                "--candidate-sha", expected], timeout=900)
+            if code:
+                problems.append("paired coverage controls or raw replay failed")
             code, _, _ = run("real-ledger", command + ["-m", "tests.redteam.real_ledgers",
                 "--out", str(out / "real-ledger"), "--work", str(work / "real-ledger"),
                 "--ec-source", os.environ["GITHUB_WORKSPACE"],
                 "--historical-sha", parameters["historical_sha"],
-                "--current-sha", parameters["current_sha"], "--candidate-sha", expected], timeout=900)
+                "--current-sha", parameters["current_sha"], "--candidate-sha", expected], timeout=1200)
             if code:
                 problems.append("real-ledger pinned replay or triage invariants failed")
         code, final, _ = run("final-source", ["git", "rev-parse", "--verify", "HEAD"])

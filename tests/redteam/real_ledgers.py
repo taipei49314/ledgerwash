@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
 
@@ -36,8 +37,8 @@ def main():
     # Never check out or execute private subject code; no token/config is copied.
     git(work, "clone", "--no-hardlinks", "--no-checkout", "--", str(source), str(repo))
     baseline, baseline_sha = baseline_source(work)
-    records, problems = [], []
-    for name, epoch in (("historical", args.historical_sha), ("current", args.current_sha)):
+    def replay_epoch(name, epoch):
+        problems = []
         item = {"name": name, "epoch": epoch, "judges": {}}
         for judge, src, pin, strict in (
             ("baseline", baseline, baseline_sha, False),
@@ -61,7 +62,20 @@ def main():
             problems.append(f"{name}: existing finding identity drift requires explicit triage")
         if after.get("run", {}).get("spec_version") != 4:
             problems.append(f"{name}: coverage phase requires the separately activated spec 4")
-        records.append(item)
+        return item, problems
+
+    # Both epochs read the same immutable Git object database. Keep each epoch's
+    # judge/seed sequence and disjoint raw output labels, but run the two epochs
+    # concurrently to reduce wall time without skipping any fresh scan.
+    # Collect in fixed epoch order, independent of completion order.
+    records, problems = [], []
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        pending = [executor.submit(replay_epoch, name, epoch) for name, epoch in (
+            ("historical", args.historical_sha), ("current", args.current_sha))]
+        for future in pending:
+            item, failures = future.result()
+            records.append(item)
+            problems.extend(failures)
     result = {"schema_version": 1, "records": records, "passed": not problems, "problems": problems,
               "meaning": "pinned raw replay and contract compatibility; real ledgers need not pass strict"}
     (out / "results.json").write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n",

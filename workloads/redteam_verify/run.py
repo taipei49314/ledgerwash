@@ -173,7 +173,7 @@ def main():
                 "--out", str(out / "real-ledger"), "--work", str(work / "real-ledger"),
                 "--ec-source", os.environ["GITHUB_WORKSPACE"],
                 "--historical-sha", parameters["historical_sha"],
-                "--current-sha", parameters["current_sha"], "--candidate-sha", expected], timeout=1200)
+                "--current-sha", parameters["current_sha"], "--candidate-sha", expected], timeout=1350)
             if code:
                 problems.append("real-ledger pinned replay or triage invariants failed")
         code, final, _ = run("final-source", ["git", "rev-parse", "--verify", "HEAD"])

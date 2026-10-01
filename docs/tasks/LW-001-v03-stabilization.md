@@ -32,6 +32,11 @@ Restore the existing spec 3 contracts without adding rules or changing the spec:
 
 ## Validation and next step
 
+Implementation and regression fixtures are prepared. A separate read-only review
+confirmed coverage of all four fixes and the EC Windows workload environment;
+no product code was executed by that review. The entry point also retains a
+structured failure report if the dependency lock is unreadable.
+
 NOT_RUN：工作機規則（POLICY work-machine-local），this work machine does not run
 product code, pytest, qualify, lint, builds or dependency installation.
 

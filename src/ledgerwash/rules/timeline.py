@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ledgerwash.models import Finding
 
-from .common import is_redacted_ts, parse_ts, present_but_unparseable, ts_or_min
+from .common import is_redacted_ts, ordered_ops, parse_ts, present_but_unparseable
 
 
 def _timestamp_finding(corpus_receipt_path, locator, raw_value, task_id=None) -> Finding:
@@ -35,6 +35,12 @@ def run(corpus) -> list[Finding]:
     for receipt in corpus.receipts:
         rec_raw = receipt.data.get("recorded_at")
         rec = parse_ts(rec_raw)
+        if rec is None:
+            corpus.residuals.append({
+                "path": receipt.path,
+                "reason": "operation ordering and anchor verification skipped: "
+                          "recorded_at is missing or unparseable",
+            })
         if present_but_unparseable(rec_raw):
             findings.append(
                 _timestamp_finding(
@@ -73,9 +79,11 @@ def run(corpus) -> list[Finding]:
                 _timestamp_finding(task.path, f"{task.id}#time", t_raw)
             )
 
-    for task_id in sorted(corpus.ops_by_task()):
-        ops = corpus.ops_by_task()[task_id]
-        ordered = sorted(ops, key=lambda r: (ts_or_min(r.data.get("recorded_at")), r.name))
+    grouped = corpus.ops_by_task()
+    for task_id in sorted(grouped):
+        ordered = ordered_ops(grouped[task_id])
+        if ordered is None:
+            continue
         for prev, cur in zip(ordered, ordered[1:]):
             prev_after = prev.data.get("after_record_sha256")
             cur_before = cur.data.get("before_record_sha256")

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "workloads": {
+    "v03-verify": {
+      "description": "Verify one reviewed ledgerwash spec 3 commit on the EC Windows pool. Create an isolated job-local venv and install only the six pure-Python pytest dependencies pinned with wheel hashes in the committed uv.lock (PyPI downloads; no cache). Run all tests including A1-A9 and stabilization regressions; require nonzero tests, zero failures/errors/skips. Run qualify and compare full raw scan JSON from independent processes at PYTHONHASHSEED 1 and 17 on the same pinned planted corpus, expecting exit 1 and all 14 rules. Preserve exact source SHA, runtime, dependency locks, commands, exits, logs, JUnit and JSON hashes. Do not execute scanned subject code, call models, publish packages, change the spec, or access credentials.",
+      "entry": "workloads/v03_verify/run.py",
+      "profile": "profile-ec-integrity",
+      "timeout_minutes": 20,
+      "cache": false,
+      "parameters": {}
+    }
+  }
+}

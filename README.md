@@ -6,7 +6,7 @@ summaries — at a pinned git revision.** 標出 agent 工作帳本裡被弱化�
 checkwash guards the diff; ledgerwash guards the ledger. Local-first. Deterministic. No LLM.
 No network. Read-only: does not execute the subject, does not enforce anything.
 
-This repository has a local **v0.3 engine**. There is no Release, no PyPI package, and no
+This repository has a local **v0.4 engine**. There is no Release, no PyPI package, and no
 1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
 (layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
@@ -35,14 +35,27 @@ Pin the commit first (write the sha down), then one invocation:
 uv run ledgerwash scan <repo> --at <pinned-sha>
 ```
 
-Record the judge's identity with the verdict: `block @ ledgerwash 0.3.0, spec 3, epoch
+Record the judge's identity with the verdict: `block @ ledgerwash 0.4.0, spec 4, epoch
 b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
+
+Spec 4 reports mechanical verification coverage separately from findings. To require
+both the selected finding threshold and complete supported verification inputs:
+
+```powershell
+uv run ledgerwash scan <repo> --at <pinned-sha> --require-complete
+```
+
+Default `verdict` follows `finding_verdict`; strict additionally requires
+`coverage.complete`. A strict block may mean missing data without a high finding.
+The initial complete profile covers EC task-store operation/repair receipts;
+legacy/migration history stays explicitly unverified. See SPEC §3.1 and the
+[runner evidence design](docs/redteam/INDEPENDENT-RUNNER-DESIGN.md) for the limits.
 
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent
 execution evidence (for example, the CI run and exact source SHA) alongside a
-ledgerwash verdict when claiming that verification actually happened. A spec 3
+ledgerwash verdict when claiming that verification actually happened. A spec 4
 pass alone does not establish artifact authenticity; see [S4 report](docs/s4/REPORT-2.md).
 
 ## Writing receipts that verify

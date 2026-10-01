@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ledgerwash import SPEC_VERSION, __version__
+from ledgerwash import coverage
 from ledgerwash.adapters import ec_ledger
 from ledgerwash.epoch import Epoch
 from ledgerwash.models import SEVERITY_ORDER, SEVERITY_RANK, Finding, finding_fingerprint
@@ -74,7 +75,8 @@ def build_observations(corpus):
     return observations
 
 
-def run_scan(repo, ref: str | None = None, adapter: str = "ec-ledger", fail_on: str = "high") -> dict:
+def run_scan(repo, ref: str | None = None, adapter: str = "ec-ledger", fail_on: str = "high",
+             require_complete: bool = False) -> dict:
     adapter_mod = ADAPTERS[adapter]
     epoch = Epoch(repo, ref)
     corpus = adapter_mod.load(epoch)
@@ -88,14 +90,16 @@ def run_scan(repo, ref: str | None = None, adapter: str = "ec-ledger", fail_on: 
     for finding in findings:
         finding.fingerprint = finding_fingerprint(finding)
         summary[finding.severity] += 1
-    verdict = (
+    finding_verdict = (
         "block"
         if any(SEVERITY_RANK[f.severity] >= SEVERITY_RANK[fail_on] for f in findings)
         else "pass"
     )
+    report = coverage.build(corpus)
+    verdict = "block" if finding_verdict == "block" or (require_complete and not report["complete"]) else "pass"
 
     return {
-        "ledgerwash_findings_version": 1,
+        "ledgerwash_findings_version": 2,
         "run": {
             "adapter": adapter,
             "epoch": epoch.sha,
@@ -103,8 +107,11 @@ def run_scan(repo, ref: str | None = None, adapter: str = "ec-ledger", fail_on: 
             "ref": epoch.ref,
             "spec_version": SPEC_VERSION,
             "target": str(epoch.repo),
+            "require_complete": require_complete,
         },
         "verdict": verdict,
+        "finding_verdict": finding_verdict,
+        "coverage": report,
         "findings": [
             {
                 "rule": f.rule,

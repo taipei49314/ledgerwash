@@ -6,7 +6,7 @@ summaries — at a pinned git revision.** 標出 agent 工作帳本裡被弱化�
 checkwash guards the diff; ledgerwash guards the ledger. Local-first. Deterministic. No LLM.
 No network. Read-only: does not execute the subject, does not enforce anything.
 
-This repository has a local **v0.4 engine**. There is no Release, no PyPI package, and no
+This repository has a local **v0.5 engine**. There is no Release, no PyPI package, and no
 1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
 (layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
@@ -35,7 +35,7 @@ Pin the commit first (write the sha down), then one invocation:
 uv run ledgerwash scan <repo> --at <pinned-sha>
 ```
 
-Record the judge's identity with the verdict: `block @ ledgerwash 0.4.0, spec 4, epoch
+Record the judge's identity with the verdict: `block @ ledgerwash 0.5.0, spec 5, epoch
 b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
 
@@ -51,6 +51,13 @@ Default `verdict` follows `finding_verdict`; strict additionally requires
 The initial complete profile covers EC task-store operation/repair receipts;
 legacy/migration history stays explicitly unverified. See SPEC §3.1 and the
 [runner evidence design](docs/redteam/INDEPENDENT-RUNNER-DESIGN.md) for the limits.
+
+Spec 5 (v0.5) additionally promotes the negative-space escapes surfaced by the
+2026-10-01 red-team round to findings — a DONE task whose closure time is missing,
+empty, unparseable, redacted or contradicted by the file's own git history, a
+ledger whose receipts carry no parseable `recorded_at`, receipts bound to no
+loaded task, and `expected_head` pins that are not commits (SPEC §4, §10; see
+[spec 5 PREREG](docs/redteam/spec5-PREREG.md)).
 
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent

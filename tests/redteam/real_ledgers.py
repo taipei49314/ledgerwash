@@ -2,18 +2,19 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
 
 from tests.redteam.harness import git
-from tests.redteam.replay import ROOT, baseline_source, scan
+from tests.redteam.replay import FROZEN_RULE_IDS, ROOT, baseline_source, scan
 
 
-def finding_keys(record):
+def finding_keys(records):
     return sorted(json.dumps({key: item.get(key) for key in (
         "rule", "path", "locator", "severity", "before", "after", "fingerprint")}, sort_keys=True,
-        ensure_ascii=False) for item in record.get("findings", []))
+        ensure_ascii=False) for item in records)
 
 
 def main():
@@ -53,15 +54,29 @@ def main():
                 problems.append(f"{name}/{judge}: engine error or replay mismatch")
             item["judges"][judge] = first
         before, after = item["judges"]["baseline"], item["judges"]["candidate"]
-        old_keys, new_keys = set(finding_keys(before)), set(finding_keys(after))
-        item["finding_changes"] = {"added": sorted(new_keys - old_keys), "removed": sorted(old_keys - new_keys)}
+        old_frozen = [f for f in before.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+        new_frozen = [f for f in after.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+        additions = [f for f in after.get("findings") or [] if f["rule"] not in FROZEN_RULE_IDS]
+        removals = [f for f in before.get("findings") or [] if f["rule"] not in FROZEN_RULE_IDS]
+        # Spec 5 contract (docs/redteam/spec5-PREREG.md, Prediction 4): frozen-14
+        # identities must not move; new-rule additions are measured, counted per
+        # rule and disclosed for human triage — never treated as failure or pass.
+        item["frozen_changes"] = {
+            "added": sorted(set(finding_keys(new_frozen)) - set(finding_keys(old_frozen))),
+            "removed": sorted(set(finding_keys(old_frozen)) - set(finding_keys(new_frozen))),
+        }
+        item["spec5_additions"] = {
+            "count": len(additions),
+            "by_rule": dict(sorted(Counter(f["rule"] for f in additions).items())),
+            "keys": finding_keys(additions),
+        }
+        item["spec5_removals"] = finding_keys(removals)
         item["coverage_changes"] = {"before": before.get("coverage"), "after": after.get("coverage")}
         item["residual_changes"] = {"before": before.get("residuals"), "after": after.get("residuals")}
-        # Coverage additions must not silently change existing finding identities.
-        if old_keys != new_keys:
-            problems.append(f"{name}: existing finding identity drift requires explicit triage")
-        if after.get("run", {}).get("spec_version") != 4:
-            problems.append(f"{name}: coverage phase requires the separately activated spec 4")
+        if item["frozen_changes"]["added"] or item["frozen_changes"]["removed"] or removals:
+            problems.append(f"{name}: frozen finding identity drift requires explicit triage")
+        if after.get("run", {}).get("spec_version") != 5:
+            problems.append(f"{name}: candidate is not a spec 5 engine")
         return item, problems
 
     # Both epochs read the same immutable Git object database. Keep each epoch's

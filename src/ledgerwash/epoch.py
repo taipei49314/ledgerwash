@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import re
 import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 
 _HEX40 = re.compile(r"^[0-9a-fA-F]{40}$")
@@ -136,6 +137,69 @@ class Epoch:
             if len(parts) >= 2 and parts[1].lower() == "commit":
                 have.add(parts[0])
         return have
+
+    def object_types(self, shas) -> dict[str, str]:
+        """Object type per existing sha, batched; absent shas are left out.
+
+        PIN_LOCAL_MISSING stays "not an object of the target repo" (any type
+        counts as present); the type map is what lets PIN_NOT_COMMIT separate
+        an existing non-commit pin from a commit one.
+        """
+        candidates = sorted({s for s in shas if isinstance(s, str) and _HEX40.fullmatch(s)})
+        if not candidates:
+            return {}
+        stdin = ("\n".join(candidates) + "\n").encode("ascii")
+        out = self._git("cat-file", "--batch-check", input_bytes=stdin)
+        types: dict[str, str] = {}
+        for line in out.decode("ascii", "replace").splitlines():
+            parts = line.split()
+            if len(parts) >= 2 and parts[1].lower() in ("commit", "tag", "blob", "tree"):
+                types[parts[0]] = parts[1].lower()
+        return types
+
+    def commit_dates(self, shas) -> dict[str, str]:
+        """Committer date per commit sha as UTC ISO-8601, one batched read.
+
+        Used only as file-history corroboration for DONE_TIME_BACKDATED — a
+        claim about when a path first appears, never a trusted execution
+        clock (SPEC §3.1). Non-commits and missing shas are left out.
+        """
+        candidates = sorted({s for s in shas if isinstance(s, str) and _HEX40.fullmatch(s)})
+        if not candidates:
+            return {}
+        stdin = ("\n".join(candidates) + "\n").encode("ascii")
+        out = self._git("cat-file", "--batch", input_bytes=stdin)
+        dates: dict[str, str] = {}
+        offset = 0
+        while offset < len(out):
+            newline = out.find(b"\n", offset)
+            if newline < 0:
+                break
+            header = out[offset:newline].decode("ascii", "replace").split()
+            if len(header) == 2 and header[1] == "missing":
+                offset = newline + 1
+                continue
+            if len(header) >= 3:
+                try:
+                    size = int(header[2])
+                except ValueError:
+                    offset = newline + 1
+                    continue
+                body = out[newline + 1 : newline + 1 + size]
+                offset = newline + 1 + size + 1
+                if header[1] == "commit":
+                    for line in body.decode("utf-8", "replace").splitlines():
+                        if line.startswith("committer "):
+                            fields = line.rsplit(" ", 2)
+                            if len(fields) == 3 and fields[1].isdigit():
+                                moment = datetime.fromtimestamp(
+                                    int(fields[1]), tz=timezone.utc
+                                )
+                                dates[header[0]] = moment.strftime("%Y-%m-%dT%H:%M:%S+00:00")
+                            break
+                continue
+            offset = newline + 1
+        return dates
 
     def blob_at(self, commit: str, rel: str) -> bytes | None:
         proc = subprocess.run(

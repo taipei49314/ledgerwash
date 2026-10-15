@@ -122,13 +122,14 @@ def test_backdated_fires_when_birth_contradicts_pre_system_claim(tmp_path):
         write(repo, "governance/tasks/T-800.json", task("T-800", time="2025-01-01T00:00:00Z"))
         commit(repo, "backdated done task born inside the receipt era",
                date="2026-06-02T00:00:00+00:00")
-    findings = by_rule(build(tmp_path, plan))["DONE_TIME_BACKDATED"]
-    (finding,) = findings
+    envelope = build(tmp_path, plan)
+    rules = by_rule(envelope)
+    (finding,) = rules["DONE_TIME_BACKDATED"]
     assert finding["severity"] == "high"
     assert finding["locator"] == "T-800:state=DONE"
     assert "2025-01-01T00:00:00Z" in finding["message"]
     assert "2026-06-02" in finding["message"]
-    assert "NO_OPERATION_HISTORY" not in by_rule(build(tmp_path, plan))  # era carve-out holds
+    assert "NO_OPERATION_HISTORY" not in rules  # era carve-out holds
 
 
 def test_backdated_carve_out_for_genuine_legacy(tmp_path):

@@ -81,8 +81,8 @@ def test_observations(mini_envelope):
     assert {"self_signing", "schema_versions", "snapshot_expires_at"} <= kinds
     self_signing = next(o for o in mini_envelope["observations"] if o["kind"] == "self_signing")
     assert self_signing["actor_equals_owner"] == {
-        "same": 2, "differ": 1,
-    }  # r900a + r900b same; r916 (T-902) actor differs from owner
+        "same": 2, "differ": 12,
+    }  # r900a + r900b same; the mimo receipts (r902a-f, r903a/b, r904a, r905a, r906a, r916) differ
     versions = next(o for o in mini_envelope["observations"] if o["kind"] == "schema_versions")
     assert versions["counts"] == {"1": 14}  # T-907 unparseable; +T-912/T-913/T-914 spec 5 plants
 

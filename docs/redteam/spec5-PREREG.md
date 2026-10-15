@@ -127,6 +127,18 @@ removed finding or frozen-rule addition. A wrong prediction above is recorded
 as `not-held` in the closeout, never patched into the prediction after the
 fact.
 
+## Amendment 1 (2026-10-16, after the first CI run — recorded, original text above unchanged)
+
+Prediction 2's observation deltas were wrong on one number: self-signing
+`differ` is **12**, not 1. Eleven pre-existing mimo receipts
+(r902a–f, r903a/b, r904a, r905a, r906a) already had `actor != owner`; only
+r916 is new. The original prediction silently under-counted because the old
+assertion never checked `differ`. Not-held as written; the corrected
+expectation `{"same": 2, "differ": 12}` ships with the test, not by editing
+this document's original text. No scan-behavior prediction changed: the CI
+failures were a test-fixture date-forwarding bug and this assertion, not an
+engine or rule delta.
+
 NOT_RUN：工作機規則（POLICY work-machine-local），no product code, tests,
 fixtures, scans, builds or dependency installation ran on this machine; all
 verification is GitHub-hosted CI and the EC pool, per the task record.

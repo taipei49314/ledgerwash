@@ -26,7 +26,7 @@ def git(repo: Path, *args, date: str = "2026-01-01T00:00:00+00:00"):
 
 def commit(repo: Path, msg: str, date: str):
     git(repo, "add", "-A")
-    git(repo, "commit", "-q", "-m", msg)
+    git(repo, "commit", "-q", "-m", msg, date=date)
     return git(repo, "rev-parse", "HEAD").decode("ascii").strip()
 
 

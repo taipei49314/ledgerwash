@@ -64,15 +64,24 @@ commit's claimed committer date. It does not establish ancestry order or trusted
 time: a new child commit with a backdated committer date can avoid that finding
 without rewriting any earlier history. The supplementary adversarial case in
 PREREG Amendment 2 records this default-mode escape; `--require-complete` still
-blocks its missing operation history. Three new rules are `warn`, below the
+blocks its missing operation history. A narrow migration-continuity check also
+prevents treating a newly introduced JSON representation as a newly created
+task: the unchanged task, archive bytes and exact source row must bind to the
+birth commit's actual parent ledger. A migration label alone is insufficient.
+That parent ledger can still be fabricated; this is continuity, not historical
+truth or complete migration verification. Strict migration coverage stays
+incomplete, and unusable closure times retain DONE_TIME_UNESTABLISHED.
+Three new rules are `warn`, below the
 default `fail_on=high` threshold; surfacing a finding does not always block.
 
 The [spec 5 validation report](docs/redteam/SPEC5-VALIDATION.md) records a passed
 technical pool run but a failed real-ledger prediction: each of two pinned EC
 epochs gained 170 `DONE_TIME_BACKDATED` findings tied to structured-task
 migration. A newly introduced JSON path is not necessarily a newly created task.
-Migration semantics and product acceptance remain unresolved; a workload PASS
-does not establish that these high findings identify fabricated completion.
+The [migration follow-up](docs/redteam/spec5-migration-PREREG.md) preregisters
+legitimate and forged controls and the bounded correction; fresh pool results
+are pending. The earlier failed prediction is preserved, and a workload PASS
+does not establish that findings identify fabricated completion.
 
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent

@@ -29,6 +29,7 @@ class Epoch:
         self.sha = self._rev_parse()
         self._tree_files: set[str] | None = None
         self._tree_dirs: set[str] | None = None
+        self._modes: dict[str, dict[str, str]] = {}
 
     # -- core git plumbing ---------------------------------------------------
 
@@ -219,6 +220,22 @@ class Epoch:
             return None
         sha = proc.stdout.decode("ascii", "replace").strip()
         return sha if _HEX40.fullmatch(sha) else None
+
+    def file_modes_at(self, commit: str) -> dict[str, str]:
+        """Git modes at a fixed snapshot; never follow subject symlinks.
+
+        Cached by commit so migration checks share one tree read across tasks.
+        """
+        if commit not in self._modes:
+            out = self._git("ls-tree", "-r", "-t", "-z", commit)
+            modes = {}
+            for entry in out.split(b"\0"):
+                if not entry:
+                    continue
+                metadata, path = entry.split(b"\t", 1)
+                modes[path.decode("utf-8", "replace")] = metadata.split()[0].decode("ascii")
+            self._modes[commit] = modes
+        return self._modes[commit]
 
     # -- birth map -----------------------------------------------------------
 

@@ -20,14 +20,16 @@ rule ledger-wide at zero findings. Spec 5 promotes those states to findings:
 
 - DONE_TIME_UNESTABLISHED (high): DONE, zero receipts, unusable closure time
   (missing/empty/unparseable/redacted), receipts exist. No birth carve-out —
-  a redacted or empty time is mechanically indistinguishable from an erased
-  one, and honest pre-system tasks carry usable times.
+  provenance cannot make a redacted or empty claimed time orderable. This
+  diagnostic does not establish why a time is unusable.
 - DONE_TIME_BACKDATED (high): the closure time claims the pre-receipt-system
   carve-out, but the task file's birth commit is dated inside the receipt
   era. This compares claimed dates, not ancestry order or trusted execution
   time (SPEC §3.1). A new child commit can carry an old committer date and
-  avoid this finding without rewriting any existing history. Strict coverage
-  still blocks the missing operation history.
+  avoid this finding without rewriting any existing history. Corroborated
+  migration continuity to the actual parent's ledger also excludes JSON path
+  birth as task-birth evidence; a migration label alone does not. Neither
+  exception authenticates the earlier record. Strict coverage stays incomplete.
 - ERA_UNDETERMINABLE (warn): receipts exist but none yields a parseable
   recorded_at, so the era check is unenforceable ledger-wide.
 
@@ -38,6 +40,7 @@ rules fire only when the receipt system is demonstrably present at the epoch.
 from __future__ import annotations
 
 from ledgerwash.adapters.ec_ledger import RECEIPTS_DIR, TASKS_DIR
+from ledgerwash.adapters.ec_migration import MigrationContinuity
 from ledgerwash.models import Finding
 
 from .common import parse_ts
@@ -94,7 +97,8 @@ def run(corpus) -> list[Finding]:
 
 def _negspace(corpus, system_start) -> list[Finding]:
     """DONE claims with zero receipts whose closure time cannot support the
-    era check: unusable, or backdated and contradicted by the file's birth."""
+    era check: unusable, or backdated and contradicted by the file's birth
+    without corroborated migration continuity."""
     if not corpus.receipts:
         return []
     findings: list[Finding] = []
@@ -104,6 +108,7 @@ def _negspace(corpus, system_start) -> list[Finding]:
         births[task.path] for task in corpus.tasks.values() if task.path in births
     }
     dates = corpus.epoch.commit_dates(birth_shas)
+    migration = MigrationContinuity(corpus.epoch)
     for task in corpus.tasks.values():
         if task.data.get("state") != "DONE" or task.id in ops:
             continue
@@ -128,6 +133,8 @@ def _negspace(corpus, system_start) -> list[Finding]:
         birth = births.get(task.path)
         birth_date = parse_ts(dates.get(birth)) if birth else None
         if birth_date is not None and birth_date >= system_start:
+            if migration.matches(task, birth):
+                continue  # JSON path introduction is corroborated as a representation change.
             findings.append(
                 Finding(
                     rule="DONE_TIME_BACKDATED",

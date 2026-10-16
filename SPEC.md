@@ -132,9 +132,29 @@ claimed merely by declaring an old schema or an early task time.
 
 This profile does not reimplement EC's guard: decision authority, request guards,
 policy, operation authorization/state-transition semantics, task-store index and
-generated view consistency, legacy row/migration binding, execution authenticity,
+generated view consistency, full legacy migration verification, execution authenticity,
 trustworthy time and evidence outside the declared source set remain unverified.
 Complete self-consistent fabricated execution can still pass (S4 limit).
+
+Spec 5's BACKDATED rule additionally checks a narrow legacy-row continuity
+contract; this does not add a supported complete-coverage profile. At the task's
+latest path-addition commit, a regular EC v1 task-store manifest must bind its
+canonical hash and a content-addressed migration archive. The declared
+source_commit must be the actual first parent, where there was no task-store
+manifest or task at this path. The birth and current archive's raw bytes must
+equal that parent's regular LEDGER.md blob and their SHA256. A unique six-column
+legacy row, positive strict-integer line and raw row hash must match all seven
+task facts (id, description, status, parsed state, owner, time, evidence).
+The current task must have exactly one migration event and be type-strictly
+unchanged from birth; migration provenance must also remain unchanged. Regular
+blob modes, exact supported field shapes and unambiguous row parsing are required.
+Missing or unsupported binding evidence grants no exception. See the
+[migration preregistration](docs/redteam/spec5-migration-PREREG.md).
+
+This proves representation continuity only: the parent ledger could itself be
+fabricated. It does not verify pre-receipt task existence, full EC migration
+receipts/guards, authority, execution or trusted time. A self-consistent forged
+parent is a declared default-mode escape; strict still blocks migration coverage.
 
 `finding_verdict` is the unchanged fail_on threshold result. Default `verdict`
 equals it. `--require-complete` additionally blocks when coverage.complete=false;
@@ -149,7 +169,7 @@ Severity ladder: `info < warn < high < critical`. One ID = one mechanically dist
 | rule | severity | fires when |
 |---|---|---|
 | `DANGLING_REF` | warn | a path matching the reference grammar does not exist in the epoch tree; deduped per referenced path (locator names the referencing task ids) |
-| `DONE_TIME_BACKDATED` | high | a DONE task with zero operation receipts whose `time` parses to a moment before the ledger's earliest receipt `recorded_at`, while the task file's birth commit is dated on/after that earliest receipt — the pre-receipt-system carve-out is contradicted by the file's own git history |
+| `DONE_TIME_BACKDATED` | high | a DONE task with zero operation receipts whose `time` parses before the earliest receipt `recorded_at`, while the task file's birth commit is dated on/after it, unless the narrow migration-continuity contract in §3.1 corroborates that JSON introduction as a representation change; this compares claimed dates, not authenticated task history |
 | `DONE_TIME_UNESTABLISHED` | high | a DONE task with zero operation receipts whose closure `time` is missing, empty, unparseable or redaction-shaped, while the ledger does contain receipts; the era-aware check for this task cannot run and this finding records that |
 | `ERA_UNDETERMINABLE` | warn | receipts exist but none has a parseable `recorded_at`; era-aware verification (`NO_OPERATION_HISTORY`) is unenforceable across this ledger (fired once per scan, not per receipt) |
 | `FP_SOURCE_MISSING` | high | a `source_fingerprints` entry's `source` does not exist at its documented anchor |
@@ -271,5 +291,8 @@ Example: `pass @ ledgerwash 0.5.0, spec 5, epoch <pinned-sha>, adapter ec-ledger
   `DONE_TIME_BACKDATED` compares claims, not ancestry order or trusted time.
   A newly appended commit may have an old committer date and avoid this finding
   without rewriting prior history or breaking existing pins. Missing operation
-  history still makes strict coverage incomplete. See PREREG Amendment 2 for
-  the supplementary escape and positive control; the rule predicate is unchanged.
+  history still makes strict coverage incomplete. PREREG Amendment 2 documents
+  that escape. The later migration-continuity correction suppresses BACKDATED
+  only for the bounded historical row binding above; it does not suppress
+  UNESTABLISHED or make migration coverage complete. The separate migration
+  preregistration includes forged bindings and a self-consistent forgery escape.

@@ -78,9 +78,12 @@ The [spec 5 validation report](docs/redteam/SPEC5-VALIDATION.md) records a passe
 technical pool run but a failed real-ledger prediction: each of two pinned EC
 epochs gained 170 `DONE_TIME_BACKDATED` findings tied to structured-task
 migration. A newly introduced JSON path is not necessarily a newly created task.
-The [migration follow-up](docs/redteam/spec5-migration-PREREG.md) preregisters
-legitimate and forged controls and the bounded correction; fresh pool results
-are pending. The earlier failed prediction is preserved, and a workload PASS
+The [migration follow-up](docs/redteam/SPEC5-MIGRATION-VALIDATION.md) passed its
+preregistered controls and pool revalidation: exactly those 170 identities are
+removed per epoch, while 102 time-unestablished findings and all other findings,
+coverage and residuals remain. A self-consistent forged parent still escapes
+default mode; strict blocks its incomplete coverage. The earlier failed
+prediction is preserved, and a workload PASS
 does not establish that findings identify fabricated completion.
 
 The S4 sample also demonstrates that a completely fabricated artifact can pass

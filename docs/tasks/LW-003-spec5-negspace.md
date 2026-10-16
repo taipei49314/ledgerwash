@@ -1,10 +1,10 @@
 # LW-003 — spec 5: negative-space escape closure
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status: CLAIMED for the human-authorized migration-continuity correction
-  (2026-10-17); preregistration first, then rule repair and EC pool revalidation.
-  Earlier validation and failed predictions remain preserved; no product
-  acceptance, merge or release claimed.
+- Status: DONE for the authorized implementation and remote validation delivery
+  (2026-10-17). Migration-continuity controls and exact pool predictions passed.
+  Earlier validation and failed predictions remain preserved; human product
+  acceptance and PR merge/release remain separate.
 - Human instruction (2026-10-16, Asia/Taipei): 「開始實驗 直接朝你規劃 你執行
   遇到重大決策問我」, following the status review that surfaced PR #2/#3 and
   the pending red-team dispositions.
@@ -93,3 +93,28 @@ the new high findings. A further change should first preregister legitimate and
 forged migration controls, then validate a bounded rule change through the pool.
 The present follow-up does not implement that new design or approve these
 findings. Product acceptance and PR merge/release remain with the human.
+
+## Migration-continuity revalidation closeout (2026-10-17)
+
+The later human instruction above authorized this bounded resumption. Prereg
+`b1aef39497541fe1e3c669fc3d52fcb290f2b87d` preceded implementation/tests at
+`a59fc21bad45e4a230d11aa1a501956cfb2fc1fa`. Native CI `38956981581` passed all
+nine jobs on synthetic PR merge `23e85e92b25b5c93b2c80407b39a3c7dc1c44cc5`,
+each with 128 tests and qualify. EC T-551 dispatched the exact candidate with the unchanged
+spec5-verify declaration once in run `38957954641`, attempt 1, on
+LAPTOP-50KP71KA. The pool passed 128 tests including all 21 new named controls,
+the original 21 cases, 36 coverage controls and 12 fixed real scans. Sources
+remained clean, replay bytes were equal and no step timed out. All 83 selected
+receipt files matched publication SHA256 and byte length.
+
+The [new reconciliation](../redteam/SPEC5-MIGRATION-VALIDATION.md) records all
+follow-up predictions held: 478/489 findings become 308/319, exactly the prior
+170 BACKDATED identities removed per epoch, zero new identities, 102
+UNESTABLISHED retained. Other findings, coverage, residuals and frozen rules
+remain unchanged. Both epochs still block with incomplete coverage.
+
+The narrow exception checks representation continuity, not historical truth or
+authority. The consistent forged-parent case deliberately remains a default
+escape and strict block; the append-only backdated-committer limitation also
+remains. The original not-held predictions and report stay untouched. This
+closes the authorized delivery, without product acceptance, merge or release.

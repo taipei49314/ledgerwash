@@ -12,8 +12,11 @@ import os
 import subprocess
 from pathlib import Path
 
+import pytest
+
 from ledgerwash.engine import run_scan
 from tests.conftest import by_rule
+from tests.redteam.coverage_cases import complete_ledger
 
 
 def git(repo: Path, *args, date: str = "2026-01-01T00:00:00+00:00"):
@@ -153,6 +156,54 @@ def test_backdated_inera_close_stays_noh_territory(tmp_path):
     rules = by_rule(build(tmp_path, plan))
     assert [f["locator"] for f in rules["NO_OPERATION_HISTORY"]] == ["T-800:state=DONE"]
     assert "DONE_TIME_BACKDATED" not in rules
+
+
+@pytest.mark.parametrize("birth_date, expected_default", [
+    pytest.param("2025-06-01T00:00:00+00:00", "pass", id="append-only-backdated-escape"),
+    pytest.param("2026-09-29T00:00:00+00:00", "block", id="in-era-date-positive-control"),
+])
+def test_append_only_commit_date_limit(tmp_path, birth_date, expected_default):
+    """Amendment 2: old dates need no history rewrite; strict checks the gap."""
+    new_path = "governance/tasks/T-800.json"
+
+    def plan(repo):
+        complete_ledger(repo)
+        before = git(repo, "rev-parse", "HEAD").decode("ascii").strip()
+        clean = run_scan(repo, before, require_complete=True)
+        assert clean["findings"] == []
+        assert clean["coverage"]["complete"]
+        assert clean["verdict"] == "pass"
+        write(repo, new_path, task(
+            "T-800", time="2025-01-01T00:00:00Z", history=[],
+            evidence="completion claimed without receipts", handoff=None,
+        ))
+        after = commit(repo, "append a receipt-less DONE task", date=birth_date)
+        assert git(repo, "rev-parse", after + "^").decode("ascii").strip() == before
+        # Only the new task is added; prior blobs, receipts and pins are untouched.
+        assert git(repo, "diff-tree", "--no-commit-id", "--name-status", "-r", after) == (
+            f"A\t{new_path}\n".encode("utf-8")
+        )
+
+    default = build(tmp_path, plan)
+    strict = run_scan(tmp_path / "ledger", default["run"]["epoch"], require_complete=True)
+    rules = by_rule(default)
+    assert default["verdict"] == default["finding_verdict"] == expected_default
+    assert "NO_OPERATION_HISTORY" not in rules
+    assert "DONE_TIME_UNESTABLISHED" not in rules
+    if expected_default == "pass":
+        assert default["findings"] == []
+    else:
+        assert list(rules) == ["DONE_TIME_BACKDATED"]
+        assert rules["DONE_TIME_BACKDATED"][0]["severity"] == "high"
+        assert rules["DONE_TIME_BACKDATED"][0]["path"] == new_path
+    assert strict["verdict"] == "block"
+    assert strict["findings"] == default["findings"]
+    assert strict["coverage"] == default["coverage"]
+    assert not strict["coverage"]["complete"]
+    gaps = [check for check in strict["coverage"]["checks"] if check["status"] != "verified"]
+    assert gaps and all(check["path"] == new_path for check in gaps)
+    assert any(check["check"] == "task_history" and check["status"] == "unverified"
+               for check in gaps)
 
 
 # ---------------------------------------------------- ERA_UNDETERMINABLE

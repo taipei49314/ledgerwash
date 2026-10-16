@@ -259,12 +259,17 @@ Example: `pass @ ledgerwash 0.5.0, spec 5, epoch <pinned-sha>, adapter ec-ledger
 - spec 5 (v0.5.0): five rule IDs (14 → 19) promoting the negative-space escapes
   from the 2026-10-01 red-team round from silent residuals to findings
   (docs/redteam/ACCEPTANCE.md, docs/redteam/spec5-PREREG.md):
-  `DONE_TIME_UNESTABLISHED` (high) and `DONE_TIME_BACKDATED` (high) close the
-  time-field negspace of `NO_OPERATION_HISTORY` (missing/empty/unparseable/
+  `DONE_TIME_UNESTABLISHED` (high) and `DONE_TIME_BACKDATED` (high) flag bounded
+  time-field gaps in `NO_OPERATION_HISTORY` (missing/empty/unparseable/
   redacted closure time; backdated closure contradicted by the task file's
-  birth commit), `ERA_UNDETERMINABLE` (warn) surfaces the ledger-wide era kill
-  switch, `RECEIPT_ORPHAN` (warn) binds receipts to tasks, and `PIN_NOT_COMMIT`
+  birth commit's claimed committer date), `ERA_UNDETERMINABLE` (warn) surfaces
+  the ledger-wide era kill switch, `RECEIPT_ORPHAN` (warn) binds receipts to tasks, and `PIN_NOT_COMMIT`
   (warn) stops a non-commit `expected_head` from silently disabling fingerprint
   verification. Rules with zero loaded receipts keep residual semantics
   (§3); the DONE rules fire only when receipts exist. Frozen fourteen rule IDs,
   severities and default outputs unchanged; envelope version2 unchanged.
+  `DONE_TIME_BACKDATED` compares claims, not ancestry order or trusted time.
+  A newly appended commit may have an old committer date and avoid this finding
+  without rewriting prior history or breaking existing pins. Missing operation
+  history still makes strict coverage incomplete. See PREREG Amendment 2 for
+  the supplementary escape and positive control; the rule predicate is unchanged.

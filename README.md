@@ -59,6 +59,14 @@ ledger whose receipts carry no parseable `recorded_at`, receipts bound to no
 loaded task, and `expected_head` pins that are not commits (SPEC §4, §10; see
 [spec 5 PREREG](docs/redteam/spec5-PREREG.md)).
 
+`DONE_TIME_BACKDATED` compares the task's claimed closure time with its birth
+commit's claimed committer date. It does not establish ancestry order or trusted
+time: a new child commit with a backdated committer date can avoid that finding
+without rewriting any earlier history. The supplementary adversarial case in
+PREREG Amendment 2 records this default-mode escape; `--require-complete` still
+blocks its missing operation history. Three new rules are `warn`, below the
+default `fail_on=high` threshold; surfacing a finding does not always block.
+
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent
 execution evidence (for example, the CI run and exact source SHA) alongside a

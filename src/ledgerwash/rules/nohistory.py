@@ -24,9 +24,10 @@ rule ledger-wide at zero findings. Spec 5 promotes those states to findings:
   one, and honest pre-system tasks carry usable times.
 - DONE_TIME_BACKDATED (high): the closure time claims the pre-receipt-system
   carve-out, but the task file's birth commit is dated inside the receipt
-  era. Git history is corroboration of when the path first appeared, never a
-  trusted execution clock (SPEC §3.1); defeating it requires rewriting
-  history, which breaks fingerprints and chain pins elsewhere.
+  era. This compares claimed dates, not ancestry order or trusted execution
+  time (SPEC §3.1). A new child commit can carry an old committer date and
+  avoid this finding without rewriting any existing history. Strict coverage
+  still blocks the missing operation history.
 - ERA_UNDETERMINABLE (warn): receipts exist but none yields a parseable
   recorded_at, so the era check is unenforceable ledger-wide.
 

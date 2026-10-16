@@ -79,12 +79,10 @@ def migration_repo(tmp_path, case):
         # Establish the full authentic ledger in the actual parent as well.
         (repo / "LEDGER.md").write_bytes(raw)
         parent = commit(repo, "ledger also contains another task", date=LATE)
-    archive_sha = sha(raw)
+    archive_sha = "0" * 64 if case == "wrong-archive-digest" else sha(raw)
     archive_path = f"governance/task-history/ledger-before-{archive_sha}.md"
     history = {"kind": "migration", "source": archive_path, "sha256": archive_sha,
                "line": 2, "row_sha256": sha(raw.splitlines()[1])}
-    if case == "wrong-archive-digest":
-        history["sha256"] = "0" * 64
     if case == "wrong-row-digest":
         history["row_sha256"] = "0" * 64
     if case == "wrong-row-id":
@@ -152,6 +150,10 @@ def test_migration_continuity_contract(tmp_path: Path, case):
     assert default["coverage"] == strict["coverage"]
     assert strict["verdict"] == "block"
     assert default["coverage"]["complete"] is False
+    target_gaps = {(item["check"], item["status"]) for item in default["coverage"]["checks"]
+                   if item["path"] == TARGET}
+    assert ("task_profile", "unverified") in target_gaps
+    assert ("history_event", "unverified") in target_gaps
     backdated = [f for f in default["findings"] if f["rule"] == "DONE_TIME_BACKDATED"]
     valid = {"lf", "bom-crlf", "escaped-pipes", "forged-parent"}
     if case in valid:

@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 
+from ledgerwash.epoch import EpochError
 from ledgerwash.models import strict_eq
 
 from .ec_ledger import decode
@@ -182,5 +183,5 @@ class MigrationContinuity:
             expected = dict(zip(("id", "description", "status", "owner", "time", "evidence"), cells))
             expected["state"] = status[1]
             return all(strict_eq(data[key], value) for key, value in expected.items())
-        except (ValueError, KeyError, TypeError, UnicodeError):
+        except (ValueError, KeyError, TypeError, UnicodeError, EpochError):
             return False

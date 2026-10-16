@@ -142,3 +142,36 @@ engine or rule delta.
 NOT_RUN：工作機規則（POLICY work-machine-local），no product code, tests,
 fixtures, scans, builds or dependency installation ran on this machine; all
 verification is GitHub-hosted CI and the EC pool, per the task record.
+
+## Amendment 2 (2026-10-16, before the new adversarial case runs)
+
+Human instruction: 「好，照你建議做，先補回填 commit 日期的對抗案例並修正文義，再走 EC pool 做 spec 5 驗收。」
+
+The original claim above that defeating DONE_TIME_BACKDATED requires rewriting
+history is withdrawn. Git committer dates are writer-controlled claims: a new
+child commit may carry an old date while preserving every existing commit and
+receipt. The rule detects a disagreement between claimed dates, not ancestry
+order or trustworthy time. No rule predicate or default gate changes here.
+
+New supplementary case (outside the immutable original 21): start with a
+complete receipt-backed ledger, then append one new receipt-less DONE task.
+Give its closure time and its new birth commit a date earlier than the existing
+receipt era. Assert the old HEAD is the new commit's direct parent and its
+tracked blobs remain unchanged; no amend, rebase or prior receipt edit occurs.
+
+Predictions, locked before implementation/execution of this case:
+
+- The complete starting ledger has zero findings and complete coverage.
+- The appended task triggers none of NO_OPERATION_HISTORY,
+  DONE_TIME_UNESTABLISHED or DONE_TIME_BACKDATED; default verdict remains pass.
+- Coverage becomes incomplete specifically for the new task's missing operation
+  history. The same pinned tree blocks with --require-complete, with unchanged
+  findings and coverage between modes.
+- The otherwise identical positive control with an in-era birth commit date
+  emits DONE_TIME_BACKDATED (high) and blocks in default mode.
+
+This is a documented default-mode escape, not successful detection. The pool
+full suite must exercise both the escape and its positive control. Original
+21-case predictions, frozen fourteen rules, real-epoch pins and the existing
+spec5-verify declaration remain unchanged. Real-epoch additions still require
+disclosure and human triage; a technical workload PASS is not product acceptance.

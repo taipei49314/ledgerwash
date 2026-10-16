@@ -39,3 +39,17 @@ absence locally (same caveat LW-001 recorded).
 NOT_RUN：工作機規則（POLICY work-machine-local），this machine read, edited and
 ran git/gh only; no pytest, qualify, scan, fixture build, venv, build or lint
 was executed locally. All product verification is remote.
+
+## Follow-up scope and pre-run record (2026-10-16)
+
+Human instruction in Codex session 01a14509-7e7a-7501-84b0-858cc8fd298c:
+「好，照你建議做，先補回填 commit 日期的對抗案例並修正文義，再走 EC pool 做 spec 5 驗收。」
+
+Owner remains LAPTOP-01AGNPJU. Refreshed PR #4 at
+`d43627e765d9ba2a4494e841ae582f122fc7f59a`; this checkout was clean and had no
+unpublished commits. Other local sessions/checkouts were not inspected.
+The bounded follow-up adds a supplementary append-only backdated-commit case,
+its positive control and corrected capability wording, then integrates and runs
+the existing spec5-verify declaration through EC. Amendment 2 records predictions
+before the new tests. No engine predicate/default-gate change is intended.
+Product PRs #2/#3/#4 remain for human merge disposition; no release is included.

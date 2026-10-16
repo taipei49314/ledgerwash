@@ -67,6 +67,13 @@ PREREG Amendment 2 records this default-mode escape; `--require-complete` still
 blocks its missing operation history. Three new rules are `warn`, below the
 default `fail_on=high` threshold; surfacing a finding does not always block.
 
+The [spec 5 validation report](docs/redteam/SPEC5-VALIDATION.md) records a passed
+technical pool run but a failed real-ledger prediction: each of two pinned EC
+epochs gained 170 `DONE_TIME_BACKDATED` findings tied to structured-task
+migration. A newly introduced JSON path is not necessarily a newly created task.
+Migration semantics and product acceptance remain unresolved; a workload PASS
+does not establish that these high findings identify fabricated completion.
+
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent
 execution evidence (for example, the CI run and exact source SHA) alongside a

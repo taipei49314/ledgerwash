@@ -1,7 +1,9 @@
 # LW-003 — spec 5: negative-space escape closure
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status: CLAIMED — implementation and replay in flight; no merge or release claimed.
+- Status: BLOCKED on human migration-semantics disposition — implementation,
+  supplementary tests and remote technical validation delivered; no product
+  acceptance, merge or release claimed.
 - Human instruction (2026-10-16, Asia/Taipei): 「開始實驗 直接朝你規劃 你執行
   遇到重大決策問我」, following the status review that surfaced PR #2/#3 and
   the pending red-team dispositions.
@@ -53,3 +55,32 @@ its positive control and corrected capability wording, then integrates and runs
 the existing spec5-verify declaration through EC. Amendment 2 records predictions
 before the new tests. No engine predicate/default-gate change is intended.
 Product PRs #2/#3/#4 remain for human merge disposition; no release is included.
+
+## Remote validation closeout (2026-10-16)
+
+The authorized follow-up is delivered at implementation/test source
+`ed4bc99285239a82cb9d236c7fe724a7c09f16d1`. Native CI passed all nine jobs, each
+with 107 tests and qualify. EC T-549 integrated the unchanged declaration through
+PR #189 and dispatched pool run `38918945942`, attempt 1, on LAPTOP-F2NFAMQI.
+The complete pool run passed: 107 tests, original 21, 36 paired controls and
+12 pinned real scans; source remained clean, replay bytes were equal and no
+step timed out. Both supplementary append-only cases passed.
+
+The [validation reconciliation](../redteam/SPEC5-VALIDATION.md) records a material
+not-held prediction: each real epoch gained 170 DONE_TIME_BACKDATED findings,
+contrary to the predicted zero. All share the structured-task migration birth
+date; representative source evidence confirms old tasks existed before their
+JSON paths. Another 102 high time-unestablished findings have 98 range/masked
+timestamp info findings and four malformed timestamp warn findings. These are mechanical
+diagnostics, not established fabricated completion. Private per-finding triage
+stays in EC; public aggregates and provenance are in the report.
+
+P1's A4B/A4C findings-silent sentence and P2's original self-signing differ=1
+also remain explicitly not-held as written. The original preregistration is
+preserved. No predicate was altered after seeing these results.
+
+Unblock condition: human decides how verified migration provenance should affect
+the new high findings. A further change should first preregister legitimate and
+forged migration controls, then validate a bounded rule change through the pool.
+The present follow-up does not implement that new design or approve these
+findings. Product acceptance and PR merge/release remain with the human.

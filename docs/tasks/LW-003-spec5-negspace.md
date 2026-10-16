@@ -1,8 +1,9 @@
 # LW-003 — spec 5: negative-space escape closure
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status: BLOCKED on human migration-semantics disposition — implementation,
-  supplementary tests and remote technical validation delivered; no product
+- Status: CLAIMED for the human-authorized migration-continuity correction
+  (2026-10-17); preregistration first, then rule repair and EC pool revalidation.
+  Earlier validation and failed predictions remain preserved; no product
   acceptance, merge or release claimed.
 - Human instruction (2026-10-16, Asia/Taipei): 「開始實驗 直接朝你規劃 你執行
   遇到重大決策問我」, following the status review that surfaced PR #2/#3 and
@@ -12,6 +13,14 @@
   preserved 21-case suite, the frozen PR2 baseline, PR #2 or PR #3.
 
 ## Bounded scope
+
+Resumption (2026-10-17, direct human instruction in the same Codex session):
+「好，照你建議做，先預註冊合法遷移／偽造遷移的對照案例，再修正 spec 5 判則，走 EC pool 重驗。」
+This resolves the earlier wait for direction within the bounded correction.
+The [migration preregistration](../redteam/spec5-migration-PREREG.md) fixes the
+continuity contract, forged controls and remaining self-consistent forgery limit
+before implementation. EC records only the new pool dispatch and receipt review;
+the completed T-549 account and original pool results are not reopened.
 
 1. Lock `docs/redteam/spec5-PREREG.md` before any run (done, same commit as
    this file).

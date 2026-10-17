@@ -8,8 +8,10 @@ No network. Read-only: does not execute the subject, does not enforce anything.
 
 Engine **0.5.0**, contract **spec 5**. The [GitHub v0.5.0 source release](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0)
 records the published SHA and final CI; the [verification report](docs/releases/v0.5.0-VALIDATION.md)
-records the hosted nine-cell comparison and EC locked-install evidence. No PyPI package or
-1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
+records the hosted nine-cell comparison and EC locked-install evidence. The
+[distribution report](docs/releases/v0.5.0-DISTRIBUTION.md) records subsequent
+source archive and wheel/sdist acceptance, exact hashes and the PyPI publication
+boundary. This is not a 1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
 (layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
 ## Try it

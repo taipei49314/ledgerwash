@@ -1,6 +1,14 @@
 {
   "schema_version": 1,
   "workloads": {
+    "source-release-verify": {
+      "description": "T-554 bounded post-release verification: fixed LedgerWash v0.5.0 source 85cf8e6f99fcc576240cb6783b65b98a3341dfb1 and tag CI 39048676325 attempt 1. Independently read public release/tag/run/jobs/artifacts metadata; require nine successful tag jobs. Fetch the exact public Git commit and both user-facing source ZIP/tar.gz downloads; bounded parsers reject unsafe paths, links, duplicates, unexpected files and excessive sizes; compare every file to its Git blob without normalization. Build wheel/sdist only from verified source using pinned uv/build constraints, verify package payload/metadata/RECORD and sdist source, install the non-editable wheel into a fresh venv and run the original 154-test suite and qualify outside the source checkout with hash-pinned pytest dependencies. Preserve frozen-baseline controls, all original bytes, commands, raw metadata, manifests, distributions, JUnit and failures in private EC receipts. Network only public GitHub source/metadata and PyPI dependencies; no credentials, models, subject code execution, host/profile/App/POLICY changes, publishing or deployment. No free parameters or mutable source selection.",
+      "entry": "workloads/source_release_verify/run.py",
+      "profile": "profile-ec-integrity",
+      "timeout_minutes": 30,
+      "cache": false,
+      "parameters": {}
+    },
     "release-verify": {
       "description": "Verify LedgerWash v0.5.0 source release evidence under LW-004: read one hash-pinned immutable EC evidence bundle transporting nine original GitHub-hosted producer ZIPs; independently GET public LedgerWash run, attempt-specific jobs and artifact metadata without credentials; require exact candidate source, reviewed CI workflow identity, nine expected OS/Python cells, successful runs/jobs, artifact creation intervals and service ZIP SHA256. Bounded ZIP parsing only, never execute archive contents. Compare all raw envelopes across OS/Python, seeds and stdout/file transports without normalization. Bootstrap pinned uv in a fresh job-local venv, use pinned build-tool versions, run uv lock --check and uv sync --locked --extra dev without changing uv.lock, verify installed project identity/CLI, run all tests and qualify, and require installed EC replay bytes to match hosted outputs. Network only public GitHub metadata and PyPI/wheel downloads for installation. No tokens, subject execution, models, host/profile/App changes, package publishing or deployment. Preserve commands, raw metadata, original ZIPs, JUnit, outputs, hashes and every failure in EC private receipts. GitHub-hosted producers plus EC Windows verification is not all-platform EC execution or ledger authenticity.",
       "entry": "workloads/release_verify/run.py",

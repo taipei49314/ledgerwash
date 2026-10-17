@@ -67,6 +67,6 @@ def main(argv=None) -> int:
         Path(args.out).write_text(text, encoding="utf-8", newline="\n")
     else:
         if hasattr(sys.stdout, "reconfigure"):
-            sys.stdout.reconfigure(encoding="utf-8")
+            sys.stdout.reconfigure(encoding="utf-8", newline="\n")
         sys.stdout.write(text)
     return 1 if envelope["verdict"] == "block" else 0

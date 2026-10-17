@@ -20,16 +20,46 @@ jobs:
         # exactly what this tool exists to catch.
         python: ["3.11", "3.12", "3.13"]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python }}
       - run: pip install -e ".[dev]"
-      - run: pytest
+      - run: pytest --junitxml="${{ runner.temp }}/ledgerwash-suite.xml"
       - name: qualify (red-by-design self-check)
         run: python -m ledgerwash qualify
         env:
           PYTHONUTF8: "1"
+      - name: Produce exact-source release witnesses
+        env:
+          PYTHONUTF8: "1"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: >-
+          python -B workloads/release_verify/produce.py
+          --source ${{ github.event.pull_request.head.sha || github.sha }}
+          --os ${{ matrix.os }} --python ${{ matrix.python }}
+          --out "${{ runner.temp }}/ledgerwash-release"
+          --work "${{ runner.temp }}/ledgerwash-fixtures"
+          --junit "${{ runner.temp }}/ledgerwash-suite.xml"
+      - name: Preserve raw release witnesses
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: lw-release-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.os }}-py${{ matrix.python }}
+          path: ${{ runner.temp }}/ledgerwash-release/
+          if-no-files-found: warn
+          compression-level: 9
+          retention-days: 30
+      - name: Preserve failed suite evidence
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: lw-failure-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.os }}-py${{ matrix.python }}
+          path: ${{ runner.temp }}/ledgerwash-suite.xml
+          if-no-files-found: warn
+          retention-days: 30

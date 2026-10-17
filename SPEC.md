@@ -236,7 +236,10 @@ A crash must not exit 1.
 - No network. No clock in the envelope. No random. No floats.
 - Bytes are hashed exactly as stored in git objects; no EOL or whitespace normalization.
 - Findings sorted by (rule, path, locator); envelope JSON bytes are identical across
-  platforms for the same epoch (Python 3.11–3.13).
+  platforms for the same epoch and invocation inputs (Python 3.11–3.13): same
+  engine/spec, adapter, threshold, strict flag and portable target/ref spelling.
+  Target and ref are emitted metadata, so different path arguments are different
+  inputs. Both captured stdout and `--out` use UTF-8 with LF newlines.
 
 ## 8. Claims policy
 

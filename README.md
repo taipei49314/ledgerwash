@@ -39,6 +39,12 @@ Record the judge's identity with the verdict: `block @ ledgerwash 0.3.0, spec 3,
 b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
 
+The S4 sample also demonstrates that a completely fabricated artifact can pass
+when its receipts, hashes and timestamps agree internally. Record independent
+execution evidence (for example, the CI run and exact source SHA) alongside a
+ledgerwash verdict when claiming that verification actually happened. A spec 3
+pass alone does not establish artifact authenticity; see [S4 report](docs/s4/REPORT-2.md).
+
 ## Writing receipts that verify
 
 `raw-git-blob-bytes` fingerprints are sha256 over the bytes git stores — the blob — never

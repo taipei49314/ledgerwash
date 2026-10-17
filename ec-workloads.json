@@ -1,6 +1,19 @@
 {
   "schema_version": 1,
   "workloads": {
+    "release-verify": {
+      "description": "Verify LedgerWash v0.5.0 source release evidence under LW-004: read one hash-pinned immutable EC evidence bundle transporting nine original GitHub-hosted producer ZIPs; independently GET public LedgerWash run, attempt-specific jobs and artifact metadata without credentials; require exact candidate source, reviewed CI workflow identity, nine expected OS/Python cells, successful runs/jobs, artifact creation intervals and service ZIP SHA256. Bounded ZIP parsing only, never execute archive contents. Compare all raw envelopes across OS/Python, seeds and stdout/file transports without normalization. Bootstrap pinned uv in a fresh job-local venv, use pinned build-tool versions, run uv lock --check and uv sync --locked --extra dev without changing uv.lock, verify installed project identity/CLI, run all tests and qualify, and require installed EC replay bytes to match hosted outputs. Network only public GitHub metadata and PyPI/wheel downloads for installation. No tokens, subject execution, models, host/profile/App changes, package publishing or deployment. Preserve commands, raw metadata, original ZIPs, JUnit, outputs, hashes and every failure in EC private receipts. GitHub-hosted producers plus EC Windows verification is not all-platform EC execution or ledger authenticity.",
+      "entry": "workloads/release_verify/run.py",
+      "profile": "profile-ec-integrity",
+      "timeout_minutes": 30,
+      "cache": false,
+      "parameters": {
+        "run_id": {"pattern": "[1-9][0-9]{5,19}", "description": "Exact completed LedgerWash hosted producer run"},
+        "attempt": {"pattern": "[1-9][0-9]{0,2}", "description": "Exact latest completed producer attempt"},
+        "evidence_path": {"pattern": "evidence/requests/[0-9a-f-]{36}/[A-Za-z0-9._-]+[.]json", "description": "Immutable transport bundle at the exact EC dispatch source"},
+        "bundle_sha256": {"pattern": "[0-9a-f]{64}", "description": "Exact raw UTF-8 transport bundle digest"}
+      }
+    },
     "v03-verify": {
       "description": "Verify one reviewed ledgerwash spec 3 commit on the EC Windows pool. Create an isolated job-local venv and install only the six pure-Python pytest dependencies pinned with wheel hashes in the committed uv.lock (PyPI downloads; no cache). Run all tests including A1-A9 and stabilization regressions; require nonzero tests, zero failures/errors/skips. Run qualify and compare full raw scan JSON from independent processes at PYTHONHASHSEED 1 and 17 on the same pinned planted corpus, expecting exit 1 and all 14 rules. Preserve exact source SHA, runtime, dependency locks, commands, exits, logs, JUnit and JSON hashes. Do not execute scanned subject code, call models, publish packages, change the spec, or access credentials.",
       "entry": "workloads/v03_verify/run.py",

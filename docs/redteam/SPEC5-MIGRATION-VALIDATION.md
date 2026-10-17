@@ -65,7 +65,10 @@ All **128 tests** passed with zero failures, errors or skips, including all
 and Python 3.11/3.12/3.13 jobs, each with 128 tests and qualify. Its checkout was
 the synthetic PR merge `23e85e92b25b5c93b2c80407b39a3c7dc1c44cc5` (candidate
 `a59fc21` into PR #3 base `14bed98`); the EC pool checked out the exact candidate
-SHA. Native CI does not establish raw-byte equality across operating systems.
+SHA. That historical native CI run does not establish raw-byte equality across
+operating systems. The later [v0.5.0 release verification](../releases/v0.5.0-VALIDATION.md)
+adds a separately preregistered, bounded raw-byte comparison with hosted producers
+and independent EC verification; it does not change this run's scope or result.
 
 | Cases | Observed result |
 |---|---|

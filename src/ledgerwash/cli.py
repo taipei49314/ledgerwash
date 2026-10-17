@@ -35,6 +35,8 @@ def _build_parser() -> argparse.ArgumentParser:
     p_scan.add_argument("--out", default=None, help="write the envelope to this file")
     p_scan.add_argument("--fail-on", choices=SEVERITY_ORDER, default="high")
     p_scan.add_argument("--adapter", choices=sorted(ADAPTERS), default="ec-ledger")
+    p_scan.add_argument("--require-complete", action="store_true",
+                        help="also block when supported mechanical verification inputs are incomplete")
 
     sub.add_parser(
         "qualify",
@@ -52,7 +54,7 @@ def main(argv=None) -> int:
         return cmd_qualify()
 
     try:
-        envelope = run_scan(Path(args.repo), args.at, args.adapter, args.fail_on)
+        envelope = run_scan(Path(args.repo), args.at, args.adapter, args.fail_on, args.require_complete)
     except EpochError as exc:
         print(f"ledgerwash: engine error: {exc}", file=sys.stderr)
         return 2

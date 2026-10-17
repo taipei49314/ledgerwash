@@ -1,6 +1,6 @@
-# ledgerwash SPEC (spec 3)
+# ledgerwash SPEC (spec 4)
 
-The contract for ledgerwash v0.3. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
+The contract for ledgerwash v0.4. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
 conflict this file wins. Frozen means: changes here require a spec bump, an independent
 commit, and fixture/gate re-runs.
 
@@ -39,7 +39,7 @@ in a multi-file commit is mapped), and blob-at-commit.
 
 ## 3. Ledger adapters (closed set)
 
-v0.3 ships exactly one adapter: `ec-ledger`.
+v0.4 ships exactly one adapter: `ec-ledger`.
 
 Layout (repo-relative):
 
@@ -74,6 +74,74 @@ Records that do not fit the adapter shape (missing `task_id`, non-string `status
 absent or empty `governance/tasks/` or `evidence/task-operations/` is itself a residual: a
 repo with no ledger must not read as a clean ledger.
 
+
+## 3.1. Mechanical verification coverage (spec 4)
+
+Coverage is separate from the fourteen findings. Each check has `path`, `locator`,
+`check`, `status` (`verified`, `unverified`, `mismatch`) and a stable `reason`.
+Checks sort by (path, locator, check, reason); counts cover all three statuses.
+`coverage.complete` requires nonempty loaded tasks and receipts, every check
+verified, and no adapter/rule residual or unparsed record. It proves only the
+following supported inputs were mechanically verified, never execution honesty.
+
+Supported task-store records have the exact keys `schema_version,id,description,
+status,state,owner,time,evidence,handoff,history`. Schema is integer 1 (not bool),
+id matches the filename's EC `T-\d+(?:[a-z]|-[a-z]+)?` grammar; description/status
+are nonempty strings, owner/time/evidence strings, none with NUL. State is one of
+TODO, CLAIMED, BLOCKED, DONE, SUPERSEDED, CANCELLED, and matches the leading status
+state after removing `**`. Owner is trimmed with no newline, pipe or backtick.
+Handoff is null or the exact nonempty string keys checked_at/progress/next_step/
+source, with a UTC-Z time and safe relative path. History is nonempty, unique
+direct receipt paths and exact operation events `{kind: operation, hash_format:
+git-commit-bound, source: <path>}`. Migration/legacy shape is explicitly unverified.
+
+Supported receipts are integer schema 2, kind ec-task-operation or ec-task-repair:
+
+- task_id names a loaded task; recorded_at and request.at parse. Times remain
+  self-declared claims. No Git commit clock or authority is trusted.
+- Receipt birth and expected_head resolve to commits, request.expected.head
+  equals expected_head, and receipt bytes at epoch equal bytes at birth.
+- operation_id is a canonical UUID matching the filename. Ordinary request UUIDs
+  match root operation_id/request_id; request_id is unique across loaded ordinary
+  receipts. Intent digest matches the request with operation_id/at removed and
+  expected.head/summary.checked_at removed (EC transport convention).
+- request.operation is claim, progress, finish, handoff, resume, retire or repair.
+  before_record must be an explicit supported object or null only for a new claim;
+  its digest key must match the object or explicit null. after_record is a supported
+  object with a matching digest. Digests are lowercase SHA256 of UTF-8 canonical
+  JSON: ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False,
+  no trailing newline. Nested equality is type-strict.
+- after_record.history appends exactly this receipt event to before_record.history.
+  Current task history orders operations; each receipt's after history equals the
+  corresponding prefix, adjacent before/after records match and the last after
+  equals the current task. Binding is bidirectional: every loaded receipt must be
+  attached to its own task history. Never compare all historical records to current.
+- Repair omits ordinary request UUID/intent requirements, must say operation=repair
+  with a non-null before, and preserves id/owner/description/state/status.
+- Nonempty unique safe request.sources correspond one-to-one with nonempty unique
+  source_fingerprints. Every entry has a supported §3 contract and lowercase64hex
+  digest matching actual blob bytes at the documented anchor. Missing/unknown
+  inputs remain unverified, even when best-effort findings checks happen to pass.
+
+Only direct T-*.json tasks and direct *.json receipts are loaded. Unexpected
+direct files and subdirectories become residuals; the adapter does not recurse.
+Duplicate JSON keys, non-finite values and invalid Unicode scalar strings are rejected as RECORD_UNPARSEABLE and
+unverified coverage, not engine crashes. Coverage is built after the existing
+rules, including residuals they add. No legacy or migration exemption can be
+claimed merely by declaring an old schema or an early task time.
+
+This profile does not reimplement EC's guard: decision authority, request guards,
+policy, operation authorization/state-transition semantics, task-store index and
+generated view consistency, legacy row/migration binding, execution authenticity,
+trustworthy time and evidence outside the declared source set remain unverified.
+Complete self-consistent fabricated execution can still pass (S4 limit).
+
+`finding_verdict` is the unchanged fail_on threshold result. Default `verdict`
+equals it. `--require-complete` additionally blocks when coverage.complete=false;
+thus strict exit1 can mean incomplete inputs without a high finding. Envelope
+version2 adds finding_verdict, coverage and run.require_complete. It does not
+rename rules, change their severities or reinterpret default exit0 as complete.
+
 ## 4. Rule IDs (frozen)
 
 Severity ladder: `info < warn < high < critical`. One ID = one mechanically distinct pattern.
@@ -104,9 +172,11 @@ newline:
 
 ```json
 {
-  "ledgerwash_findings_version": 1,
-  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.3.0", "ref": "<as given>", "spec_version": 3, "target": "<path>"},
+  "ledgerwash_findings_version": 2,
+  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.4.0", "ref": "<as given>", "spec_version": 4, "target": "<path>", "require_complete": false},
   "verdict": "pass | block",
+  "finding_verdict": "pass | block",
+  "coverage": {"version": 1, "complete": false, "counts": {}, "checks": [], "scope": "...", "limitations": []},
   "findings": [],
   "observations": [],
   "residuals": [],
@@ -124,14 +194,14 @@ Observations are structural stats that carry no verdict: self-signing counts (re
 `request.actor` vs task `owner`, same / differ), snapshot `expires_at` as recorded (no
 freshness judgment — there is no clock in this tool), cross-repo qualified pins seen,
 `schema_version` distribution. Residuals are `{path, reason}` adapter-shape violations and
-scope notes. Neither changes `verdict`.
+scope notes. Neither changes default `verdict`; both incomplete inputs and residuals block with `--require-complete`.
 
 ## 6. Exit codes
 
 | exit | meaning |
 |---|---|
-| 0 | no finding at or above `fail_on` (default `high`); scan finished |
-| 1 | verdict `block` |
+| 0 | finding_verdict pass; with --require-complete, coverage.complete also true |
+| 1 | selected verdict block: finding threshold or optional incomplete-coverage gate |
 | 2 | engine error: git unreadable, ref unresolvable, adapter invariant broken |
 
 A crash must not exit 1.
@@ -147,20 +217,20 @@ A crash must not exit 1.
 
 A pass/block statement that cannot name the judge is not reproducible. Record: ledgerwash
 version (or git revision), `spec_version`, epoch pin (sha), adapter, and the exit code.
-Example: `pass @ ledgerwash 0.3.0, spec 3, epoch <pinned-sha>, adapter ec-ledger, exit 0`.
+Example: `pass @ ledgerwash 0.4.0, spec 4, epoch <pinned-sha>, adapter ec-ledger, exit 0`.
 
-## 9. Non-goals (spec 3)
+## 9. Non-goals (spec 4)
 
-- No network verification of pins (no remote fallback as of spec 3); PIN findings
+- No network verification of pins (no remote fallback as of spec 4); PIN findings
   therefore never claim a pin is dead — only that it is unroutable or unverified locally.
 - No freshness verdicts (needs a clock and a freshness policy).
 - No self-signing verdicts (structural observation only; round 0 found design risk, not
   confirmed forgery).
 - No equivalence-weakening checks (taxonomy 3) and no scope-drift checks (taxonomy 7) —
-  round 0 produced no confirmed instance; still out of scope in spec 3.
-- Only `source_fingerprints` entries are hash-verified. `request.expected.sources`,
+  round 0 produced no confirmed instance; still out of scope in spec 4.
+- Source files are hash-verified only through `source_fingerprints`; spec 4 also verifies canonical record/intent digests and history binding (§3.1). `request.expected.sources`,
   `request.guards.policy_sources`, `LEDGER.md`, and session transcripts are out of scope
-  for spec 3.
+  for spec 4.
 
 ## 10. Spec changelog
 
@@ -176,3 +246,7 @@ Example: `pass @ ledgerwash 0.3.0, spec 3, epoch <pinned-sha>, adapter ec-ledger
   closes the S4 receipt-less record-rewrite escape, docs/s4/REPORT.md) (rule count 13 → 14).
   `FP_HASH_MISMATCH` messages carry a deterministic diagnostic hint when the claimed digest
   matches an EOL-converted variant of the anchor bytes (severity unchanged).
+
+- spec 4 (v0.4.0): explicit mechanical verification coverage (§3.1), optional
+  --require-complete gate and envelope version2; fourteen finding IDs/default
+  threshold semantics retained. Adapter visibility and strict JSON parsing expanded.

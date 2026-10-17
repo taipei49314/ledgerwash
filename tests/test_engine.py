@@ -18,6 +18,8 @@ def test_envelope_shape(mini_envelope):
         "ledgerwash_findings_version",
         "run",
         "verdict",
+        "finding_verdict",
+        "coverage",
         "findings",
         "observations",
         "residuals",
@@ -31,12 +33,17 @@ def test_envelope_shape(mini_envelope):
         "ref",
         "spec_version",
         "target",
+        "require_complete",
     }
     assert run["adapter"] == "ec-ledger"
-    assert run["ledgerwash_version"] == "0.3.0"
-    assert run["spec_version"] == 3
+    assert run["ledgerwash_version"] == "0.4.0"
+    assert run["spec_version"] == 4
     assert len(run["epoch"]) == 40
-    assert mini_envelope["ledgerwash_findings_version"] == 1
+    assert mini_envelope["ledgerwash_findings_version"] == 2
+    assert mini_envelope["verdict"] == mini_envelope["finding_verdict"]
+    assert run["require_complete"] is False
+    assert set(mini_envelope["coverage"]) == {"version", "complete", "counts", "checks", "scope", "limitations"}
+    assert mini_envelope["coverage"]["version"] == 1
 
 
 def test_summary_matches_findings(mini_envelope):

@@ -1,0 +1,13 @@
+{
+  "archive_sha256": "4f0487fa3486cdf06f896f60b385b9a3992f6acd9280ea3b0e7ba345f52a1383",
+  "original_inputs_sha256": {
+    "harness.py": "84a37635bf04caab648bf38f709b92729a2e01c495736bbb07497876a30c8a68",
+    "cases.py": "62b643979681db3d3ace4a2b83e63ca9d9a9f8dcd1073ce75567ab4a6d8a48c9",
+    "results.json": "af0490d35080fdca1aa15f20ebf7215bce8bed5d77481323d3a044fae4d2fa10",
+    "REDTEAM-REPORT.md": "16afc2332d90a597f176d9dbdd14c9c3494b8fca0d39b9d844d008fbcaf7c763"
+  },
+  "judge_sha": "dc133028fb7405ed61c315ea3efbee26f134d015",
+  "archive": "tests/redteam/baseline-v03.zip",
+  "schema_version": 1,
+  "port": "Only imports changed from harness to tests.redteam.harness; originals preserved. No product code executed locally."
+}

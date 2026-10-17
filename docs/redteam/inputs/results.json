@@ -1,0 +1,18 @@
+[
+  {
+    "exit": 0,
+    "verdict": "pass",
+    "findings": [
+      {
+        "rule": "STATUS_STATE_MISMATCH",
+        "severity": "warn"
+      }
+    ],
+    "residuals": 0,
+    "raw": null,
+    "case": "A4C-OPEN-TASK-HIDDEN",
+    "category": "attack",
+    "hypothesis": "BYPASS?",
+    "note": "hide receipts of a non-DONE task and rewrite its record: drift has no anchor"
+  }
+]

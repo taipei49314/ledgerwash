@@ -1,9 +1,9 @@
 # LW-004 — v0.5.0 source release preparation
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status: BLOCKED (2026-10-17, Asia/Taipei): EC has no admitted macOS workload
-  route for the required cross-platform comparison. Lock correction is delivered;
-  verification and release have stopped under the human's stop-on-new-blocker instruction.
+- Status: CLAIMED (2026-10-17, Asia/Taipei), resumed after the human approved
+  GitHub-hosted producers plus EC pool verification. The original venue blocker
+  and its evidence below remain preserved.
 - Starting main: `e2cec7fac5d1e11fd2b948c16fb5f64e656282c7`.
 - Human instruction in Codex session `01a14509-7e7a-7501-84b0-858cc8fd298c`:
   「好，照你建議做，先修鎖檔、走 EC pool 補跨平台驗證，再補齊發版文件；確認最後候選 SHA 與 CI 都通過後，發 GitHub v0.5.0 原始碼版，PyPI 先不做。遇到新的阻擋再停下來告訴我。」
@@ -63,7 +63,7 @@ solely through the currently admitted EC pool. No cross-platform workload was
 dispatched, no EC registry/profile/host was changed, and no tag/release was created.
 No existing CI success is carried forward as evidence for this lock edit.
 
-## Proposed unblock route (not yet approved or executed)
+## Proposed unblock route (subsequently approved below)
 
 Use LedgerWash's existing GitHub-hosted Windows/macOS/Linux matrix with Python
 3.11/3.12/3.13 to produce results from one pinned candidate and fixed fixture
@@ -83,6 +83,18 @@ Unblock condition: the human accepts this execution-venue change, or specifies
 an admitted alternative capable of completing the original platform scope.
 The source-release authorization remains conditional on the requested evidence
 and final candidate CI; it is not used while this blocker remains.
+
+## Human-approved resumption
+
+The human resolved the venue blocker in the same session:
+「好，接受這個調整：用 GitHub-hosted 九格矩陣產出固定 SHA 的結果，再由 EC pool 核對來源、逐位元比對並驗證鎖檔安裝流程。全部通過後補齊文件，確認最後候選 SHA 與 CI，再發 GitHub v0.5.0 原始碼版；PyPI 不做，遇到新的阻擋再停下告訴我。」
+
+The [release verification preregistration](../releases/v0.5.0-PREREG.md) fixes
+the comparison and installation acceptance before implementation/execution.
+The operator may transport the original GitHub artifact ZIPs into immutable EC
+evidence. EC independently checks public primary GitHub run/job/artifact metadata
+and the service's ZIP SHA256 before consuming those bytes. No new App permissions,
+host configuration or product network behavior is introduced.
 
 NOT_RUN：工作機規則（POLICY work-machine-local），no local product/test execution,
 dependency installation, uv, build, fixture generation or cross-platform probe.

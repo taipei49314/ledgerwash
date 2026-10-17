@@ -36,8 +36,8 @@ def test_envelope_shape(mini_envelope):
         "require_complete",
     }
     assert run["adapter"] == "ec-ledger"
-    assert run["ledgerwash_version"] == "0.4.0"
-    assert run["spec_version"] == 4
+    assert run["ledgerwash_version"] == "0.5.0"
+    assert run["spec_version"] == 5
     assert len(run["epoch"]) == 40
     assert mini_envelope["ledgerwash_findings_version"] == 2
     assert mini_envelope["verdict"] == mini_envelope["finding_verdict"]
@@ -80,9 +80,11 @@ def test_observations(mini_envelope):
     kinds = {o["kind"] for o in mini_envelope["observations"]}
     assert {"self_signing", "schema_versions", "snapshot_expires_at"} <= kinds
     self_signing = next(o for o in mini_envelope["observations"] if o["kind"] == "self_signing")
-    assert self_signing["actor_equals_owner"]["same"] == 2  # r900a + r900b
+    assert self_signing["actor_equals_owner"] == {
+        "same": 2, "differ": 12,
+    }  # r900a + r900b same; the mimo receipts (r902a-f, r903a/b, r904a, r905a, r906a, r916) differ
     versions = next(o for o in mini_envelope["observations"] if o["kind"] == "schema_versions")
-    assert versions["counts"] == {"1": 11}  # T-907 is unparseable, not counted
+    assert versions["counts"] == {"1": 14}  # T-907 unparseable; +T-912/T-913/T-914 spec 5 plants
 
 
 def test_qualify_subcommand(capsys):

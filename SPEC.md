@@ -1,6 +1,6 @@
-# ledgerwash SPEC (spec 4)
+# ledgerwash SPEC (spec 5)
 
-The contract for ledgerwash v0.4. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
+The contract for ledgerwash v0.5. [ARCHITECTURE.md](ARCHITECTURE.md) describes layers; on
 conflict this file wins. Frozen means: changes here require a spec bump, an independent
 commit, and fixture/gate re-runs.
 
@@ -132,9 +132,29 @@ claimed merely by declaring an old schema or an early task time.
 
 This profile does not reimplement EC's guard: decision authority, request guards,
 policy, operation authorization/state-transition semantics, task-store index and
-generated view consistency, legacy row/migration binding, execution authenticity,
+generated view consistency, full legacy migration verification, execution authenticity,
 trustworthy time and evidence outside the declared source set remain unverified.
 Complete self-consistent fabricated execution can still pass (S4 limit).
+
+Spec 5's BACKDATED rule additionally checks a narrow legacy-row continuity
+contract; this does not add a supported complete-coverage profile. At the task's
+latest path-addition commit, a regular EC v1 task-store manifest must bind its
+canonical hash and a content-addressed migration archive. The declared
+source_commit must be the actual first parent, where there was no task-store
+manifest or task at this path. The birth and current archive's raw bytes must
+equal that parent's regular LEDGER.md blob and their SHA256. A unique six-column
+legacy row, positive strict-integer line and raw row hash must match all seven
+task facts (id, description, status, parsed state, owner, time, evidence).
+The current task must have exactly one migration event and be type-strictly
+unchanged from birth; migration provenance must also remain unchanged. Regular
+blob modes, exact supported field shapes and unambiguous row parsing are required.
+Missing or unsupported binding evidence grants no exception. See the
+[migration preregistration](docs/redteam/spec5-migration-PREREG.md).
+
+This proves representation continuity only: the parent ledger could itself be
+fabricated. It does not verify pre-receipt task existence, full EC migration
+receipts/guards, authority, execution or trusted time. A self-consistent forged
+parent is a declared default-mode escape; strict still blocks migration coverage.
 
 `finding_verdict` is the unchanged fail_on threshold result. Default `verdict`
 equals it. `--require-complete` additionally blocks when coverage.complete=false;
@@ -149,18 +169,23 @@ Severity ladder: `info < warn < high < critical`. One ID = one mechanically dist
 | rule | severity | fires when |
 |---|---|---|
 | `DANGLING_REF` | warn | a path matching the reference grammar does not exist in the epoch tree; deduped per referenced path (locator names the referencing task ids) |
+| `DONE_TIME_BACKDATED` | high | a DONE task with zero operation receipts whose `time` parses before the earliest receipt `recorded_at`, while the task file's birth commit is dated on/after it, unless the narrow migration-continuity contract in §3.1 corroborates that JSON introduction as a representation change; this compares claimed dates, not authenticated task history |
+| `DONE_TIME_UNESTABLISHED` | high | a DONE task with zero operation receipts whose closure `time` is missing, empty, unparseable or redaction-shaped, while the ledger does contain receipts; the era-aware check for this task cannot run and this finding records that |
+| `ERA_UNDETERMINABLE` | warn | receipts exist but none has a parseable `recorded_at`; era-aware verification (`NO_OPERATION_HISTORY`) is unenforceable across this ledger (fired once per scan, not per receipt) |
 | `FP_SOURCE_MISSING` | high | a `source_fingerprints` entry's `source` does not exist at its documented anchor |
 | `FP_HASH_MISMATCH` | high | sha256 of the source bytes at the documented anchor != the claimed digest; when the claimed digest matches an EOL-converted variant of the anchor bytes the message says so (deterministic diagnostic hint, severity unchanged) |
 | `NO_OPERATION_HISTORY` | high | a task whose `state` is `DONE` has zero operation receipts, and its `time` parses to a moment on/after the earliest receipt `recorded_at` in the ledger (era-aware: the receipt system must demonstrably exist at close time; pre-system tasks and tasks with unparseable `time` stay silent) |
 | `CONTRACT_UNDOCUMENTED` | warn | a fingerprint entry's `(hash_format, origin)` is not in the adapter table, or required fields are missing; best-effort anchors (birth, then birth^) are tried and the outcome is recorded in `message` |
 | `PIN_UNROUTABLE` | warn | a 40-hex sha referenced in a task record is not an object of the target repo and is not a routable pin; unverified, not failed |
 | `PIN_LOCAL_MISSING` | warn | a receipt's `expected_head` (a pin on the target repo itself) is not an object of the target repo; wording says "unverified locally", never "failed" |
+| `PIN_NOT_COMMIT` | warn | a receipt's `expected_head` resolves to an existing non-commit object; fingerprint anchoring requires a commit, so the claimed source digests are not verified locally |
 | `TIMELINE_INVERSION` | high | a receipt's `recorded_at` is earlier than its `request.at` |
 | `CHAIN_BREAK` | high | consecutive operations of one task disagree: previous `after_record_sha256` vs next `before_record_sha256`, both present and unequal; ops ordered by `(recorded_at, filename)` |
 | `POST_HOC_DRIFT` | high | the anchor operation (max `(recorded_at, filename)`) embeds an `after_record` that is not type-strict-equal to the current task record (bool != int; coerced fields show up) |
 | `TIMESTAMP_MALFORMED` | warn | a timestamp the rules depend on (`recorded_at`, `request.at`, task `time`) does not parse as ISO-8601 and carries no redaction shape; the dependent ordering/verification is skipped and this finding records the raw value |
 | `TIMESTAMP_REDACTED` | info | an unparseable timestamp carrying the redaction shape — an ISO-8601 prefix with digit masking (`15:2xZ`) or an `A → B` range; unorderable by convention (the EC legacy redaction style), recorded, not treated as weakening |
 | `RECORD_UNPARSEABLE` | high | a task or receipt file fails JSON parsing; that record is excluded from other rules |
+| `RECEIPT_ORPHAN` | warn | a receipt's nonempty string `task_id` names no loaded task record; the operation is not attached to any task record (the receipt→task mirror of `DANGLING_REF`) |
 | `STATUS_STATE_MISMATCH` | warn | normalized `status` head (strip `*`, whitespace-split, keep the leading ASCII `[A-Za-z0-9_-]+` run) != `state`; a status with no ASCII head is skipped |
 
 Dedup: `PIN_*` per sha, `DANGLING_REF` per path, everything else per (file, locator).
@@ -173,7 +198,7 @@ newline:
 ```json
 {
   "ledgerwash_findings_version": 2,
-  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.4.0", "ref": "<as given>", "spec_version": 4, "target": "<path>", "require_complete": false},
+  "run": {"adapter": "ec-ledger", "epoch": "<40hex>", "ledgerwash_version": "0.5.0", "ref": "<as given>", "spec_version": 5, "target": "<path>", "require_complete": false},
   "verdict": "pass | block",
   "finding_verdict": "pass | block",
   "coverage": {"version": 1, "complete": false, "counts": {}, "checks": [], "scope": "...", "limitations": []},
@@ -217,20 +242,20 @@ A crash must not exit 1.
 
 A pass/block statement that cannot name the judge is not reproducible. Record: ledgerwash
 version (or git revision), `spec_version`, epoch pin (sha), adapter, and the exit code.
-Example: `pass @ ledgerwash 0.4.0, spec 4, epoch <pinned-sha>, adapter ec-ledger, exit 0`.
+Example: `pass @ ledgerwash 0.5.0, spec 5, epoch <pinned-sha>, adapter ec-ledger, exit 0`.
 
-## 9. Non-goals (spec 4)
+## 9. Non-goals (spec 5)
 
-- No network verification of pins (no remote fallback as of spec 4); PIN findings
+- No network verification of pins (no remote fallback as of spec 5); PIN findings
   therefore never claim a pin is dead — only that it is unroutable or unverified locally.
 - No freshness verdicts (needs a clock and a freshness policy).
 - No self-signing verdicts (structural observation only; round 0 found design risk, not
   confirmed forgery).
 - No equivalence-weakening checks (taxonomy 3) and no scope-drift checks (taxonomy 7) —
-  round 0 produced no confirmed instance; still out of scope in spec 4.
+  round 0 produced no confirmed instance; still out of scope in spec 5.
 - Source files are hash-verified only through `source_fingerprints`; spec 4 also verifies canonical record/intent digests and history binding (§3.1). `request.expected.sources`,
   `request.guards.policy_sources`, `LEDGER.md`, and session transcripts are out of scope
-  for spec 4.
+  for spec 5.
 
 ## 10. Spec changelog
 
@@ -250,3 +275,24 @@ Example: `pass @ ledgerwash 0.4.0, spec 4, epoch <pinned-sha>, adapter ec-ledger
 - spec 4 (v0.4.0): explicit mechanical verification coverage (§3.1), optional
   --require-complete gate and envelope version2; fourteen finding IDs/default
   threshold semantics retained. Adapter visibility and strict JSON parsing expanded.
+
+- spec 5 (v0.5.0): five rule IDs (14 → 19) promoting the negative-space escapes
+  from the 2026-10-01 red-team round from silent residuals to findings
+  (docs/redteam/ACCEPTANCE.md, docs/redteam/spec5-PREREG.md):
+  `DONE_TIME_UNESTABLISHED` (high) and `DONE_TIME_BACKDATED` (high) flag bounded
+  time-field gaps in `NO_OPERATION_HISTORY` (missing/empty/unparseable/
+  redacted closure time; backdated closure contradicted by the task file's
+  birth commit's claimed committer date), `ERA_UNDETERMINABLE` (warn) surfaces
+  the ledger-wide era kill switch, `RECEIPT_ORPHAN` (warn) binds receipts to tasks, and `PIN_NOT_COMMIT`
+  (warn) stops a non-commit `expected_head` from silently disabling fingerprint
+  verification. Rules with zero loaded receipts keep residual semantics
+  (§3); the DONE rules fire only when receipts exist. Frozen fourteen rule IDs,
+  severities and default outputs unchanged; envelope version2 unchanged.
+  `DONE_TIME_BACKDATED` compares claims, not ancestry order or trusted time.
+  A newly appended commit may have an old committer date and avoid this finding
+  without rewriting prior history or breaking existing pins. Missing operation
+  history still makes strict coverage incomplete. PREREG Amendment 2 documents
+  that escape. The later migration-continuity correction suppresses BACKDATED
+  only for the bounded historical row binding above; it does not suppress
+  UNESTABLISHED or make migration coverage complete. The separate migration
+  preregistration includes forged bindings and a self-consistent forgery escape.

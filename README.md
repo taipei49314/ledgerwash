@@ -6,7 +6,7 @@ summaries — at a pinned git revision.** 標出 agent 工作帳本裡被弱化�
 checkwash guards the diff; ledgerwash guards the ledger. Local-first. Deterministic. No LLM.
 No network. Read-only: does not execute the subject, does not enforce anything.
 
-This repository has a local **v0.4 engine**. There is no Release, no PyPI package, and no
+This repository has a local **v0.5 engine**. There is no Release, no PyPI package, and no
 1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
 (layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
@@ -35,7 +35,7 @@ Pin the commit first (write the sha down), then one invocation:
 uv run ledgerwash scan <repo> --at <pinned-sha>
 ```
 
-Record the judge's identity with the verdict: `block @ ledgerwash 0.4.0, spec 4, epoch
+Record the judge's identity with the verdict: `block @ ledgerwash 0.5.0, spec 5, epoch
 b8761e95…, adapter ec-ledger, exit 1`. A pass that cannot name the judge is not
 reproducible (SPEC §8).
 
@@ -51,6 +51,40 @@ Default `verdict` follows `finding_verdict`; strict additionally requires
 The initial complete profile covers EC task-store operation/repair receipts;
 legacy/migration history stays explicitly unverified. See SPEC §3.1 and the
 [runner evidence design](docs/redteam/INDEPENDENT-RUNNER-DESIGN.md) for the limits.
+
+Spec 5 (v0.5) additionally promotes the negative-space escapes surfaced by the
+2026-10-01 red-team round to findings — a DONE task whose closure time is missing,
+empty, unparseable, redacted or contradicted by the file's own git history, a
+ledger whose receipts carry no parseable `recorded_at`, receipts bound to no
+loaded task, and `expected_head` pins that are not commits (SPEC §4, §10; see
+[spec 5 PREREG](docs/redteam/spec5-PREREG.md)).
+
+`DONE_TIME_BACKDATED` compares the task's claimed closure time with its birth
+commit's claimed committer date. It does not establish ancestry order or trusted
+time: a new child commit with a backdated committer date can avoid that finding
+without rewriting any earlier history. The supplementary adversarial case in
+PREREG Amendment 2 records this default-mode escape; `--require-complete` still
+blocks its missing operation history. A narrow migration-continuity check also
+prevents treating a newly introduced JSON representation as a newly created
+task: the unchanged task, archive bytes and exact source row must bind to the
+birth commit's actual parent ledger. A migration label alone is insufficient.
+That parent ledger can still be fabricated; this is continuity, not historical
+truth or complete migration verification. Strict migration coverage stays
+incomplete, and unusable closure times retain DONE_TIME_UNESTABLISHED.
+Three new rules are `warn`, below the
+default `fail_on=high` threshold; surfacing a finding does not always block.
+
+The [spec 5 validation report](docs/redteam/SPEC5-VALIDATION.md) records a passed
+technical pool run but a failed real-ledger prediction: each of two pinned EC
+epochs gained 170 `DONE_TIME_BACKDATED` findings tied to structured-task
+migration. A newly introduced JSON path is not necessarily a newly created task.
+The [migration follow-up](docs/redteam/SPEC5-MIGRATION-VALIDATION.md) passed its
+preregistered controls and pool revalidation: exactly those 170 identities are
+removed per epoch, while 102 time-unestablished findings and all other findings,
+coverage and residuals remain. A self-consistent forged parent still escapes
+default mode; strict blocks its incomplete coverage. The earlier failed
+prediction is preserved, and a workload PASS
+does not establish that findings identify fabricated completion.
 
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent

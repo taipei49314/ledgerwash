@@ -16,7 +16,7 @@ from pathlib import Path
 from ledgerwash.cli import main
 from ledgerwash.engine import RULE_IDS, run_scan
 from ledgerwash.qualify import cmd_qualify
-from ledgerwash.qualify_corpus import EXPECTED, build_corpus
+from ledgerwash.qualify_corpus import EXPECTED_ALL, build_corpus
 
 SRC = Path(__file__).resolve().parents[1] / "src" / "ledgerwash"
 SPEC = Path(__file__).resolve().parents[1] / "SPEC.md"
@@ -68,10 +68,12 @@ def test_a2_determinism(tmp_path):
     assert envelopes[0] == envelopes[1]
 
 
-def test_a3_rule_coverage(mini_envelope):
-    fired = {f["rule"] for f in mini_envelope["findings"]}
+def test_a3_rule_coverage(mini_envelope, negspace_envelope):
+    fired = {f["rule"] for f in mini_envelope["findings"]} | {
+        f["rule"] for f in negspace_envelope["findings"]
+    }
     assert fired == set(RULE_IDS), fired ^ set(RULE_IDS)
-    assert set(EXPECTED) == set(RULE_IDS)
+    assert set(EXPECTED_ALL) == set(RULE_IDS)
 
 
 def test_a4_clean_ledger_passes(clean_envelope):

@@ -32,6 +32,30 @@
         }
       },
       "description": "Replay all 21 preserved red-team cases against the frozen PR2 judge dc133028fb7405ed61c315ea3efbee26f134d015 and the exact candidate; use isolated hash-pinned pytest dependencies, all tests and qualify, independent-process byte replay, full raw logs, fixture and judge SHAs. Scope also covers later verification-coverage spec changes, paired positive/negative controls, and readonly scans of fixed historical/current EC Git corpus inputs with before/after triage. Never execute subject code, access credentials, call models, publish packages or deploy. Network downloads only hash-pinned pytest wheels; corpus inputs are offline and pinned. Errors, missing cases, invalid outputs, skips or nondeterminism fail the workload; attacks passing the baseline are recorded as observations, not claimed as caught. Baseline phase replays cases before contract changes; coverage phase additionally reads historical/current EC commits from the full-history GITHUB_WORKSPACE EC checkout, clones only into the job directory, scans readonly without executing subject code, and publishes raw corpus results only to EC private receipt refs. EC source collection uses Actions checkout with persist-credentials false; no token reaches this script."
+    },
+    "spec5-verify": {
+      "profile": "profile-ec-integrity",
+      "timeout_minutes": 40,
+      "entry": "workloads/spec5_verify/run.py",
+      "cache": false,
+      "parameters": {
+        "phase": {
+          "default": "spec5",
+          "description": "spec5 acceptance of the negative-space rules (LW-003)",
+          "pattern": "spec5"
+        },
+        "current_sha": {
+          "default": "1b92c81036db6196af558b33cb455e2fdad42dce",
+          "description": "Current EC epoch pinned before workload integration",
+          "pattern": "1b92c81036db6196af558b33cb455e2fdad42dce"
+        },
+        "historical_sha": {
+          "default": "b8761e95bbd92c4cd1d1917cbf70ff84e74c97f8",
+          "description": "Historical preregistered EC epoch",
+          "pattern": "b8761e95bbd92c4cd1d1917cbf70ff84e74c97f8"
+        }
+      },
+      "description": "Accept the spec 5 negative-space rules (LW-003) on the exact reviewed commit against the frozen PR2 judge dc133028fb7405ed61c315ea3efbee26f134d015: isolated hash-pinned pytest dependencies, all tests and qualify over both planted corpora, independent-process byte replay at PYTHONHASHSEED 1 and 17 (main corpus expecting all 18 rules, era-dead negspace corpus its 3), the preserved 21-case red-team replay with strict candidate checked against the preregistered frozen-identity plus declared-delta contract (docs/redteam/spec5-PREREG.md), paired coverage controls, and readonly scans of the same fixed historical/current EC Git epochs with frozen-identity invariant and per-rule disclosure of new-rule additions for human triage. Never execute subject code, access credentials, call models, publish packages or deploy. Network downloads only hash-pinned pytest wheels; corpus inputs are offline and pinned. Errors, missing cases, invalid outputs, skips, nondeterminism, frozen-rule identity drift or removed findings fail the workload; spec 5 additions on real epochs are recorded as measured disclosures, not claimed as caught. EC source collection uses Actions checkout with persist-credentials false; no token reaches this script."
     }
   }
 }

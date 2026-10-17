@@ -9,10 +9,58 @@ from pathlib import Path
 import subprocess
 import sys
 import zipfile
+from collections import Counter
 
 from tests.redteam.harness import build_repo, original_cases
 
 ROOT = Path(__file__).resolve().parents[2]
+
+# The spec 3/4 frozen contract (SPEC §10): these rule IDs, severities and
+# default outputs must not change under the spec 5 candidate.
+FROZEN_RULE_IDS = frozenset({
+    "CHAIN_BREAK", "CONTRACT_UNDOCUMENTED", "DANGLING_REF", "FP_HASH_MISMATCH",
+    "FP_SOURCE_MISSING", "NO_OPERATION_HISTORY", "PIN_LOCAL_MISSING",
+    "PIN_UNROUTABLE", "POST_HOC_DRIFT", "RECORD_UNPARSEABLE",
+    "STATUS_STATE_MISMATCH", "TIMELINE_INVERSION", "TIMESTAMP_MALFORMED",
+    "TIMESTAMP_REDACTED",
+})
+
+# Locked before any run (docs/redteam/spec5-PREREG.md, Prediction 1): the only
+# new-rule delta the preserved suite may show, and its verdict consequence.
+SPEC5_EXPECTED_DELTA = {"A3-MALFORM-TIME": {"DONE_TIME_UNESTABLISHED": 1}}
+
+
+def _nonfrozen_blocking(findings):
+    return any(f.get("severity") in ("high", "critical")
+               for f in findings if f.get("rule") not in FROZEN_RULE_IDS)
+
+
+def spec5_case_check(case_id, item):
+    """Frozen-14 identity plus the preregistered new-rule delta for one case."""
+    old, new = item["judges"]["baseline"], item["judges"]["candidate"]
+    problems = []
+    old_frozen = [f for f in old.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+    new_frozen = [f for f in new.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+    if old_frozen != new_frozen:
+        problems.append(f"{case_id}: frozen rule findings changed")
+    added = Counter(f["rule"] for f in new.get("findings") or []
+                    if f["rule"] not in FROZEN_RULE_IDS)
+    expected = Counter(SPEC5_EXPECTED_DELTA.get(case_id, {}))
+    if added != expected:
+        problems.append(
+            f"{case_id}: new-rule delta {dict(sorted(added.items()))} != "
+            f"prereg {dict(sorted(expected.items()))}"
+        )
+    expected_verdict = (
+        "block" if old.get("verdict") == "block" or _nonfrozen_blocking(new.get("findings") or [])
+        else "pass"
+    )
+    if new.get("finding_verdict") != expected_verdict:
+        problems.append(
+            f"{case_id}: finding_verdict {new.get('finding_verdict')} != "
+            f"expected {expected_verdict}"
+        )
+    return problems
 
 
 def sha(data):
@@ -106,17 +154,21 @@ def replay(out, work, *, candidate_sha=None, strict_candidate=False):
                 problems.append(f"{case['id']}/{name}: positive block control failed")
         records.append(item)
         if candidate_sha:
+            problems.extend(spec5_case_check(case["id"], item))
             old, new = item["judges"]["baseline"], item["judges"]["candidate"]
-            if old.get("findings") != new.get("findings") or old.get("verdict") != new.get("finding_verdict"):
-                problems.append(f"{case['id']}: original default finding contract changed")
+            old_frozen = [f for f in old.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+            expected = Counter(SPEC5_EXPECTED_DELTA.get(case["id"], {}))
             if strict_candidate:
                 first = scan(repo, epoch, ROOT / "src", candidate_sha, out, f"{case['id']}-strict-seed1", strict=True)
                 second = scan(repo, epoch, ROOT / "src", candidate_sha, out, f"{case['id']}-strict-seed17", seed="17", strict=True)
                 first["raw_replay_equal"] = first["stdout_sha256"] == second["stdout_sha256"] and first["exit_code"] == second["exit_code"]
                 item["judges"]["candidate-strict"] = first
+                strict_frozen = [f for f in first.get("findings") or [] if f["rule"] in FROZEN_RULE_IDS]
+                strict_added = Counter(f["rule"] for f in first.get("findings") or []
+                                       if f["rule"] not in FROZEN_RULE_IDS)
                 if (first.get("error") or second.get("error") or not first["raw_replay_equal"]
                         or first["exit_code"] != 1 or (first.get("coverage") or {}).get("complete") is not False
-                        or first.get("findings") != old.get("findings")):
+                        or strict_frozen != old_frozen or strict_added != expected):
                     problems.append(f"{case['id']}: strict original-case coverage/replay failed")
     baseline_pass = sum(item["judges"]["baseline"]["exit_code"] == 0 for item in records)
     if baseline_pass != 17:

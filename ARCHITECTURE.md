@@ -6,6 +6,9 @@ Layers — [SPEC.md](SPEC.md) wins on conflict:
 - `models.py` — Finding, severity ladder, type-strict equality, fingerprint canonicalization.
 - `adapters/ec_ledger.py` — layout constants, the closed fingerprint contract table, and the
   corpus loader. Owns ALL layout knowledge; rules never parse paths themselves.
+- `adapters/ec_migration.py` — narrow task/parent-ledger continuity for spec 5's
+  BACKDATED predicate; cached immutable Git reads, no target-code execution and
+  no change to coverage completeness. This is not EC's full migration guard.
 - `rules/` — functions `(corpus) -> list[Finding]`, one module per rule family.
 - `coverage.py` — supported EC record, history, identity and source verification checks;
   runs after findings rules so their residuals also make coverage incomplete. Does not

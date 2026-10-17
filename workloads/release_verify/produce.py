@@ -65,7 +65,12 @@ def main():
         actual = run(["git", "rev-parse", "HEAD"])
         require(actual.returncode == 0 and actual.stdout.decode().strip() == args.source,
                 "checkout source mismatch")
-        require(run(["git", "status", "--porcelain"]).stdout == b"", "dirty initial source")
+        initial = run(["git", "status", "--porcelain"])
+        receipt["initial_status"] = {"exit_code": initial.returncode,
+                                     "stdout": initial.stdout.decode("utf-8", "replace"),
+                                     "stderr": initial.stderr.decode("utf-8", "replace")}
+        require(initial.returncode == 0 and initial.stdout == b"", "dirty initial source: "
+                + receipt["initial_status"]["stdout"])
         import ledgerwash
         from ledgerwash.qualify_corpus import build_corpus, build_negspace_corpus
         from tests.test_migration import migration_repo
@@ -122,7 +127,12 @@ def main():
                             "stdout/file bytes differ")
                 require((out / f"{case}.{mode}.s1.stdout.json").read_bytes()
                         == (out / f"{case}.{mode}.s17.stdout.json").read_bytes(), "seed bytes differ")
-        require(run(["git", "status", "--porcelain"]).stdout == b"", "dirty final source")
+        final = run(["git", "status", "--porcelain"])
+        receipt["final_status"] = {"exit_code": final.returncode,
+                                   "stdout": final.stdout.decode("utf-8", "replace"),
+                                   "stderr": final.stderr.decode("utf-8", "replace")}
+        require(final.returncode == 0 and final.stdout == b"", "dirty final source: "
+                + receipt["final_status"]["stdout"])
         receipt["source_clean"] = True
         receipt["status"] = "pass"
     except Exception as exc:

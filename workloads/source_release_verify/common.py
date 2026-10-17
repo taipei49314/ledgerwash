@@ -68,6 +68,9 @@ def read_archive(raw, kind, root=None):
         with zipfile.ZipFile(io.BytesIO(raw)) as archive:
             require(len(archive.infolist()) <= MAX_ENTRIES, "archive entry bound")
             for entry in archive.infolist():
+                # ZipInfo normalizes backslashes on Windows and truncates NULs.
+                # Reject the original name before accepting its normalized alias.
+                require(entry.orig_filename == entry.filename, "ZIP normalized unsafe path")
                 mode = entry.external_attr >> 16
                 require(stat.S_IFMT(mode) in (0, stat.S_IFDIR, stat.S_IFREG), "ZIP special file")
                 require(not entry.flag_bits & 1, "encrypted ZIP")

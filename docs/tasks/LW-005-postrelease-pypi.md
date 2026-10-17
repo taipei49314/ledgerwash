@@ -32,6 +32,12 @@ and 2FA are completed by the human; no API token is needed in chat.
 Current status: implementation prepared; EC registration, pool receipt and
 PyPI setup/publication remain pending. This document is not acceptance evidence.
 
+PR CI 39050726468 exposed Windows ZipInfo backslash normalization in both the
+adversarial fixture writer and parser. The fixture now preserves raw member
+names on every OS; the parser rejects original/normalized name mismatches,
+including NUL truncation. The failed run remains evidence. Fresh hosted CI is
+required before dispatch; no failure is relabeled as a pass.
+
 Local validation: NOT_RUN：工作機規則（POLICY work-machine-local），product
 tests, archive comparison, builds and installation must execute through admitted
 EC pool or the authorized hosted CI workflow.

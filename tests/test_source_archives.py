@@ -16,7 +16,11 @@ def archive(kind, entries):
     if kind == "zip":
         with zipfile.ZipFile(output, "w") as z:
             for path, data in entries:
-                z.writestr(path, data)
+                # Preserve adversarial raw names on Windows too; ZipInfo's
+                # constructor normally rewrites backslashes before writing.
+                entry = zipfile.ZipInfo("placeholder")
+                entry.filename = entry.orig_filename = path
+                z.writestr(entry, data)
     else:
         with tarfile.open(fileobj=output, mode="w:gz") as t:
             for path, data in entries:
@@ -71,6 +75,11 @@ def test_links_are_never_extracted():
         t.addfile(entry)
     with pytest.raises(ValueError, match="special"):
         common.read_archive(output.getvalue(), "tar.gz", "root")
+
+
+def test_zip_nul_name_is_not_accepted_as_a_safe_alias():
+    with pytest.raises(ValueError, match="normalized unsafe path"):
+        common.read_archive(archive("zip", [("root/file\0hidden", b"x")]), "zip", "root")
 
 
 def test_tar_metadata_decompression_is_bounded(monkeypatch):

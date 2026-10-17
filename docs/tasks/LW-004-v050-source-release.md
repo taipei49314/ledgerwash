@@ -1,9 +1,11 @@
 # LW-004 — v0.5.0 source release preparation
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status: CLAIMED (2026-10-17, Asia/Taipei), resumed after the human approved
-  GitHub-hosted producers plus EC pool verification. The original venue blocker
-  and its evidence below remain preserved.
+- Status at documentation closeout: implementation and P1–P5 verification
+  complete; final candidate CI and publication are the remaining gates.
+  The [v0.5.0 Release](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0)
+  is the publication record and binds the final SHA/CI. Earlier blockers and
+  failures below remain preserved.
 - Starting main: `e2cec7fac5d1e11fd2b948c16fb5f64e656282c7`.
 - Human instruction in Codex session `01a14509-7e7a-7501-84b0-858cc8fd298c`:
   「好，照你建議做，先修鎖檔、走 EC pool 補跨平台驗證，再補齊發版文件；確認最後候選 SHA 與 CI 都通過後，發 GitHub v0.5.0 原始碼版，PyPI 先不做。遇到新的阻擋再停下來告訴我。」
@@ -99,3 +101,40 @@ host configuration or product network behavior is introduced.
 NOT_RUN：工作機規則（POLICY work-machine-local），no local product/test execution,
 dependency installation, uv, build, fixture generation or cross-platform probe.
 Local work is limited to reading, editing, git/gh and EC governance tools.
+
+## Registry-base interruption and explicit resumption
+
+The first hosted producer attempt `39038424178` at `90eea1b` left three Windows
+receipts incomplete at the clean-source guard. The scoped repair `77efe40`
+pinned checkout line endings and retained status output; the replacement
+producer run `39038979988` passed all nine cells. All failed original ZIPs and
+JUnit files were retained, not overwritten.
+
+EC #190 then passed its first integrity run, but its merge preflight refused
+after evidence publications advanced the render-sensitive registry base.
+T-553 was marked BLOCKED and publication stopped. The human explicitly resumed:
+
+「好，照你建議做，恢復 T-553，更新 EC #190 分支、固定新 base／head 並重跑 CI；這輪 CI 期間不要再寫帳本。通過後完成 EC 比對與鎖檔安裝驗證、補齊文件，確認最後候選 SHA 與 CI，再發 GitHub v0.5.0 原始碼版。PyPI 不做，遇到新的阻擋再停下告訴我。」
+
+Resume was published first. EC #190 incorporated base `fde473c` with head
+`cc4ed11`, passed fresh integrity `39041471125`, then merged as `8b353f8` through
+`ec_pr` with no base drift. No ledger writes occurred during that CI window
+through the merge. The complete identities and immutable evidence references
+are in the [release validation report](../releases/v0.5.0-VALIDATION.md).
+
+## Verification delivered and final publication gate
+
+EC run `39043521622`, attempt 1, at EC source `718350a` independently verified
+product `77efe40ef12f2407f2d788ea2cdc6761cea31e1b`. Its private receipt
+`11e0fca62bcb3d0d391f20289d380607b3cbc60c` records P1–P5 passing: all nine
+producer suites/qualify, original ZIP provenance and service digests, all
+40 raw outputs across five fixtures, fresh uv locked installation, 154 installed
+tests, qualify and matching installed replay. Source and lock remained clean.
+
+The subsequent product changes are documentation only: this task record,
+README, SPEC clarification, the historical migration report cross-reference,
+release validation and a selected saved-evidence summary. The immutable
+preregistration, engine, fixtures, tests, workflows, workload and lock are
+unchanged from the verified implementation. The exact comparison and final
+candidate/main CI identities are recorded in the GitHub Release notes after
+those gates pass. No PyPI, wheel or sdist publication is authorized here.

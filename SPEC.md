@@ -257,8 +257,10 @@ Example: `pass @ ledgerwash 0.5.0, spec 5, epoch <pinned-sha>, adapter ec-ledger
 - No equivalence-weakening checks (taxonomy 3) and no scope-drift checks (taxonomy 7) —
   round 0 produced no confirmed instance; still out of scope in spec 5.
 - Source files are hash-verified only through `source_fingerprints`; spec 4 also verifies canonical record/intent digests and history binding (§3.1). `request.expected.sources`,
-  `request.guards.policy_sources`, `LEDGER.md`, and session transcripts are out of scope
-  for spec 5.
+  `request.guards.policy_sources` and session transcripts are out of scope for spec 5.
+  General ledger/view consistency is also out of scope, except for the narrow
+  first-parent legacy-row continuity check in §3.1; that check does not establish
+  historical truth or complete migration verification.
 
 ## 10. Spec changelog
 

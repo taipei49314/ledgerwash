@@ -1,0 +1,422 @@
+{
+  "kind": "selected-saved-release-evidence",
+  "source_sha": "77efe40ef12f2407f2d788ea2cdc6761cea31e1b",
+  "status": "pass",
+  "producer_run": {
+    "attempt": "1",
+    "run_id": "39038979988"
+  },
+  "ec_run": "39043521622",
+  "ec_attempt": "1",
+  "ec_source_sha": "718350a7cd41a71be4bc3f88c205f25dd6b21b1a",
+  "private_receipt_commit": "11e0fca62bcb3d0d391f20289d380607b3cbc60c",
+  "uv_version": "uv 0.13.1 (62faed335 2026-10-13 x86_64-pc-windows-msvc)",
+  "lock_sha256": "1043eb7bc0f346cc417e9d39e3b763fe0ff41f7df32634ef9315c1a2a2adbbe2",
+  "build_constraints": {
+    "hatchling": "1.32.4",
+    "packaging": "26.3",
+    "pathspec": "1.1.1",
+    "pluggy": "1.6.0",
+    "tomlkit": "0.15.2",
+    "trove-classifiers": "2026.9.21.13"
+  },
+  "installed_suite": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 154
+  },
+  "installed_runtime": {
+    "system": "Windows",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10"
+  },
+  "epochs": {
+    "clean": "3c65e47d8e0b7677a164f04f7dd8521101081d33",
+    "era": "1fbf4c30070fe8c2d9ac0a8a52af7a7805679344",
+    "main": "b458d0a26479d9332cc3238920048928d9eb9718",
+    "migration-forged": "b349e88799afde9645eb12d2020d00d07717655d",
+    "migration-lf": "75fdcfae00973aadab2e23fa94ed5f7ac9e53692"
+  },
+  "cross_platform": {
+    "clean.default.s1.file.json": {
+      "bytes": 12857,
+      "sha256": "ce418d98a206bdcd79acf4051e436f8a5af854f80744440610514b698a616c99"
+    },
+    "clean.default.s1.stdout.json": {
+      "bytes": 12857,
+      "sha256": "ce418d98a206bdcd79acf4051e436f8a5af854f80744440610514b698a616c99"
+    },
+    "clean.default.s17.file.json": {
+      "bytes": 12857,
+      "sha256": "ce418d98a206bdcd79acf4051e436f8a5af854f80744440610514b698a616c99"
+    },
+    "clean.default.s17.stdout.json": {
+      "bytes": 12857,
+      "sha256": "ce418d98a206bdcd79acf4051e436f8a5af854f80744440610514b698a616c99"
+    },
+    "clean.strict.s1.file.json": {
+      "bytes": 12857,
+      "sha256": "773ed836662efadcef983ed69ad98357007801a80429b8915ec3195b7f32a218"
+    },
+    "clean.strict.s1.stdout.json": {
+      "bytes": 12857,
+      "sha256": "773ed836662efadcef983ed69ad98357007801a80429b8915ec3195b7f32a218"
+    },
+    "clean.strict.s17.file.json": {
+      "bytes": 12857,
+      "sha256": "773ed836662efadcef983ed69ad98357007801a80429b8915ec3195b7f32a218"
+    },
+    "clean.strict.s17.stdout.json": {
+      "bytes": 12857,
+      "sha256": "773ed836662efadcef983ed69ad98357007801a80429b8915ec3195b7f32a218"
+    },
+    "era.default.s1.file.json": {
+      "bytes": 19577,
+      "sha256": "519088c0a801470e7fe70df8b07b6987a5f0dc2c362badd05d42fa4215bd9719"
+    },
+    "era.default.s1.stdout.json": {
+      "bytes": 19577,
+      "sha256": "519088c0a801470e7fe70df8b07b6987a5f0dc2c362badd05d42fa4215bd9719"
+    },
+    "era.default.s17.file.json": {
+      "bytes": 19577,
+      "sha256": "519088c0a801470e7fe70df8b07b6987a5f0dc2c362badd05d42fa4215bd9719"
+    },
+    "era.default.s17.stdout.json": {
+      "bytes": 19577,
+      "sha256": "519088c0a801470e7fe70df8b07b6987a5f0dc2c362badd05d42fa4215bd9719"
+    },
+    "era.strict.s1.file.json": {
+      "bytes": 19576,
+      "sha256": "9e4bdf0126c33cacba3921be8af2bac6620668875dbb11c2563fb9bfc3fc1a77"
+    },
+    "era.strict.s1.stdout.json": {
+      "bytes": 19576,
+      "sha256": "9e4bdf0126c33cacba3921be8af2bac6620668875dbb11c2563fb9bfc3fc1a77"
+    },
+    "era.strict.s17.file.json": {
+      "bytes": 19576,
+      "sha256": "9e4bdf0126c33cacba3921be8af2bac6620668875dbb11c2563fb9bfc3fc1a77"
+    },
+    "era.strict.s17.stdout.json": {
+      "bytes": 19576,
+      "sha256": "9e4bdf0126c33cacba3921be8af2bac6620668875dbb11c2563fb9bfc3fc1a77"
+    },
+    "main.default.s1.file.json": {
+      "bytes": 91033,
+      "sha256": "f3d4e06ce34c53ebf0662d9e835848024a4170f5637c166218caa01c0664ec71"
+    },
+    "main.default.s1.stdout.json": {
+      "bytes": 91033,
+      "sha256": "f3d4e06ce34c53ebf0662d9e835848024a4170f5637c166218caa01c0664ec71"
+    },
+    "main.default.s17.file.json": {
+      "bytes": 91033,
+      "sha256": "f3d4e06ce34c53ebf0662d9e835848024a4170f5637c166218caa01c0664ec71"
+    },
+    "main.default.s17.stdout.json": {
+      "bytes": 91033,
+      "sha256": "f3d4e06ce34c53ebf0662d9e835848024a4170f5637c166218caa01c0664ec71"
+    },
+    "main.strict.s1.file.json": {
+      "bytes": 91032,
+      "sha256": "a9a9dd2eefe64ae2cf8be98220b1834625a49d1561d9cbc6ffb8eea508ea8259"
+    },
+    "main.strict.s1.stdout.json": {
+      "bytes": 91032,
+      "sha256": "a9a9dd2eefe64ae2cf8be98220b1834625a49d1561d9cbc6ffb8eea508ea8259"
+    },
+    "main.strict.s17.file.json": {
+      "bytes": 91032,
+      "sha256": "a9a9dd2eefe64ae2cf8be98220b1834625a49d1561d9cbc6ffb8eea508ea8259"
+    },
+    "main.strict.s17.stdout.json": {
+      "bytes": 91032,
+      "sha256": "a9a9dd2eefe64ae2cf8be98220b1834625a49d1561d9cbc6ffb8eea508ea8259"
+    },
+    "migration-forged.default.s1.file.json": {
+      "bytes": 7331,
+      "sha256": "458af8adb089570744f4a41c378567d04ad7ee27816cf70cb583382156998a07"
+    },
+    "migration-forged.default.s1.stdout.json": {
+      "bytes": 7331,
+      "sha256": "458af8adb089570744f4a41c378567d04ad7ee27816cf70cb583382156998a07"
+    },
+    "migration-forged.default.s17.file.json": {
+      "bytes": 7331,
+      "sha256": "458af8adb089570744f4a41c378567d04ad7ee27816cf70cb583382156998a07"
+    },
+    "migration-forged.default.s17.stdout.json": {
+      "bytes": 7331,
+      "sha256": "458af8adb089570744f4a41c378567d04ad7ee27816cf70cb583382156998a07"
+    },
+    "migration-forged.strict.s1.file.json": {
+      "bytes": 7331,
+      "sha256": "8a782e6075ba7c939e750cefb21d8457b3aaeed43a9c5899ae9e62f63f2f8287"
+    },
+    "migration-forged.strict.s1.stdout.json": {
+      "bytes": 7331,
+      "sha256": "8a782e6075ba7c939e750cefb21d8457b3aaeed43a9c5899ae9e62f63f2f8287"
+    },
+    "migration-forged.strict.s17.file.json": {
+      "bytes": 7331,
+      "sha256": "8a782e6075ba7c939e750cefb21d8457b3aaeed43a9c5899ae9e62f63f2f8287"
+    },
+    "migration-forged.strict.s17.stdout.json": {
+      "bytes": 7331,
+      "sha256": "8a782e6075ba7c939e750cefb21d8457b3aaeed43a9c5899ae9e62f63f2f8287"
+    },
+    "migration-lf.default.s1.file.json": {
+      "bytes": 7331,
+      "sha256": "49ce28b88268103dbd440e8680634c51f49a90e2d9cdca7f9b8a9cd5bc84beb6"
+    },
+    "migration-lf.default.s1.stdout.json": {
+      "bytes": 7331,
+      "sha256": "49ce28b88268103dbd440e8680634c51f49a90e2d9cdca7f9b8a9cd5bc84beb6"
+    },
+    "migration-lf.default.s17.file.json": {
+      "bytes": 7331,
+      "sha256": "49ce28b88268103dbd440e8680634c51f49a90e2d9cdca7f9b8a9cd5bc84beb6"
+    },
+    "migration-lf.default.s17.stdout.json": {
+      "bytes": 7331,
+      "sha256": "49ce28b88268103dbd440e8680634c51f49a90e2d9cdca7f9b8a9cd5bc84beb6"
+    },
+    "migration-lf.strict.s1.file.json": {
+      "bytes": 7331,
+      "sha256": "c0fd152046d8b5443b40fd80ff79b2efab8ba81b83fde5db6972c6cab7c9be7e"
+    },
+    "migration-lf.strict.s1.stdout.json": {
+      "bytes": 7331,
+      "sha256": "c0fd152046d8b5443b40fd80ff79b2efab8ba81b83fde5db6972c6cab7c9be7e"
+    },
+    "migration-lf.strict.s17.file.json": {
+      "bytes": 7331,
+      "sha256": "c0fd152046d8b5443b40fd80ff79b2efab8ba81b83fde5db6972c6cab7c9be7e"
+    },
+    "migration-lf.strict.s17.stdout.json": {
+      "bytes": 7331,
+      "sha256": "c0fd152046d8b5443b40fd80ff79b2efab8ba81b83fde5db6972c6cab7c9be7e"
+    }
+  },
+  "producers": [
+    {
+      "name": "lw-release-39038979988-1-ubuntu-latest-py3.11",
+      "artifact_id": 12102904330,
+      "digest": "sha256:6b30215d264eef614b2a1d8ed109c38fe4cf316d90a52ea7ae548c3e49ad732b",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Linux",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.11.17"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-ubuntu-latest-py3.12",
+      "artifact_id": 12103248147,
+      "digest": "sha256:e4b11ec7b6b26ccca219608b052f4e99241bfc5982147ebe78a1609d0b179147",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Linux",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.15"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-ubuntu-latest-py3.13",
+      "artifact_id": 12102264661,
+      "digest": "sha256:72c218d1d74bb72c83b3420a90d9efae6fcec64e4787d9cdb1638548c2518012",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Linux",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.16"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-windows-latest-py3.11",
+      "artifact_id": 12103401932,
+      "digest": "sha256:5075e49277499df2ec3beb641b0ed1e7ee6e444d30a60ea5f2c96b09fc099fcb",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Windows",
+        "platform": "Windows-10-10.0.26100-SP0",
+        "python": "3.11.9"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-windows-latest-py3.12",
+      "artifact_id": 12103092929,
+      "digest": "sha256:e7417727a702a8b3158cde9eaeb52723bd6f9a6559dc8201dd0a5eefe25b3f67",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Windows",
+        "platform": "Windows-2025Server-10.0.26100-SP0",
+        "python": "3.12.10"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-windows-latest-py3.13",
+      "artifact_id": 12103815258,
+      "digest": "sha256:d40a6277fa96d4594760ee4ef494df0ca7e807638874eb79d9bafafd0b3950be",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Windows",
+        "platform": "Windows-2025Server-10.0.26100-SP0",
+        "python": "3.13.16"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-macos-latest-py3.11",
+      "artifact_id": 12102864845,
+      "digest": "sha256:60e6c295b4188853ffa7927747cdcd99736454666db113e84a42de71d49feac9",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Darwin",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.11.9"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-macos-latest-py3.12",
+      "artifact_id": 12103382678,
+      "digest": "sha256:7d1cc89bb34d7f751b36285cb882444a349329b9c23523457c58a5faadd2a49d",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Darwin",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "python": "3.12.10"
+      }
+    },
+    {
+      "name": "lw-release-39038979988-1-macos-latest-py3.13",
+      "artifact_id": 12102474692,
+      "digest": "sha256:46d572a1546c02db34bc8ff60d87e81ef9003d246ff2a4a9862c954a8144a870",
+      "suite": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 154
+      },
+      "runtime": {
+        "system": "Darwin",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.16"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "name": "source",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "initial-status",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "transport-input",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "bootstrap-venv",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "uv-bootstrap",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "uv-version",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "lock-check",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "locked-sync",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "installed-identity",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "installed-cli",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "suite",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "local-producer",
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "name": "final-status",
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ],
+  "limitations": [
+    "GitHub-hosted producers plus one EC Windows verifier",
+    "artifact API does not directly expose job ID or attempt",
+    "no ledger execution authenticity or PyPI publication claim"
+  ],
+  "note": "Selected values copied from the saved pool receipt. No local byte comparison or hash recomputation; this summary is not an independent witness."
+}

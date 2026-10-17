@@ -6,7 +6,9 @@ summaries — at a pinned git revision.** 標出 agent 工作帳本裡被弱化�
 checkwash guards the diff; ledgerwash guards the ledger. Local-first. Deterministic. No LLM.
 No network. Read-only: does not execute the subject, does not enforce anything.
 
-This repository has a local **v0.5 engine**. There is no Release, no PyPI package, and no
+Engine **0.5.0**, contract **spec 5**. The [GitHub v0.5.0 source release](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0)
+records the published SHA and final CI; the [verification report](docs/releases/v0.5.0-VALIDATION.md)
+records the hosted nine-cell comparison and EC locked-install evidence. No PyPI package or
 1.0 claim. Read [SPEC.md](SPEC.md) (contract) and [ARCHITECTURE.md](ARCHITECTURE.md)
 (layers; SPEC wins on conflict). Frozen acceptance is `tests/test_gates.py` (A1–A9).
 
@@ -15,7 +17,7 @@ This repository has a local **v0.5 engine**. There is no Release, no PyPI packag
 Python 3.11+, git, [uv](https://docs.astral.sh/uv/). From this checkout:
 
 ```powershell
-uv sync --extra dev
+uv sync --locked --extra dev
 uv run ledgerwash --version
 uv run ledgerwash qualify
 uv run python -m pytest
@@ -67,7 +69,7 @@ PREREG Amendment 2 records this default-mode escape; `--require-complete` still
 blocks its missing operation history. A narrow migration-continuity check also
 prevents treating a newly introduced JSON representation as a newly created
 task: the unchanged task, archive bytes and exact source row must bind to the
-birth commit's actual parent ledger. A migration label alone is insufficient.
+birth commit's actual first-parent ledger. A migration label alone is insufficient.
 That parent ledger can still be fabricated; this is continuity, not historical
 truth or complete migration verification. Strict migration coverage stays
 incomplete, and unusable closure times retain DONE_TIME_UNESTABLISHED.
@@ -89,7 +91,7 @@ does not establish that findings identify fabricated completion.
 The S4 sample also demonstrates that a completely fabricated artifact can pass
 when its receipts, hashes and timestamps agree internally. Record independent
 execution evidence (for example, the CI run and exact source SHA) alongside a
-ledgerwash verdict when claiming that verification actually happened. A spec 4
+ledgerwash verdict when claiming that verification actually happened. A LedgerWash
 pass alone does not establish artifact authenticity; see [S4 report](docs/s4/REPORT-2.md).
 
 ## Writing receipts that verify

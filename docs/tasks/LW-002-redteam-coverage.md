@@ -7,6 +7,14 @@
 - Product parent: PR #2 at dc133028fb7405ed61c315ea3efbee26f134d015. This task
   preserves its exact source as a hashed Git archive; PR #2 remains unchanged.
 
+## Closeout reconciliation — 2026-10-22
+
+[PR #3](https://github.com/taipei49314/ledgerwash/pull/3) merged at
+2026-10-17T06:14:25Z, after PR #2. Historical references below to a retained
+stack or pending merge describe their original observation time. The merge
+disposition is complete; this task was already DONE. Evidence limits and
+unimplemented design work retain their original scope.
+
 ## Bounded scope and order
 
 1. Replay all 21 original cases on the fixed PR2 judge on EC pool, preserving

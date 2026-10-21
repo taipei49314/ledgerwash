@@ -1,5 +1,8 @@
 # LW-005 — v0.5.0 archives and PyPI distribution
 
+- Status: **DONE** — accepted archives/distributions published and public file
+  hashes read back; reconciled on 2026-10-22. EC T-554 is already DONE.
+
 Nelson authorized the bounded EC source archive verification and, conditional
 on all checks succeeding, PyPI publication (2026-10-18 Asia/Taipei). EC T-554
 owns workload admission and execution; T-553 remains completed.
@@ -41,8 +44,8 @@ harness `f7a87b1d96dbf262f6007a0af809a5674546c6bf` and EC
 `3744a5a385c1559a13df92408511ebf10be9996b`; the archived source is unchanged.
 The [distribution acceptance report](../releases/v0.5.0-DISTRIBUTION.md) records
 the 89 matching source files, installed 154-test suite and accepted file hashes.
-PyPI pending publisher and main-only GitHub environment setup are confirmed.
-Publication awaits final workflow-source CI and the accepted-manifest dispatch.
+The then-pending publisher setup, final workflow-source CI and accepted-manifest
+dispatch were subsequently completed, as recorded below.
 
 PR CI 39050726468 exposed Windows ZipInfo backslash normalization in both the
 adversarial fixture writer and parser. The fixture now preserves raw member
@@ -53,3 +56,35 @@ required before dispatch; no failure is relabeled as a pass.
 Local validation: NOT_RUN：工作機規則（POLICY work-machine-local），product
 tests, archive comparison, builds and installation must execute through admitted
 EC pool or the authorized hosted CI workflow.
+
+## Completed publication — 2026-10-22 reconciliation
+
+This closes the remaining publication gate under Nelson's 2026-10-21T16:18:07Z
+instruction quoted in [LW-004](LW-004-v050-source-release.md).
+
+- [PR #6](https://github.com/taipei49314/ledgerwash/pull/6) merged at
+  2026-10-17T17:32:13Z as `98ad19e665444185ae53ee62d29f4d0e3e0a63aa`.
+  [Candidate CI 39053515857](https://github.com/taipei49314/ledgerwash/actions/runs/39053515857)
+  and [main CI 39054192539](https://github.com/taipei49314/ledgerwash/actions/runs/39054192539)
+  each passed nine cells with 176 tests, qualify and clean source.
+- [Publish 39054732402/1](https://github.com/taipei49314/ledgerwash/actions/runs/39054732402)
+  succeeded using the accepted manifest and main-only Trusted Publishing
+  environment. It uploaded the accepted bytes without rebuilding.
+- [PyPI 0.5.0 metadata](https://pypi.org/pypi/ledgerwash/0.5.0/json) was read
+  back on 2026-10-22: wheel 44,492 bytes, SHA256
+  `5a38efe79c38f8d4e2ea25dae231d174e597ffbc5ee2e3df4d312fdb7bc128e9`;
+  sdist 243,541 bytes, SHA256
+  `c555f688b229dc52fa5c4940d35442afd5f0f5696709ee6d1f8faf872e10ca83`.
+  Upload times are 2026-10-17T17:40:24.274972Z and
+  2026-10-17T17:40:25.463511Z respectively. These match the accepted assets
+  recorded on the [Release](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0).
+
+Package/tag source remains `85cf8e6f99fcc576240cb6783b65b98a3341dfb1`;
+publisher source is `98ad19e665444185ae53ee62d29f4d0e3e0a63aa`. The tag and
+published bytes are unchanged. Installed-wheel acceptance still covers one EC
+Windows runtime, not cross-platform wheel installation or reproducible builds.
+The frozen package description's old "No PyPI package" sentence is historical;
+the actual version/files and completed publication supersede it.
+
+The earlier failed CI remains failed. This closure authorizes no upload,
+rebuild, rerun, private SPEC6 continuation or new product acceptance.

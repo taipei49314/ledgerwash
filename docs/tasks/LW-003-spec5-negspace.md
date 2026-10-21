@@ -4,13 +4,22 @@
 - Status: DONE for the authorized implementation and remote validation delivery
   (2026-10-17). Migration-continuity controls and exact pool predictions passed.
   Earlier validation and failed predictions remain preserved; human product
-  acceptance and PR merge/release remain separate.
+  acceptance remains separate; the later merge/release disposition is recorded below.
 - Human instruction (2026-10-16, Asia/Taipei): 「開始實驗 直接朝你規劃 你執行
   遇到重大決策問我」, following the status review that surfaced PR #2/#3 and
   the pending red-team dispositions.
 - Product parent: PR #3 head `14bed98aff9bfbe58d9f44b3c867f7e96b88ae59`
   (spec 4, v0.4.0). This work stacks on that branch and does not modify the
   preserved 21-case suite, the frozen PR2 baseline, PR #2 or PR #3.
+
+## Closeout reconciliation — 2026-10-22
+
+[PR #4](https://github.com/taipei49314/ledgerwash/pull/4) merged at
+2026-10-17T06:21:34Z. The subsequent source release is recorded by
+[LW-004](LW-004-v050-source-release.md), and distribution publication by
+[LW-005](LW-005-postrelease-pypi.md). Those later deliveries resolve the old
+pending merge/release summary without broadening LW-003's accepted scope or
+rewriting its retained failed predictions and residuals.
 
 ## Bounded scope
 

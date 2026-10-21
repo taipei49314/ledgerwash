@@ -1,10 +1,17 @@
 # LW-001 — v0.3 stabilization and EC pool acceptance
 
 - Owner: `LAPTOP-16NUA5I8`
-- Status: DONE — implementation and acceptance delivered in PR #2; merge pending review.
+- Status: DONE — implementation and acceptance delivered; PR #2 merged on 2026-10-17. See the dated reconciliation below.
 - Human instruction (2026-10-01, Asia/Taipei): 「先讀EC怎麼記帳 工作流 然後接手legerwash」; clarification: 「在github」; chosen scope: 「先穩定 v0.3：修缺口並補 pool 驗收」.
 - Product baseline: `230b804245c535a719404a62855523e81d144ea4` (spec 3, v0.3.0).
 - EC rules reviewed at `293924e1b299aa908958612855ea785c04344e15`: CURRENT, POLICY, PLAN, governance README and mechanical workflows. `ec_status status` passed source consistency (481 rows, 20 policies); its expired GitHub snapshot is not a live observation.
+
+## Closeout reconciliation — 2026-10-22
+
+[PR #2](https://github.com/taipei49314/ledgerwash/pull/2) merged at
+2026-10-17T06:11:24Z. The old pending-review disposition is resolved; the
+original task's DONE state and exact-source acceptance boundaries are unchanged.
+This is a documentation reconciliation, not new product execution.
 
 ## Handover checks
 

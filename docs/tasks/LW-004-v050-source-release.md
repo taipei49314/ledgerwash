@@ -1,14 +1,35 @@
 # LW-004 — v0.5.0 source release preparation
 
 - Owner: `LAPTOP-01AGNPJU`.
-- Status at documentation closeout: implementation and P1–P5 verification
-  complete; final candidate CI and publication are the remaining gates.
+- Status: **DONE** — source release published; final candidate/main CI and
+  publication gates completed. Reconciled on 2026-10-22 from primary records.
   The [v0.5.0 Release](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0)
   is the publication record and binds the final SHA/CI. Earlier blockers and
   failures below remain preserved.
 - Starting main: `e2cec7fac5d1e11fd2b948c16fb5f64e656282c7`.
 - Human instruction in Codex session `01a14509-7e7a-7501-84b0-858cc8fd298c`:
   「好，照你建議做，先修鎖檔、走 EC pool 補跨平台驗證，再補齊發版文件；確認最後候選 SHA 與 CI 都通過後，發 GitHub v0.5.0 原始碼版，PyPI 先不做。遇到新的阻擋再停下來告訴我。」
+
+## Completed publication — 2026-10-22 reconciliation
+
+Nelson authorized this record cleanup at 2026-10-21T16:18:07Z:
+「好，照建議收尾：LW-004、LW-005 補紀錄後結案，其他已完成的更新摘要、清掉過時待辦，尚未驗收或失敗的先保留，CheckWash 不動。」
+
+- [PR #5](https://github.com/taipei49314/ledgerwash/pull/5) merged at
+  2026-10-17T15:55:36Z as `85cf8e6f99fcc576240cb6783b65b98a3341dfb1`.
+- [Final candidate CI 39045076548/1](https://github.com/taipei49314/ledgerwash/actions/runs/39045076548)
+  at `b1deec0f1721dfc2be61244266ce07ae82708f28` and
+  [merged-main CI 39047181031/1](https://github.com/taipei49314/ledgerwash/actions/runs/39047181031)
+  at `85cf8e6f` both passed all nine cells, each with 154 tests and qualify.
+  The candidate and merge trees are identical, as recorded in the Release.
+- [GitHub v0.5.0](https://github.com/taipei49314/ledgerwash/releases/tag/v0.5.0)
+  was published at 2026-10-17T16:16:16Z and fixes the release source and retained
+  EC P1–P5 evidence. EC T-553 was already completed; it is not reopened.
+
+The original source-release scope is complete. PyPI and distribution work was
+separately authorized under LW-005. Earlier blockers below are historical and
+remain preserved; this reconciliation reruns nothing and changes no tag,
+artifact, acceptance verdict or private SPEC6 status.
 
 ## Authorized scope and order
 
